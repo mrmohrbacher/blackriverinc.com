@@ -123,7 +123,6 @@ blackriverinc.filters = {
             }
         }
 
-
         $('#skill-op').click(selectSkills);
 
         $('.filter:not(.ghost)').draggable({
