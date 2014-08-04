@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema elementFormDefault="qualified"
+                  xmlns:mstns="http://tempuri.org/XMLSchema.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:biblio="http://www.blackriverinc.com/Bibliography.xsd"
+                  xmlns="http://www.blackriverinc.com/Bibliography.xsd"
+                  targetNamespace="http://www.blackriverinc.com/Bibliography.xsd">
+  <xs:group xmlns="biblio" name="BiblioEntryGroup">
+    <xs:all>
+      <xs:element name="title" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="author" nillable="true" />
+      <xs:element name="publisher" maxOccurs="1" />
+      <xs:element name="publicationDate" maxOccurs="1" />
+      <xs:element name="edition" maxOccurs="1" />
+      <xs:element name="subject" />
+      <xs:element name="summary" maxOccurs="1" />
+    </xs:all>
+  </xs:group>
+
+  <xs:complexType name="BiblioEntryType" xmlns="biblio">
+    <xs:group ref="biblio:BiblioEntryGroup" />
+  </xs:complexType>
+  
+  <!--    -->
+  <xs:element name="bibliography" xmlns="biblio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="biblio_entry" type="biblio:BiblioEntryType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
