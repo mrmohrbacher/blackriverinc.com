@@ -20,19 +20,11 @@ h3 {
     font-size: 12pt;
     font-family: "Times New Roman";
     font-weight: bold;
-    mso-margin-top-alt: auto;
-    mso-pagination: widow-orphan;
-    mso-margin-bottom-alt: auto;
-    mso-outline-level: 3;
 }
 
 h4 {
     margin-right: 0in;
     margin-left: 16.0pt;
-    mso-margin-top-alt: auto;
-    mso-margin-bottom-alt: auto;
-    mso-pagination: widow-orphan;
-    mso-outline-level: 4;
     font-size: 11.0pt;
     font-family: "Times New Roman";
     font-weight: bold;
@@ -42,12 +34,9 @@ p {
     margin-right: 0in;
     margin-bottom: 0;
     margin-left: 0in;
-    margin-top =6.0pt;
-    font-size: 11.0pt;
+    margin-top: 6.0pt;
+    font-size: 14px;
     font-family: "Times New Roman", serif;
-    mso-margin-top-alt: auto;
-    mso-margin-bottom-alt: 0;
-    mso-pagination: widow-orphan;
 }
 
 a {
