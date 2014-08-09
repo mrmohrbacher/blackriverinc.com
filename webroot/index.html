@@ -9,6 +9,7 @@
 
     <script type="text/javascript" src="scripts/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="scripts/jquery.ui.touch-punch.min.js"> </script>
     <script type="text/javascript" src="scripts/filters.js"></script>
     <link type="text/css" src="styles/reset.css" rel="stylesheet" />
     <link href="styles/standard.css" type="text/css" rel="stylesheet" />
@@ -94,8 +95,8 @@
             padding-left: 4px;
             padding-right: 4px;
             margin: 4px 0px 4px 0px;
-            height: 30px;
             font-size: 1.25em;
+            line-height: 1.25em;
         }
 
             h1.current {
@@ -313,7 +314,7 @@
 
         .selected-skills {
             position: relative;
-            border: 2px inset ButtonText;
+            border: 1px inset ButtonText;
             border-radius: 4px;
             padding: 0 4px;
             color: transparent;
@@ -331,7 +332,7 @@
         .prompt {
             position: absolute;
             left: 0;
-            top: 3px;
+            top: 4px;
             padding-left: 4px;
             background-color: white;
             color: darkgrey;
@@ -432,10 +433,22 @@
             h1 {
                 font-size: 1.0em;
                 height: initial;
+                width: 100%;
             }
 
             #address-header img {
                 display: none;
+            }
+            .prompt {
+                top: 2px;
+            }
+
+            .selected-skills {
+                display: none;
+            }
+
+            h2 {
+                font-size: 1em;
             }
         }
         -->
@@ -774,7 +787,7 @@
                     </p>
                 </div>
                 <div xskills=".NET C# MVC ASP.NET LINQ SAS WCF SQL&nbsp;Server SQL HTML">
-                    <h3>November 2012 - Januart 2013 : <a href="http://us.astellas.com/about/profile/index.aspx">Astellas Pharma US, Inc</a></h3>
+                    <h3>November 2012 - January 2013 : <a href="http://us.astellas.com/about/profile/index.aspx">Astellas Pharma US, Inc</a></h3>
                     <p>
                         Maintenance developer for internal web-portal to accept, manage, and track personnel change notifications.(C#, MVC, ASP.NET, SQL&nbsp;Server, ADO.NET, Linq, WCF, SAP)
                     </p>

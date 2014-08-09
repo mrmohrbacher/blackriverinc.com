@@ -1,7 +1,7 @@
 ﻿var blackriverinc = blackriverinc || {}
 blackriverinc.filters = {
 
-    debug: false,
+    debug: true,
 
     glowOn : function($target) {
         $target.not('.ghost').addClass('glow');
@@ -130,17 +130,49 @@ blackriverinc.filters = {
             helper: 'clone'
         });
 
-        var mouseState = null;
-        $('#skills .filter').mousedown(function () {
-            mouseState = setTimeout(function () {
-                console.log('Timeout');
-            }, 3000);
+        function clearSelectTimer(skill) {
+            if (selectTimer != null) {
+                blackriverinc.filters.debug && console.log('mouseup : ' + skill);
+                clearTimeout(selectTimer);
+            };
+        }
+
+        function setClearFilterEvent(target, eventName) {
+            $(target).on(eventName, function (src) {
+                var skillKey = target.text().trim();
+                if (blackriverinc.filters.debug) { console.log('Removed : ' + skillKey); }
+                $(src.target).remove();
+                var $ghost = $('.filter.ghost:contains(' + skillKey + ')');
+                $ghost.draggable({ disabled: false });
+                $ghost.removeClass('ghost');
+                if ($('.selected-skills .filter').length == 0) {
+                    $('.selected-skills .prompt').show();
+                }
+                setTimeout(selectSkills, 0);
+            });
+        }
+
+        var selectTimer = null;
+        $('#skills .filter').mousedown(function (evt) {
+            blackriverinc.filters.debug && console.log('mousedown : ' + evt.target.textContent.trim());
+            selectTimer = setTimeout(function () {
+
+                blackriverinc.filters.debug && console.log('timeout : ' + evt.target.textContent.trim());
+                $('.selected-skills .prompt').hide();
+
+                var clonedTarget = $(evt.target).clone();
+                clonedTarget.removeClass('glow');
+                setClearFilterEvent(clonedTarget, 'dblclick');
+                $('.selected-skills').append(clonedTarget);
+
+               // droppable.draggable.draggable({ disabled: true });
+                $(evt.target).addClass('ghost');
+
+            }, 2500);
         });
 
-        $('#skills .filter').mouseup(function () {
-            if (mouseState != null) {
-                clearTimeout(mouseState);
-            };
+        $('#skills .filter').mouseup(function (evt) {
+            clearSelectTimer(evt.target.textContent.trim());
         });
 
         $('#skills .filter').mouseover(function (evt) {
@@ -166,8 +198,13 @@ blackriverinc.filters = {
         $('.selected-skills').droppable({
             tolerence: "touch",
             drop: function (evt, droppable) {
+                blackriverinc.filters.debug && console.log('drop : ' + evt.target.textContent.trim());
 
                 var skillKey = droppable.draggable[0].textContent.trim();
+
+                // Disable 'mousedown' timer
+                setTimeout(clearSelectTimer(skillKey), 0);
+
                 // Accept a Skill if it is not already attached to the 
                 // drop-site.
                 if ($(':contains(' + skillKey + ')', evt.target).length == 0) {
@@ -176,24 +213,12 @@ blackriverinc.filters = {
                     $('.selected-skills .prompt').hide();
 
                     var clonedTarget = $(droppable.draggable).clone();
-                    clonedTarget.html(clonedTarget.text() + ' x');
                     $(evt.target).append(clonedTarget);
                 
                     droppable.draggable.draggable({ disabled: true });
                     $(droppable.draggable).addClass('ghost');
 
-                    $(clonedTarget).dblclick(function (src) {
-                        if (blackriverinc.filters.debug) { console.log('Removed : ' + skillKey); }
-                        $(src.target).remove();
-                        var $ghost = $('.filter.ghost:contains(' + skillKey + ')');
-                        $ghost.draggable({ disabled: false });
-                        $ghost.removeClass('ghost');
-                        if ($('.selected-skills .filter').length == 0) {
-                            $('.selected-skills .prompt').show();
-                        }
-
-                        setTimeout(selectSkills, 0);
-                    });
+                    setClearFilterEvent(clonedTarget, 'dblclick');
 
                     setTimeout(selectSkills, 0);
 
@@ -203,9 +228,10 @@ blackriverinc.filters = {
             accept: '.filter'
         });
 
-
         // Invoke skill filters when page loaded or reloaded.
         $('#skill-op').click();
+
+
     }
 }
 
