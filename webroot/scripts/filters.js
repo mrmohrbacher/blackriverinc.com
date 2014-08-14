@@ -141,7 +141,7 @@ blackriverinc.filters = {
             $(target).on(eventName, function (src) {
                 var skillKey = target.text().trim();
                 if (blackriverinc.filters.debug) { console.log('Removed : ' + skillKey); }
-                $(src.target).remove();
+                $(src.currentTarget).remove();
                 var $ghost = $('.filter.ghost:contains(' + skillKey + ')');
                 $ghost.draggable({ disabled: false });
                 $ghost.removeClass('ghost');
@@ -161,8 +161,9 @@ blackriverinc.filters = {
                 $('.selected-skills .prompt').hide();
 
                 var clonedTarget = $(evt.target).clone();
+                clonedTarget.append("<img src='chi.black.png' />");
                 clonedTarget.removeClass('glow');
-                setClearFilterEvent(clonedTarget, 'dblclick');
+                setClearFilterEvent(clonedTarget, 'click');
                 $('.selected-skills').append(clonedTarget);
 
                // droppable.draggable.draggable({ disabled: true });
@@ -213,12 +214,13 @@ blackriverinc.filters = {
                     $('.selected-skills .prompt').hide();
 
                     var clonedTarget = $(droppable.draggable).clone();
+                    clonedTarget.append("<img src='chi.black.png' />");
                     $(evt.target).append(clonedTarget);
                 
                     droppable.draggable.draggable({ disabled: true });
                     $(droppable.draggable).addClass('ghost');
 
-                    setClearFilterEvent(clonedTarget, 'dblclick');
+                    setClearFilterEvent(clonedTarget, 'click');
 
                     setTimeout(selectSkills, 0);
 

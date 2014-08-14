@@ -259,6 +259,22 @@
             -webkit-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
         }
 
+        .filter.ghost {
+            background-color: whitesmoke;
+            background-image: none;
+            color: darkgray;
+            cursor: default;
+        }
+
+            .filter > img {
+                display: inline-block;
+                height: 10px;
+                padding-left: 2px;
+                vertical-align: -1px;
+                border-left: solid 1px black;
+                cursor: pointer;
+            }
+
         .glow {
             animation: pulse-glow 2.5s ease-in-out 4;
             -o-animation: pulse-glow 2.5s ease-in-out 4;
@@ -266,13 +282,6 @@
             background-color: whitesmoke;
             background-image: none;
             cursor: move;
-        }
-
-        .filter.ghost {
-            background-color: whitesmoke;
-            background-image: none;
-            color: darkgray;
-            cursor: default;
         }
 
         .button {
@@ -326,6 +335,8 @@
                 position: relative;
                 margin: 2px 0;
                 vertical-align: 3px;
+                padding-right: 2px;
+                cursor:pointer;
             }
 
 
@@ -445,6 +456,10 @@
 
             h2 {
                 font-size: 1em;
+            }
+
+            h3 {
+                font-size: .8em;
             }
         }
         -->
