@@ -13,6 +13,7 @@
     <script type="text/javascript" src="scripts/filters.js"></script>
     <link type="text/css" src="styles/reset.css" rel="stylesheet" />
     <link href="styles/standard.css" type="text/css" rel="stylesheet" />
+    <link href="styles/tooltip.css" type="text/css" rel="stylesheet" />
     <link href="scripts/jquery-ui.css" type="text/css" rel="stylesheet" />
     <style type="text/css">
         <!--
@@ -259,12 +260,21 @@
             -webkit-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
         }
 
+            .filter.tooltip:after {
+                content: 'Drag to Experience bar to add to filters.';
+            }
+
         .filter.ghost {
             background-color: whitesmoke;
             background-image: none;
             color: darkgray;
             cursor: default;
         }
+
+            .filter.ghost.tooltip:after,
+            .filter.ghost.tooltip:before {
+                display:none;
+            }
 
             .filter > img {
                 display: inline-block;
@@ -337,6 +347,10 @@
                 vertical-align: 3px;
                 padding-right: 2px;
                 cursor:pointer;
+            }
+
+            .selected-skills .filter.tooltip:after {
+                content: 'Click to remove from filters.';
             }
 
 
@@ -450,8 +464,9 @@
             #address-header img {
                 display: none;
             }
+
             .prompt {
-                top: 2px;
+                visibility:hidden;
             }
 
             h2 {
@@ -677,18 +692,18 @@
                     </tr>
                     <tr class="row-filters">
                         <td>
-                            <div class="filter button">.NET</div>
-                            <div class="filter button">C#</div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">.NET</div>
+                            <div class="filter button tooltip">C#</div>
+                            <div class="filter button tooltip">
                                 ADO.NET
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 LINQ
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 SQL&nbsp;Server
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 Entity&nbsp;Framework
                             </div>
                         </td>
@@ -698,11 +713,11 @@
                     </tr>
                     <tr class="row-filters">
                         <td>
-                            <div class="filter button">MVC</div>
-                            <div class="filter button">HTML</div>
-                            <div class="filter button">C++</div>
-                            <div class="filter button">C</div>
-                            <div class="filter button">COM</div>
+                            <div class="filter button tooltip">MVC</div>
+                            <div class="filter button tooltip">HTML</div>
+                            <div class="filter button tooltip">C++</div>
+                            <div class="filter button tooltip">C</div>
+                            <div class="filter button tooltip">COM</div>
                         </td>
                     </tr>
                     <tr class="row-subset">
@@ -711,46 +726,46 @@
                     <tr class="row-filters">
                         <td>
 
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 Javascript
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 JQuery
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 IIS
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 ASP.NET
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 Razor
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 CSS
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 DCOM
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 Sockets
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 .NET&nbsp;Remoting
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 WebServices
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 WCF
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 Azure
                             </div>                           
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 SGML
                             </div>
-                            <div class="filter button">
+                            <div class="filter button tooltip">
                                 XML
                             </div>
                         </td>

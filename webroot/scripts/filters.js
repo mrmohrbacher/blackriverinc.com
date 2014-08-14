@@ -130,14 +130,7 @@ blackriverinc.filters = {
             helper: 'clone'
         });
 
-        function clearSelectTimer(skill) {
-            if (selectTimer != null) {
-                blackriverinc.filters.debug && console.log('mouseup : ' + skill);
-                clearTimeout(selectTimer);
-            };
-        }
-
-        function setClearFilterEvent(target, eventName) {
+          function setClearFilterEvent(target, eventName) {
             $(target).on(eventName, function (src) {
                 var skillKey = target.text().trim();
                 if (blackriverinc.filters.debug) { console.log('Removed : ' + skillKey); }
@@ -152,31 +145,7 @@ blackriverinc.filters = {
             });
         }
 
-        var selectTimer = null;
-        $('#skills .filter').mousedown(function (evt) {
-            blackriverinc.filters.debug && console.log('mousedown : ' + evt.target.textContent.trim());
-            selectTimer = setTimeout(function () {
-
-                blackriverinc.filters.debug && console.log('timeout : ' + evt.target.textContent.trim());
-                $('.selected-skills .prompt').hide();
-
-                var clonedTarget = $(evt.target).clone();
-                clonedTarget.append("<img src='chi.black.png' />");
-                clonedTarget.removeClass('glow');
-                setClearFilterEvent(clonedTarget, 'click');
-                $('.selected-skills').append(clonedTarget);
-
-               // droppable.draggable.draggable({ disabled: true });
-                $(evt.target).addClass('ghost');
-
-            }, 2500);
-        });
-
-        $('#skills .filter').mouseup(function (evt) {
-            clearSelectTimer(evt.target.textContent.trim());
-        });
-
-        $('#skills .filter').mouseover(function (evt) {
+         $('#skills .filter').mouseover(function (evt) {
             blackriverinc.filters.glowOn($(evt.target));
         });
 
@@ -203,9 +172,6 @@ blackriverinc.filters = {
 
                 var skillKey = droppable.draggable[0].textContent.trim();
 
-                // Disable 'mousedown' timer
-                setTimeout(clearSelectTimer(skillKey), 0);
-
                 // Accept a Skill if it is not already attached to the 
                 // drop-site.
                 if ($(':contains(' + skillKey + ')', evt.target).length == 0) {
@@ -221,6 +187,7 @@ blackriverinc.filters = {
                     $(droppable.draggable).addClass('ghost');
 
                     setClearFilterEvent(clonedTarget, 'click');
+                    setClearFilterEvent(clonedTarget, 'touchend');
 
                     setTimeout(selectSkills, 0);
 
