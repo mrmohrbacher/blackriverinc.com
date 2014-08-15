@@ -3,12 +3,12 @@ blackriverinc.filters = {
 
     debug: true,
 
-    glowOn : function($target) {
+    glowOn: function ($target) {
         $target.not('.ghost').addClass('glow');
         $('.selected-skills .prompt').addClass('highlight');
     },
 
-    glowOff : function($target) {
+    glowOff: function ($target) {
         $target.removeClass('glow');
         $('.selected-skills .prompt').removeClass('highlight');
     },
@@ -130,7 +130,7 @@ blackriverinc.filters = {
             helper: 'clone'
         });
 
-          function setClearFilterEvent(target, eventName) {
+        function setClearFilterEvent(target, eventName) {
             $(target).on(eventName, function (src) {
                 var skillKey = target.text().trim();
                 if (blackriverinc.filters.debug) { console.log('Removed : ' + skillKey); }
@@ -145,15 +145,24 @@ blackriverinc.filters = {
             });
         }
 
-         $('#skills .filter').mouseover(function (evt) {
+        var mouseTimer = null;
+
+        $('#skills .filter').mouseover(function (evt) {
             blackriverinc.filters.glowOn($(evt.target));
+            mouseTimer = setTimeout(function () {
+                $(evt.target).addClass('tooltip');
+            }, 2000);
         });
 
         $('#skills .filter').mouseout(function (evt) {
             blackriverinc.filters.glowOff($(evt.target));
+            if (mouseTimer != null) {
+                $(evt.target).removeClass('tooltip');
+                clearTimeout(mouseTimer);
+            }
         });
 
-        $('.selected-skills').mouseover(function () {
+        $('.selected-skills').mouseover(function (evt) {
             // Don't bother with prompt'n'glow if they already figured it out.
             if ($('.selected-skills .filter').length > 0) {
                 return true;
@@ -162,7 +171,7 @@ blackriverinc.filters = {
         });
 
         $('.selected-skills').mouseout(function () {
-            blackriverinc.filters.glowOff($('#skills .filter'));
+            blackriverinc.filters.glowOff($('#skills .filter'));          
         });
 
         $('.selected-skills').droppable({
@@ -179,15 +188,31 @@ blackriverinc.filters = {
 
                     $('.selected-skills .prompt').hide();
 
-                    var clonedTarget = $(droppable.draggable).clone();
-                    clonedTarget.append("<img src='chi.black.png' />");
-                    $(evt.target).append(clonedTarget);
-                
+                    var $clonedTarget = $(droppable.draggable).clone();
+                    $clonedTarget.removeClass('tooltip');
+                    $clonedTarget.append("<img src='chi.black.png' />");
+                    $(evt.target).append($clonedTarget);
+
                     droppable.draggable.draggable({ disabled: true });
                     $(droppable.draggable).addClass('ghost');
 
-                    setClearFilterEvent(clonedTarget, 'click');
-                    setClearFilterEvent(clonedTarget, 'touchend');
+                    setClearFilterEvent($clonedTarget, 'click');
+                    setClearFilterEvent($clonedTarget, 'touchend');
+
+                    $clonedTarget.mouseover(function (evt) {
+                        mouseTimer = setTimeout(function () {
+                            $(evt.target).addClass('tooltip');
+                        }, 2000);
+                        evt.stopPropagation();
+
+                    });
+
+                    $clonedTarget.mouseout(function (evt) {
+                        if (mouseTimer != null) {
+                            $(evt.target).removeClass('tooltip');
+                            clearTimeout(mouseTimer);
+                        }
+                    });
 
                     setTimeout(selectSkills, 0);
 

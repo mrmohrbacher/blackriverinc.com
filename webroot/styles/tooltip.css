@@ -1,0 +1,102 @@
+﻿/*
+     Do not remove this comment if you steal this code.
+
+     NOTE: Originally completely lifted from http://cbracco.me/a-simple-css-tooltip/
+*/
+/* Base styles for the element that has a tooltip */
+[x-tooltip],
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Base styles for the entire tooltip */
+[x-tooltip]:before,
+[x-tooltip]:after,
+.tooltip:before,
+.tooltip:after {
+  position: absolute;
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: 
+	  opacity 0.4s ease-in-out,
+		visibility 0.4s ease-in-out,
+		-webkit-transform 0.4s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+	-moz-transition:    
+		opacity 0.4s ease-in-out,
+		visibility 0.4s ease-in-out,
+		-moz-transform 0.4s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+	transition:         
+		opacity 0.4s ease-in-out,
+		visibility 0.4s ease-in-out,
+		transform 0.4s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform:    translate3d(0, 0, 0);
+  transform:         translate3d(0, 0, 0);
+  pointer-events: none;
+}
+
+/* Show the entire tooltip on hover and focus */
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* Base styles for the tooltip's directional arrow */
+.tooltip:before {
+  z-index: 1001;
+  border: 6px solid transparent;
+  background: transparent;
+  content: "";
+}
+
+/* Base styles for the tooltip's content area */
+.tooltip:after {
+  z-index: 1000;
+  padding: 4px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(x-tooltip);
+  font-size: .8em;
+  line-height: 1.0;
+  font-family: sans-serif;
+  border-radius: 2px;
+  width: 16em;
+  text-align:center;
+}
+
+.tooltip:before,
+.tooltip:after {
+  bottom: 100%;
+  left: 50%;
+}
+
+.tooltip:before {
+  margin-left: -6px;
+  margin-bottom: -12px;
+  border-top-color: #000;
+  border-top-color: hsla(0, 0%, 20%, 0.9);
+}
+
+/* Horizontally align top/bottom tooltips */
+.tooltip:after{
+  margin-left: -20px;
+}
+
+.tooltip:hover:before,
+.tooltip:hover:after,
+.tooltip:focus:before,
+.tooltip:focus:after {
+  -webkit-transform: translateY(-12px);
+  -moz-transform:    translateY(-12px);
+  transform:         translateY(-12px); 
+}
+
