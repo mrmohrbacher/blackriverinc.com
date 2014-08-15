@@ -202,6 +202,7 @@ blackriverinc.filters = {
                     $clonedTarget.mouseover(function (evt) {
                         mouseTimer = setTimeout(function () {
                             $(evt.target).addClass('tooltip');
+                            $(evt.target).addClass('tooltip-bottom');
                         }, 2000);
                         evt.stopPropagation();
 
@@ -210,6 +211,7 @@ blackriverinc.filters = {
                     $clonedTarget.mouseout(function (evt) {
                         if (mouseTimer != null) {
                             $(evt.target).removeClass('tooltip');
+                            $(evt.target).removeClass('tooltip-bottom');
                             clearTimeout(mouseTimer);
                         }
                     });
