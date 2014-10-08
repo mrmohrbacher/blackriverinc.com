@@ -232,6 +232,9 @@
 
         div.masked[xskills] *, div.masked[xskills] * {
             display: none;
+            -moz-transition: display 2s ease-out;
+            -o-transition: display 2s ease-out;
+            -webkit-transition: display 2s ease-out;
             transition: display 2s ease-out;
         }
 
@@ -244,21 +247,34 @@
             display: initial;
         }
 
-        @keyframes pulse-glow {
+        @-moz-keyframes pulse-glow {
             50% {
                 box-shadow: 0px 0px 18px black;
             }
         }
 
-        .filter {
-            border: 1px solid black;
-            font-size: 9pt;
-            font-weight: normal;
-            z-index: 25;
-            transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
-            -o-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
-            -webkit-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
-        }
+        @-webkit-keyframes pulse-glow {
+                    50% {
+                        box-shadow: 0px 0px 18px black;
+                    }
+                }
+
+        @keyframes pulse-glow {
+                    50% {
+                        box-shadow: 0px 0px 18px black;
+                    }
+                }
+
+    .filter {
+        border: 1px solid black;
+        font-size: 9pt;
+        font-weight: normal;
+        z-index: 25;
+        -moz-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+        -o-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+        -webkit-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+        transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+    }
 
             .filter.tooltip:after {
                 content: 'Drag to Experience bar to add to filters.';
@@ -286,9 +302,10 @@
             }
 
         .glow {
-            animation: pulse-glow 2.5s ease-in-out 4;
             -o-animation: pulse-glow 2.5s ease-in-out 4;
             -webkit-animation: pulse-glow 2.5s ease-in-out 4;
+            -moz-animation: pulse-glow 2.5s ease-in-out 4;
+            animation: pulse-glow 2.5s ease-in-out 4;
             background-color: whitesmoke;
             background-image: none;
             cursor: move;
@@ -657,8 +674,9 @@
             <h1 class="title">Story</h1>
             <h1 class="spacer hidden" ></h1>
             <p>
-                I am a systems architect and developer who has worked as a independent software
-               consultant since 1997. I bring with me extensive experience recommending
+               I am a systems architect and developer who has worked as a independent software
+               consultant since 1996 as <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River Systems, Inc.</a>
+               I bring with me extensive experience recommending
                and implementing technology that augments my clients' business practices. During
                my thirty-plus year technical career, I have held senior consulting roles in
                the financial, scientific, and insurance industries.
@@ -766,6 +784,9 @@
                                 SGML
                             </div>
                             <div class="filter button">
+                                VB.NET
+                            </div>
+                            <div class="filter button">
                                 XML
                             </div>
                         </td>
@@ -773,24 +794,13 @@
                 </tbody>
             </table>
 
-            <h2>July 1996 - Present <a href="http://www.blackriverinc.com/blackriverinc.html" target="_top">Black River
+            <h2>July 1996 - Present <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River
             Systems, Inc.</a> - Principal Consultant
             </h2>
             <p>Independent software consultant to businesses in the Chicago metropolitan area.</p>
             <div class="indent">
-                <div xskills=".NET MVC&nbsp;2.0 C# JQuery Javascript AJAX ASP.NET CSS HTML SQL&nbsp;Server XML">
-                    <h3>May 2014&nbsp; - July 2014 : <a href='http://ogilvy.com/' target="OGILVY">Ogilvy &amp; Mather Advertising</a></h3>
-                    <p>
-                        Developer for a major consumer product's web-site. (CSS, JQuery, Javascript,  C#, XML, ASP.NET, MVC 2.0, SQL Server)
-                    </p>
-                    <ul>
-                        <li>Front-end development of responsive web-pages.</li>
-                        <li>Server-side programming of web-page processing.</li>
-                        <li>Server-to-server interface to a third-party customer-service vendor.</li>
-                    </ul>
-                </div>
                 <div xskills=".NET MVC 4.0 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server 2012 SQL IIS 7 Entity&nbsp;Framework Generic">
-                    <h3>February 2013&nbsp; - April 2014 : <a href='http://www.shift365.com'>Shift - Communication Supply Chain Solutions</a></h3>
+                    <h3>February 2013&nbsp; - Present : <a href='http://www.shift365.com'>Shift - Communication Supply Chain Solutions</a></h3>
                     <p>
                         Architect and developer of a web portal for sale and distribution of marketing materials to Bridgestone / Firestone dealerships. 
             (MVC 4.0, C#, LINQ, JQuery, AJAX, Razor, SQL&nbsp;Server 2012, IIS 7)
@@ -806,11 +816,23 @@
                         <li>Web-site and database deployment.</li>
                     </ul>
                 </div>
-                <div xskills="Android iOS">
-                    <h3>November 2012 - Present : Breastfeeding Solutions</h3>
+                <div xskills="Android iOS JQuery Cordova CSS HTML Javascript">
+                    <h3>November 2012 - Present : Nancy Mohrbacher Solutions</h3>
                     <p>
-                        Technical project management for phone application: Breastfeeding Solutions. Available on iOS and Android platforms.
+                        Initially, I was the technical project management for Breastfeeding Solutions phone application (25,000+ downloads).
+                        Currently, I am redeveloping the application using Cordova and JQuery Mobile. Available on iOS and Android platforms.
                     </p>
+                </div>
+                <div xskills=".NET MVC&nbsp;2.0 C# JQuery Javascript AJAX ASP.NET CSS HTML SQL&nbsp;Server XML">
+                    <h3>May 2014&nbsp; - July 2014 : <a href='http://ogilvy.com/' target="OGILVY">Ogilvy &amp; Mather Advertising</a></h3>
+                    <p>
+                        Developer for a major consumer product's web-site. (CSS, JQuery, Javascript,  C#, XML, ASP.NET, MVC 2.0, SQL Server)
+                    </p>
+                    <ul>
+                        <li>Front-end development of responsive web-pages.</li>
+                        <li>Server-side programming of web-page processing.</li>
+                        <li>Server-to-server interface to a third-party customer-service vendor.</li>
+                    </ul>
                 </div>
                 <div xskills=".NET C# MVC ASP.NET LINQ SAS WCF SQL&nbsp;Server SQL HTML">
                     <h3>November 2012 - January 2013 : <a href="http://us.astellas.com/about/profile/index.aspx">Astellas Pharma US, Inc</a></h3>
@@ -965,7 +987,7 @@
                         Environment: .NET, SQL&nbsp;Server2K, WinForms, ReportingServices, VB.NET
                     </p>
                 </div>
-                <div xskills=".NET C# WinForms C++ Templates Sockets COM TCP/IP Generic .NET&nbsp;Remoting">
+                <div xskills=".NET C# WinForms C++ Templates XML Sockets COM TCP/IP Generic .NET&nbsp;Remoting">
                     <h3>December 2002 - November 2005 <a href="http://www.bio-imaging.com/">Bio-Imaging
                 Research</a>
                     </h3>
@@ -1017,7 +1039,7 @@
                     </p>
                     <ul>
                         <li>Framework design and application development of rule-based policy quote component.
-                    (.NET, MSMQ) </li>
+                    (VB.NET, .NET, MSMQ) </li>
                         <li>Process, class design and SQL&nbsp;Server stored procedures to bind quoted application
                     as XML datasets to policy database. (XML, SQL&nbsp;Server) </li>
                         <li>Schema-driven code generator to load insurance-quoting rule tables (C#, .NET Reflection).
@@ -1270,6 +1292,6 @@
             <hr class="section" />
         </div>
     </div>
-    <div class="footer text-center block"><span style="">&copy; Black River Systems, Inc of Illinois - Aug 15, 2014</span></div>
+    <div class="footer text-center block"><span style="">&copy; Black River Systems, Inc of Illinois - Sep 3, 2014</span></div>
 </body>
 </html>
