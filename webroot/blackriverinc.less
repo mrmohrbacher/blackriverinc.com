@@ -1,0 +1,495 @@
+﻿        .target-offset {
+            position: absolute;
+            width: 0;
+            height: 166px;
+            bottom: 100%;
+        }
+
+        .inline {
+            display: inline-block;
+        }
+
+        .top {
+            position: fixed;
+            top: 0px;
+        }
+
+        .block {
+            left: 200px;
+        }
+
+        .left {
+            float: left;
+        }
+
+
+        hr.section {
+            bottom: 0;
+            margin: 12px 4px 16px 4px;
+        }
+
+        .footer {
+            background-color: #F8F8E1;
+            position: fixed;
+            bottom: 0;
+            z-index: 30;
+            width: 100%;
+            font-size: 8pt;
+            padding: 2px;
+            display: inline-block;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-left: -100px;
+        }
+
+        .spacer {
+            width: 0;
+            height: 26px;
+            background-color: transparent;
+            background-image: none;
+            margin-top: 6px;
+            display: inline-block;
+            margin: 0;
+        }
+
+        div.section {
+            position: relative;
+        }
+
+        body {
+            background: #F8F8E1;
+            position: relative;
+            max-width: 60em;
+        }
+
+        a {
+            font-size: 1.0em;
+        }
+
+        h1 {
+            position: relative;
+            background: linear-gradient(silver, darkgray);
+            background-color: silver;
+            border: 1px outset;
+            padding-left: 4px;
+            padding-right: 4px;
+            margin: 4px 0px 4px 0px;
+            font-size: 1.25em;
+            line-height: 1.25em;
+        }
+
+            h1.current {
+                border: 1px inset;
+                position: fixed;
+                top: 162px;
+                margin-right: 8px;
+            }
+
+            h1.spacer {
+                border: 1px solid transparent;
+            }
+
+        h2, h3 {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        #nav {
+            background: #F8F8E1;
+            width: 200px;
+            left: 0;
+        }
+
+            #nav a {
+                border: solid 1px white;
+                display: block;
+                font-family: "Times New Roman", serif;
+                margin-top: .1em;
+                margin-bottom: .1em;
+                padding-top: .5em;
+                padding-bottom: .75em;
+                height: 1em;
+                width: 95%;
+                margin-left: 5px;
+                text-decoration: none;
+                text-indent: 1em;
+                font-size: 12pt;
+            }
+
+                #nav a:hover {
+                    background: #FFFFE1;
+                    border: solid 1px silver;
+                }
+
+        #content {
+            background: #F8F8E1;
+            max-width: 70em;
+            position: absolute;
+            top: 166px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        #header {
+            background: #F8F8E1;
+            width: 100%;
+            height: 166px;
+            z-index: 100;
+            padding-left: 8px;
+            padding-right: 4px;
+        }
+
+        #header h2 {
+            margin: 4px;
+        }
+
+        #address-header {
+            position: relative;
+        }
+        .show-outline #address-header {
+            outline: 1px solid red;
+        }
+
+        #address-header p {
+            position: relative;
+            margin-left: 4px;
+        }
+
+        #address-header address, #address-header img {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #address-header address {
+            position: relative;
+            
+        }
+
+        #address-header img {
+            border: 2px outset #888888;
+            padding: 0px;
+        }
+
+        address {
+            margin-left: 12px;
+            width: 200px;
+        }
+
+             address > p {
+                display: inline-block;
+                margin: 0 2px;
+            }
+            .show-outline address > p {
+                outline: 1px solid red;
+            }
+
+        .show-outline address {
+            outline: 1px solid red;
+        }
+        #skill-op {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            font-size: 10pt;
+            color: black;
+            position: relative;
+            top: 4px;
+            display:none;
+        }
+
+        #content th {
+            border-bottom-style: solid;
+            border-bottom-color: black;
+            border-bottom-width: 1px;
+            text-align: left;
+        }
+
+        #content h2 + table {
+            width: 85%;
+        }
+
+        div.masked[xskills] *, div.masked[xskills] * {
+            display: none;
+            -moz-transition: display 2s ease-out;
+            -o-transition: display 2s ease-out;
+            -webkit-transition: display 2s ease-out;
+            transition: display 2s ease-out;
+        }
+
+        div.masked[xskills] > h2,
+        div.masked[xskills] > h3,
+        div.masked[xskills] > h2 > a,
+        div.masked[xskills] > h3 > a {
+            font-weight: 300;
+            color: darkgray;
+            display: initial;
+        }
+
+        @-moz-keyframes pulse-glow {
+            50% {
+                box-shadow: 0px 0px 18px black;
+            }
+        }
+
+        @-webkit-keyframes pulse-glow {
+                    50% {
+                        box-shadow: 0px 0px 18px black;
+                    }
+                }
+
+        @keyframes pulse-glow {
+                    50% {
+                        box-shadow: 0px 0px 18px black;
+                    }
+                }
+
+    .filter {
+        border: 1px solid black;
+        font-size: 9pt;
+        font-weight: normal;
+        z-index: 25;
+        -moz-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+        -o-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+        -webkit-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+        transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+    }
+
+            .filter.tooltip:after {
+                content: 'Drag to Experience bar to add to filters.';
+            }
+
+        .filter.ghost {
+            background-color: whitesmoke;
+            background-image: none;
+            color: darkgray;
+            cursor: default;
+        }
+
+            .filter.ghost.tooltip:after,
+            .filter.ghost.tooltip:before {
+                display:none;
+            }
+
+            .filter > img {
+                display: inline-block;
+                height: 10px;
+                padding-left: 2px;
+                vertical-align: -1px;
+                border-left: solid 1px black;
+                cursor: pointer;
+            }
+
+        .glow {
+            -o-animation: pulse-glow 2.5s ease-in-out 4;
+            -webkit-animation: pulse-glow 2.5s ease-in-out 4;
+            -moz-animation: pulse-glow 2.5s ease-in-out 4;
+            animation: pulse-glow 2.5s ease-in-out 4;
+            background-color: whitesmoke;
+            background-image: none;
+            cursor: move;
+        }
+
+        .button {
+            padding: 1px 4px;
+        }
+
+        tr.row-subset td {
+            border-bottom: 1px solid black;
+        }
+
+        .cell-text {
+            font-size: 10pt;
+        }
+
+        /*
+        .section {
+            outline: 1px solid red;
+        } */
+        /* 
+         *  Position title and skill filter within Experience header.
+         */
+        #experience .title {
+            display: table;
+            border-spacing: 0 4px;
+            width: calc(100% - 10px);
+        }
+
+        .title-left, .title-right {
+            display: inline-block;
+        }
+
+        .title-left {
+            width: 120px;               
+        }
+
+        .title-right {
+            line-height: 14px;
+        }
+
+        .selected-skills {
+            position: relative;
+            border: 1px inset ButtonText;
+            border-radius: 4px;
+            padding: 0 4px;
+            color: transparent;
+            background-color: white;
+            margin-top: 2px;
+            width: 80%;
+        }
+
+            .selected-skills .filter {
+                position: relative;
+                margin: 2px 0;
+                vertical-align: 3px;
+                padding-right: 2px;
+                cursor:pointer;
+            }
+
+                .selected-skills .filter.tooltip:after {
+                    content: 'Click to remove from filters.';
+                }
+
+
+        .prompt {
+            position: relative;
+            left: 0;
+            top: 0px;
+            padding-left: 4px;
+            background-color: white;
+            color: darkgrey;
+            font-size: .6em;
+            font-weight: 300;
+            line-height: 23px;
+            display: inline-block;
+            -moz-transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
+            -o-transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
+            -webkit-transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
+            transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
+        }
+
+        @keyframes pulse-highlight {
+            50% {
+                color: black;
+                font-weight: 500;
+            }
+        }
+
+        .prompt.highlight {
+            -o-animation: pulse-highlight 2.5s ease-in-out 4;
+            -webkit-animation: pulse-highlight 2.5s ease-in-out 4;
+            -moz-animation: pulse-highlight 2.5s ease-in-out 4;
+            animation: pulse-highlight 2.5s ease-in-out 4;
+        }
+
+       .hidden {
+            display: none;
+        }
+
+        @viewport {
+            zoom: 1.0;
+            width: extend-to-zoom;
+        }
+
+        @-moz-viewport {
+            zoom: 1.0;
+            width: extend-to-zoom;
+        }
+
+        @-ms-viewport {
+            zoom: 1.0;
+            width: extend-to-zoom;
+        }
+
+        @-webkit-viewport {
+            zoom: 1.0;
+            width: extend-to-zoom;
+        }
+
+ 
+        @media only screen and (max-width: 720px) {
+            .street-address, .zipcode {
+                display: none;
+            }
+
+            address {
+                margin-left: 0px;
+            }
+
+            #address-header {
+                padding-left: 4px;
+            }
+            #nav {
+                display: none;
+                width: 0px;
+            }
+
+            #content {
+                left: 0px;
+                position: static;
+                top: 0;
+            }
+
+            div#header {
+                left: 0px;
+            }
+
+            h1.current {
+                position: relative;
+                top: 0;
+            }
+
+            .section .target-offset {
+                position:initial;
+                display: none;
+            }
+
+            h1.spacer {
+                display:none;
+            }
+
+            p {
+                margin-top:10px;
+            }
+
+            #address-header  p {
+                margin: 0;
+            }
+
+            .top {
+                position: relative;
+            }
+
+            .footer {
+                display:none;
+            }
+
+            .text-center {
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+        @media only screen and (max-width: 562px) {
+
+            h1 {
+                font-size: 1.0em;
+                height: initial;
+                width: 100%;
+            }
+
+            #address-header img {
+                display: none;
+            }
+
+            .prompt {
+                visibility:hidden;
+            }
+
+            h2 {
+                font-size: 1em;
+            }
+
+            h3 {
+                font-size: .8em;
+            }
+        }
