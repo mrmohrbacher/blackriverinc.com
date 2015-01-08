@@ -25,6 +25,18 @@ blackriverinc.filters = {
 
         var skillOpValue = $('#skill-op').val();
 
+        // Extract list of skills; display the list.
+        function generateSkillsDisplay(xskillsClass) {
+            var xskills = $('#experience [xskills]');
+            xskills.each(function (idx) {
+                var skills = xskills[idx].getAttribute(xskillsClass).split(' ');
+
+                var displaySkills = $('.' + xskillsClass, xskills[idx]);
+                $(displaySkills).append('<span>(' + skills.join(', ') + ')</span>');
+                blackriverinc.filters.debug && console.log(skills);
+            });
+        }
+        
         function extractSkillValue(filterCtrl) {
             // *NOTE* Not using '\s' as delimitter, because '&nbsp;'
             //        (used to stitch together compound terms)
@@ -58,7 +70,7 @@ blackriverinc.filters = {
             $('div[' + xdivId + ']').addClass('masked');
             $.each($skills, function (index) {
                 var skillValue = extractSkillValue(this);
-                var $jobs = $('div[' + xdivId + ' ~= "' + skillValue + '"]');
+                var $jobs = $('div[' + xdivId + ' *= "' + skillValue + '"]');
                 $jobs.removeClass('masked')
                 if (blackriverinc.filters.debug) {
                     $.each($jobs, function () {
@@ -227,7 +239,7 @@ blackriverinc.filters = {
         // Invoke skill filters when page loaded or reloaded.
         $('#skill-op').click();
 
-
+        generateSkillsDisplay(xdivId);
     }
 }
 

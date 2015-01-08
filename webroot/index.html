@@ -37,7 +37,7 @@
             blackriverinc.filters.documentReady('xskills');
 
             var scroller = {
-                debug : false,
+                debug: false,
 
                 $currentSection: null,
 
@@ -106,7 +106,7 @@
                                                          + " {width: " + $title.width()
                                                          + "}");
                                 }
-                                $title.css({ width: containerWidth - 8});
+                                $title.css({ width: containerWidth - 8 });
                                 $title.addClass('current');
                                 $('h1.spacer', scroller.$currentSection).removeClass('hidden');
                             }
@@ -155,8 +155,8 @@
         <a href="#education-target">education</a>
 
         <input type="button" value="<<" class="scroll-cmd hidden" />
-        <input type="button" value="<" class="scroll-cmd  hidden"  />
-        <input type="button" value=">" class="scroll-cmd hidden"  />
+        <input type="button" value="<" class="scroll-cmd  hidden" />
+        <input type="button" value=">" class="scroll-cmd hidden" />
         <input type="button" value=">>" class="scroll-cmd hidden" />
     </div>
 
@@ -175,12 +175,14 @@
 
             <address>
                 <span id='electronica'>
-                <a href="mailto:mike@blackriverinc.com">mike@blackriverinc.com</a>
-                847&#8209;361&#8209;3794
+                    <a href="mailto:mike@blackriverinc.com">mike@blackriverinc.com</a>
+                    847&#8209;361&#8209;3794
                 </span>
                 <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=115+W+Euclid+Ave,+Arlington+Heights,+Cook,+Illinois+60004&amp;sll=42.0939,-87.909787&amp;sspn=0.006059,0.006298&amp;ie=UTF8&amp;ll=42.09784,-87.980404&amp;spn=0.024237,0.025191&amp;z=14&amp;iwloc=addr">
-                    <span class='street-address'>115&nbsp;West&nbsp;Euclid&nbsp;Avenue<br /></span>
-                    <span class='city-state'>Arlington&nbsp;Heights,&nbsp;IL<br /></span>
+                    <span class='street-address'>115&nbsp;West&nbsp;Euclid&nbsp;Avenue<br />
+                    </span>
+                    <span class='city-state'>Arlington&nbsp;Heights,&nbsp;IL<br />
+                    </span>
                     <span class='zipcode'>60004-5538</span>
                 </a>
             </address>
@@ -192,11 +194,11 @@
         <div id="story" class="section">
             <div id="story-target" class="target-offset"></div>
             <h1 class="title">Story</h1>
-            <h1 class="spacer hidden" ></h1>
+            <h1 class="spacer hidden"></h1>
             <p>
-               I am a systems architect and developer who has worked as a independent software
+                I am a systems architect and developer who has worked as a independent software
                consultant since 1996 as <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River Systems, Inc.</a>
-               I bring with me extensive experience recommending
+                I bring with me extensive experience recommending
                and implementing technology that augments my clients' business practices. During
                my thirty-plus year technical career, I have held senior consulting roles in
                the financial, scientific, and insurance industries.
@@ -214,7 +216,7 @@
             </select>
             <h1 class="title">
                 <div class="title-left">Experience</div>
-                <div class="title-right selected-skills" >
+                <div class="title-right selected-skills">
                     <span class="prompt">Drop skills here to filter experience...</span>
                 </div>
             </h1>
@@ -232,9 +234,7 @@
                         <td>
                             <div class="filter button">.NET</div>
                             <div class="filter button">C#</div>
-                            <div class="filter button">
-                                ADO.NET
-                            </div>
+                            <div class="filter button">ADO.NET</div>
                             <div class="filter button">
                                 LINQ
                             </div>
@@ -256,6 +256,10 @@
                             <div class="filter button">C++</div>
                             <div class="filter button">C</div>
                             <div class="filter button">COM</div>
+                            <div class="filter button">Javascript</div>
+                            <div class="filter button">JQuery</div>
+                            <div class="filter button">Razor</div>
+                            <div class="filter button">CSS</div>
                         </td>
                     </tr>
                     <tr class="row-subset">
@@ -263,25 +267,13 @@
                     </tr>
                     <tr class="row-filters">
                         <td>
-
-                            <div class="filter button">
-                                Javascript
-                            </div>
-                            <div class="filter button">
-                                JQuery
-                            </div>
                             <div class="filter button">
                                 IIS
                             </div>
                             <div class="filter button">
                                 ASP.NET
                             </div>
-                            <div class="filter button">
-                                Razor
-                            </div>
-                            <div class="filter button">
-                                CSS
-                            </div>
+
                             <div class="filter button">
                                 DCOM
                             </div>
@@ -299,7 +291,7 @@
                             </div>
                             <div class="filter button">
                                 Azure
-                            </div>                           
+                            </div>
                             <div class="filter button">
                                 SGML
                             </div>
@@ -319,16 +311,27 @@
             </h2>
             <p>Independent software consultant to businesses in the Chicago metropolitan area.</p>
             <div class="indent">
-                <div xskills=".NET MVC 4.0 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server 2012 SQL IIS 7 Entity&nbsp;Framework Generic">
-                    <h3>August 2014&nbsp; - Present : <a href='http://www.shift365.com'>Shift - Communication Supply Chain Solutions</a></h3>
+                <div xskills=".NET MVC&nbsp;4 C# JQuery Javascript AJAX Razor CSS HTML Oracle SQL IIS&nbsp;7">
+                    <h3>November 2014&nbsp; - January 2015 : Allstate</h3>
+                    <p class='xskills'>
+                        Developer of internal web-site for workflow automation.
+                    </p>
+                    <ul>
+                        <li>Front-end development of web-pages.</li>
+                        <li>Server-side programming of web-page processing.</li>
+                        <li>Design and development of access control to authorized functions.</li>
+                    </ul>
+                </div>
+                <div xskills=".NET MVC&nbsp;4 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server 2012 SQL IIS 7 Entity&nbsp;Framework Generic">
+                    <h3>August 2014&nbsp; - October 2014 : <a href='http://www.shift365.com'>Shift - Communication Supply Chain Solutions</a></h3>
                     <p>
                         Consultant to marketing communications' development team.
                     </p>
                 </div>
                 <div xskills=".NET MVC&nbsp;2.0 C# JQuery Javascript AJAX ASP.NET CSS HTML SQL&nbsp;Server XML">
                     <h3>May 2014&nbsp; - July 2014 : <a href='http://ogilvy.com/' target="OGILVY">Ogilvy &amp; Mather Advertising</a></h3>
-                    <p>
-                        Developer for a major consumer product's web-site. (CSS, JQuery, Javascript,  C#, XML, ASP.NET, MVC 2.0, SQL Server)
+                    <p class='xskills'>
+                        Developer for a major consumer product's web-site.
                     </p>
                     <ul>
                         <li>Front-end development of responsive web-pages.</li>
@@ -336,11 +339,10 @@
                         <li>Server-to-server interface to a third-party customer-service vendor.</li>
                     </ul>
                 </div>
-                <div xskills=".NET MVC 4.0 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server 2012 SQL IIS 7 Entity&nbsp;Framework Generic">
+                <div xskills=".NET&nbsp;4.0 MVC&nbsp;4 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server&nbsp;2012 IIS&nbsp;7 Entity&nbsp;Framework Generics">
                     <h3>February 2013&nbsp; - April 2014 : <a href='http://www.shift365.com'>Shift - Communication Supply Chain Solutions</a></h3>
-                    <p>
+                    <p class='xskills'>
                         Architect and developer of a web portal for sale and distribution of marketing materials to Bridgestone / Firestone dealerships. 
-            (MVC 4.0, C#, LINQ, JQuery, AJAX, Razor, SQL&nbsp;Server 2012, IIS 7)
                     </p>
                     <ul>
                         <li>Team leadership.</li>
@@ -353,9 +355,9 @@
                         <li>Web-site and database deployment.</li>
                     </ul>
                 </div>
-                <div xskills="Android iOS JQuery Cordova CSS HTML Javascript">
+                <div xskills="JQuery Cordova CSS HTML Javascript">
                     <h3>November 2012 - Present : Nancy Mohrbacher Solutions</h3>
-                    <p>
+                    <p class='xskills'>
                         Initially, I was the technical project management for Breastfeeding Solutions phone application (25,000+ downloads).
                         Currently, I am redeveloping the application using Cordova and JQuery Mobile. Available on iOS and Android platforms.
                     </p>
