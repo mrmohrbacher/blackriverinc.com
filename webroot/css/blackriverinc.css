@@ -1,3 +1,6 @@
+/*.section, .title {
+    outline: solid 1px green;
+}*/
 p,
 li,
 h1,
@@ -5,8 +8,9 @@ h2,
 h3,
 a,
 table,
-#nav a {
-  font-family: "Open Sans";
+#nav a,
+.filter {
+  font-family: Verdana, Geneva, 'Open Sans', sans-serif;
   line-height: 1.4;
 }
 p.xskills > span {
@@ -64,11 +68,13 @@ hr.section {
 }
 div.section {
   position: relative;
+  width: 100%;
 }
 body {
   background: #F8F8E1;
   position: relative;
   max-width: 60em;
+  padding: 4px;
 }
 a {
   font-size: 1.0em;
@@ -89,6 +95,7 @@ h1.current {
   position: fixed;
   top: 162px;
   margin-right: 8px;
+  z-index: 50;
 }
 h1.spacer {
   border: 1px solid transparent;
@@ -177,7 +184,9 @@ address > p {
   outline: 1px solid red;
 }
 #skill-op {
+  -webkit-border-top-left-radius: 6px;
   border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
   border-top-right-radius: 6px;
   font-size: 10pt;
   color: black;
@@ -212,22 +221,28 @@ div.masked[xskills] > h3 > a {
 }
 @-moz-keyframes pulse-glow {
   50% {
+    -moz-box-shadow: 0px 0px 18px black;
+    -webkit-box-shadow: 0px 0px 18px black;
     box-shadow: 0px 0px 18px black;
   }
 }
 @-webkit-keyframes pulse-glow {
   50% {
+    -moz-box-shadow: 0px 0px 18px black;
+    -webkit-box-shadow: 0px 0px 18px black;
     box-shadow: 0px 0px 18px black;
   }
 }
 @keyframes pulse-glow {
   50% {
+    -moz-box-shadow: 0px 0px 18px black;
+    -webkit-box-shadow: 0px 0px 18px black;
     box-shadow: 0px 0px 18px black;
   }
 }
 .filter {
   border: 1px solid black;
-  font-size: 9pt;
+  font-size: 12px;
   font-weight: normal;
   z-index: 25;
   -moz-transition: color 1s ease-out 0.3s, box-shadow 1s ease-out 0.3s, background-color 1s ease-out 0.3s, background-image 1s ease-out 0.3s;
@@ -275,24 +290,12 @@ tr.row-subset td {
 .cell-text {
   font-size: 10pt;
 }
-/*
-        .section {
-            outline: 1px solid red;
-        } */
 /* 
-         *  Position title and skill filter within Experience header.
-         */
-#experience .title {
-  display: table;
-  border-spacing: 0 4px;
-  width: calc(90%);
-}
+ *  Position title and skill filter within Experience header.
+ */
 .title-left,
 .title-right {
   display: inline-block;
-}
-.title-left {
-  width: 120px;
 }
 .title-right {
   line-height: 14px;
@@ -300,12 +303,13 @@ tr.row-subset td {
 .selected-skills {
   position: relative;
   border: 1px inset ButtonText;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
   border-radius: 4px;
   padding: 0 4px;
   color: transparent;
   background-color: white;
-  margin-top: 2px;
-  width: 80%;
+  margin-top: 8px;
 }
 .selected-skills .filter {
   position: relative;
@@ -324,9 +328,9 @@ tr.row-subset td {
   padding-left: 4px;
   background-color: white;
   color: darkgrey;
-  font-size: .6em;
+  font-size: 1.0em;
   font-weight: 300;
-  line-height: 23px;
+  line-height: 2.0em;
   display: inline-block;
   -moz-transition: color 1s ease-in-out 0.3s, font-weight 1s ease-in-out 0.3s;
   -o-transition: color 1s ease-in-out 0.3s, font-weight 1s ease-in-out 0.3s;
@@ -349,6 +353,7 @@ tr.row-subset td {
   display: none;
 }
 @viewport {
+  -ms-zoom: 1.0;
   zoom: 1.0;
   width: extend-to-zoom;
 }
@@ -380,7 +385,7 @@ tr.row-subset td {
     width: 0px;
   }
   #content {
-    left: 0px;
+    width: 100%;
     position: static;
     top: 0;
   }

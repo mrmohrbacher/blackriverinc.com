@@ -9,7 +9,7 @@
 
     <script type="text/javascript" src="scripts/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="scripts/jquery-ui.js"></script>
-    <script type="text/javascript" src="scripts/jquery.ui.touch-punch.min.js"> </script>
+<!--    <script type="text/javascript" src="scripts/jquery.ui.touch-punch.min.js"> </script>-->
     <script type="text/javascript" src="scripts/filters.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -108,7 +108,7 @@
                                                          + " {width: " + $title.width()
                                                          + "}");
                                 }
-                                $title.css({ width: containerWidth - 8 });
+                                $title.css({ width: containerWidth - 10 });
                                 $title.addClass('current');
                                 $('h1.spacer', scroller.$currentSection).removeClass('hidden');
                             }
@@ -218,9 +218,6 @@
             </select>
             <h1 class="title">
                 <div class="title-left">Experience</div>
-                <div class="title-right selected-skills">
-                    <span class="prompt">Drop skills here to filter experience...</span>
-                </div>
             </h1>
             <h1 class="spacer hidden"></h1>
 
@@ -243,6 +240,7 @@
                             <div class="filter button">
                                 SQL&nbsp;Server
                             </div>
+                            <div class="filter button">SQL</div>
                             <div class="filter button">
                                 Entity&nbsp;Framework
                             </div>
@@ -307,6 +305,9 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="selected-skills">
+                <span class="prompt">Drop skills here to filter experience...</span>
+            </div>
 
             <h2>July 1996 - Present <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River
             Systems, Inc.</a> - Principal Consultant
@@ -316,8 +317,7 @@
                 <div xskills=".NET MVC&nbsp;4 C# JQuery Javascript AJAX Razor CSS HTML Oracle SQL IIS">
                     <h3>November 2014&nbsp; - January 2015 : Allstate</h3>
                     <p class='xskills'>
-                        Developer of internal web-site for workflow automation.
-                        Mentor to development team on modern MVC practices such as model-based binding and data-annotation driven validation.
+                        Developer of internal web-site for workflow automation. Site captures work requests and passes them to TIBCO messaging system.
                     </p>
                     <ul type="disc">
                         <li>Front-end development of responsive web-pages.</li>
@@ -830,6 +830,6 @@
             <hr class="section" />
         </div>
     </div>
-    <div class="footer text-center block"><span style="">&copy; Black River Systems, Inc of Illinois - Oct 9, 2014</span></div>
+    <div class="footer text-center block"><span style="">&copy; Black River Systems, Inc of Illinois - Jan 25, 2015</span></div>
 </body>
 </html>
