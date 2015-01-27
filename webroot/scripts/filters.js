@@ -56,7 +56,7 @@ blackriverinc.filters = {
 
         //--------------------------------------------------------
         // Select jobs that required *any* of the selected skills.
-        function selectAny() {
+        function filterAny() {
             var $skills = $('.selected-skills .filter');
 
             // If no skills selected, do not filter out jobs.
@@ -83,7 +83,7 @@ blackriverinc.filters = {
 
         //--------------------------------------------------------
         // Select jobs that required *all* of the selected skills
-        function selectAll() {
+        function filterAll() {
             var $skills = $('.selected-skills .filter');
 
             // If no skills selected, then do not filter out jobs.
@@ -118,7 +118,7 @@ blackriverinc.filters = {
             });
         }
 
-        function selectSkills() {
+        function filterSkills() {
             skillOpValue = $('#skill-op').val();
             if (blackriverinc.filters.debug) { console.log('Skill Operator = ' + skillOpValue); }
 
@@ -128,14 +128,14 @@ blackriverinc.filters = {
             }
 
             if (skillOpValue == '|') {
-                selectAny();
+                filterAny();
             }
             if (skillOpValue == '&') {
-                selectAll();
+                filterAll();
             }
         }
 
-        $('#skill-op').click(selectSkills);
+        $('#skill-op').click(filterSkills);
 
         $('.filter:not(.ghost)').draggable({
             revert: 'invalid',
@@ -153,11 +153,12 @@ blackriverinc.filters = {
                 if ($('.selected-skills .filter').length == 0) {
                     $('.selected-skills .prompt').show();
                 }
-                setTimeout(selectSkills, 0);
+                setTimeout(filterSkills, 0);
             });
         }
 
         var mouseTimer = null;
+        var touchTimer = null;
 
         $('#skills .filter').mouseover(function (evt) {
             blackriverinc.filters.glowOn($(evt.target));
@@ -186,53 +187,68 @@ blackriverinc.filters = {
             blackriverinc.filters.glowOff($('#skills .filter'));          
         });
 
-        $('.selected-skills').droppable({
-            tolerence: "touch",
-            drop: function (evt, droppable) {
-                blackriverinc.filters.debug && console.log('drop : ' + evt.target.textContent.trim());
+        $('.row-filters .ui-draggable.filter').mousedown(function (evt) {
+            touchTimer = setTimeout(function () {
+              //  dropsies.drop(evt, evt.target);
+            });
+        });
 
-                var skillKey = droppable.draggable[0].textContent.trim();
-
-                // Accept a Skill if it is not already attached to the 
-                // drop-site.
-                if ($(':contains(' + skillKey + ')', evt.target).length == 0) {
-                    if (blackriverinc.filters.debug) { console.log('Added : ' + skillKey); }
-
-                    $('.selected-skills .prompt').hide();
-
-                    var $clonedTarget = $(droppable.draggable).clone();
-                    $clonedTarget.removeClass('tooltip');
-                    $clonedTarget.append("<img src='chi.black.png' />");
-                    $(evt.target).append($clonedTarget);
-
-                    droppable.draggable.draggable({ disabled: true });
-                    $(droppable.draggable).addClass('ghost');
-
-                    setClearFilterEvent($clonedTarget, 'click');
-                    setClearFilterEvent($clonedTarget, 'touchend');
-
-                    $clonedTarget.mouseover(function (evt) {
-                        mouseTimer = setTimeout(function () {
-                            $(evt.target).addClass('tooltip');
-                            $(evt.target).addClass('tooltip-bottom');
-                        }, 2000);
-                        evt.stopPropagation();
-
-                    });
-
-                    $clonedTarget.mouseout(function (evt) {
-                        if (mouseTimer != null) {
-                            $(evt.target).removeClass('tooltip');
-                            $(evt.target).removeClass('tooltip-bottom');
-                            clearTimeout(mouseTimer);
-                        }
-                    });
-
-                    setTimeout(selectSkills, 0);
-
-                    return true;
+        $('.row-filters .ui-draggable.filter').mouseup(function (evt) {
+            touchTimer = setTimeout(function () {
+                if (touchTimer != null) {
+                    clearTimeout(touchTimer);
                 }
-            },
+            });
+        });
+
+        var selectSkill = function (target, droppable) {
+            blackriverinc.filters.debug && console.log('drop : ' + target.textContent.trim());
+
+            var skillKey = droppable.draggable[0].textContent.trim();
+
+            // Accept a Skill if it is not already attached to the 
+            // drop-site.
+            if ($(':contains(' + skillKey + ')', target).length == 0) {
+                if (blackriverinc.filters.debug) { console.log('Added : ' + skillKey); }
+
+                $('.selected-skills .prompt').hide();
+
+                var $clonedTarget = $(droppable.draggable).clone();
+                $clonedTarget.removeClass('tooltip');
+                $clonedTarget.append("<img src='chi.black.png' />");
+                $(target).append($clonedTarget);
+
+                droppable.draggable.draggable({ disabled: true });
+                $(droppable.draggable).addClass('ghost');
+
+                setClearFilterEvent($clonedTarget, 'click');
+                setClearFilterEvent($clonedTarget, 'touchend');
+
+                $clonedTarget.mouseover(function (evt) {
+                    mouseTimer = setTimeout(function () {
+                        $(evt.target).addClass('tooltip');
+                        $(evt.target).addClass('tooltip-bottom');
+                    }, 2000);
+                    evt.stopPropagation();
+
+                });
+
+                $clonedTarget.mouseout(function (evt) {
+                    if (mouseTimer != null) {
+                        $(evt.target).removeClass('tooltip');
+                        $(evt.target).removeClass('tooltip-bottom');
+                        clearTimeout(mouseTimer);
+                    }
+                });
+
+                setTimeout(filterSkills, 0);
+
+                return true;
+            }
+        }
+        var dropsies = $('.selected-skills').droppable({
+            tolerence: "touch",
+            drop: function (evt, droppable) { selectSkill(evt.target, droppable); },
             accept: '.filter'
         });
 
