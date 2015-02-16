@@ -429,9 +429,6 @@ tr.row-subset td {
   #address-header img {
     display: none;
   }
-  .prompt {
-    visibility: hidden;
-  }
   h2 {
     font-size: 1em;
   }

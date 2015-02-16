@@ -1,4 +1,5 @@
-﻿var blackriverinc = blackriverinc || {}
+﻿"use strict";
+var blackriverinc = blackriverinc || {}
 blackriverinc.filters = {
 
     debug: true,
