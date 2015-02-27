@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+   <head>
+      <title>C / C++ Technical Interview Qustions</title>
+      <meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+      <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+      <link href="standard.css" type="text/css">
+      <script src="make_outline.js" type="text/javascript">
+   
+      </script>
+   </head>
+   <body onload="make_outline();">
+      <h1>
+         Preface
+      </h1>
+      <p>
+         The key issue facing you, as a technical manager, or as a team leader, is 
+         having good-quality people at hand. There are several dimensions to 
+         people-quality: initiative, reliability, honesty, ability to play well with 
+         others, hygiene, etc., all of which are very important, but when looking for an 
+         engineer or technician to add to your staff, there is the very critical 
+         "K-T-S." factor to consider.
+      </p>
+      <p>
+         The K-T-S factor is harder to quantify than it might seem. One approach taken 
+         by many organizations is to apply a standardized test to applicants, such 
+         BrainBench. Another approach is to look for certifications. The one most 
+         commonly used by headhunters is to apply a first-order sieve to the stack of 
+         resumes - the "bingo card" method (if your resume contains all of the same 
+         buzzwords as the job requisition: "BINGO!, <em>You</em> may be a winner!)
+      </p>
+      <p>
+         Each of these approaches has their utility, and each has its problems. A 
+         standardized test actually tests for the ability to take standardized tests as 
+         much as it tests for mastery of subject matter. A long list of certifications 
+         leaves you wondering when the applicant had time to do his job in between 
+         taking all of those certification tests.
+      </p>
+      <p>
+      </p>
+      <h1>
+         Questions
+      </h1>
+      <h2>Coding</h2>
+      <h3>Given unsigned char a = 52; unsigned char b =22;
+         <br>
+         Compute:
+      </h3>
+      <ol>
+         <li>
+         a | b
+         <li>
+         a &amp; b
+         <li>
+         a ^ b
+         <li>
+            a &gt;&gt; 3
+         </li>
+      </ol>
+      <h3>What are the largest and smallest numbers:</h3>
+      <ol>
+         <li>
+         unsigned short
+         <li>
+         short
+         <li>
+         unsigned long
+         <li>
+            long
+         </li>
+      </ol>
+      <h2>Memory Management
+      </h2>
+      <h3>Allocate an array of 16 short ints on the stack.</h3>
+      <pre>
+    <em>
+    {
+    ...
+    short pa[16];
+    ...
+    }
+    </EM>
+		</pre>
+      <h3>Allocate an array of 16 short ints on the heap.</h3>
+      <p>
+         Answer:
+      </p>
+      <pre>
+        <em>short *pa = new short[16];
+        </EM>
+        </pre>
+      <h3>Show a code fragment to prevent a dynamically allocated array from being 
+         leaked in the event of a fault.
+      </h3>
+      <p>Answer:</p>
+      <pre>
+    <em>
+    short    *pa = null;
+    try
+        {
+        pa = new short[16];
+        ...
+        }
+    catch(...)
+       {
+       }
+    if (pa != null)
+       delete[] pa;
+    </em>
+    </pre>
+      <h3>What is meant by Resource Acquisition is Initialization (RAiI)?
+      </h3>
+      <p>Answer: <em>A resource, such as memory, is acquired by creating an instance of an 
+            object, and released when the object is destroyed. </em>
+      </p>
+      <p>Goals:</p>
+      <ul style="font-style: italic">
+         <li>
+            Software Patterns</li>
+         <li>
+            C++ craftsmanship</li>
+      </ul>
+      <h3>Given the answer to above, redo the previous code fragment utilizing RAiI.
+      </h3>
+      <p>Answer:
+      </p>
+      <pre>
+<em>
+   try
+      {
+       _auto_ptr  ap(new short[16]);
+      }
+   catch(...)
+      {
+      }
+</EM>
+</pre>
+      <p>Goals:</p>
+      <ul>
+         <li>
+            C++ craftsmanship</li>
+      </ul>
+      <h3>What is wrong with this piece of code:</h3>
+      <pre>
+   class Foo
+      {
+   public:
+      virtual Foo()  {...}
+      ...
+      }
+</pre>
+      <p style="font-style: italic">There is no such thing as a virtual constructor in 
+         C++.
+      </p>
+      <p>Goals:</p>
+      <ul>
+         <li>
+            C++ craftsmanship</li>
+         <li>
+            Deep understanding of C++ object structure.</li>
+      </ul>
+      <h3>Given this code structure, what appears on the console:</h3>
+      <pre>   void goodbye(const char* clsid)
+      {
+      std::cout &lt;&lt; "Good-bye, " &lt;&lt; clsid &lt;&lt; "!" &lt;&lt; std::endl;
+      }
+      
+   class Foo
+      {
+   public:
+      ~Foo()  { goodbye("Foo"); }      
+      };
+      
+   class Bar : public Foo
+      {
+   public:
+      ~Bar()  { goodbye("Bar"); }      
+      };      
+
+int main(int argc, char* argv[])
+   {
+   Foo* p = new Bar;
+   delete p;   
+   return 0;
+   }
+</pre>
+      <p>Answer: <i>Good-bye, Foo!</i>
+      </p>
+      <p>The destructor of <b>Foo</b> needs to be <em>virtual</em> for <b>Bar</b>'s 
+         destructor to be called from a base pointer.</p>
+      <p>Goals:</p>
+      <ul>
+         <li>
+            Inheritence</li>
+         <li>
+            Virtual functions (by their lack thereof, in this example)</li>
+      </ul>
+      <h3>Describe the levels of class member accessibility.</h3>
+      <p>Answer:
+      </p>
+      <ul style="font-style: italic">
+         <li>
+            private - Only accessible within the class and to friends</li>
+         <li>
+            protected - Accessible to members of a descendent class.</li>
+         <li>
+            public - Accessible to any other entity.</li>
+      </ul>
+      <p>Goals:</p>
+      <ul>
+         <li>
+            C++ craftsmanship</li>
+         <li>
+            Inheritence</li>
+         <li>
+            Design and organization skills</li>
+      </ul>
+      <h3>
+         In C++, what is the difference between a <code>struct</code> definition and a <code>
+            class</code> definition.
+      </h3>
+      <p>
+         Answer: The default member accessibility for a <code>struct</code> definition 
+         is <em>public</em>; for a <code>class</code> definition it is <em>private</em>.
+      </p>
+      <p>Goals:</p>
+      <ul>
+         <li>
+            C++ fundamentals
+         </li>
+      </ul>
+      <h2>Design</h2>
+      <h3>Given function definition <code>sum</code>, compute <i>c</i>.</h3>
+      <pre> void sum(short a, short b, short c)
+   { c = a + b; }
+   
+   ...
+   short a = 52;
+   short b = 22;
+   short c = 0;
+   sum(a, b, c);
+</pre>
+      <p><em><code>c</code> is still equal to 0.</em>
+      </p>
+      <h2>.NET</h2>
+      <h3>What is the difference between the <i>String</i> and <i>StringBuilder</i> classes?
+      </h3>
+      <p><em>String objects are immutable and may not be changed.</em>
+      </p>
+      <h3>What is the unit of deployment of .NET code? What is that you give to 
+         customers.</h3>
+      <p><em>Assembly</em></p>
+      <h3>What are the characteristics of .NET Assemblies that differentiate them from 
+         other ways to hand out software?
+      </h3>
+      <ol style="FONT-STYLE: italic" type="1">
+         <li>
+         They contain the complete meta-data to describe the contents of the Assembly.
+         <li>
+            They contain culture and version information.
+         </li>
+      </ol>
+      <h3>
+         In C#, what is the difference between a <code>struct</code> definition and a <code>
+            class</code> definition.
+      </h3>
+      <p>
+         Answer: In C#, a struct defines a value type; a class defines a reference type.
+      </p>
+      <p>Goals:</p>
+      <ul>
+         <li>
+            C++ fundamentals
+         </li>
+      </ul>
+      <h3>
+         Given the C# code fragment below, what is the value of strct.fldA and 
+         cls.prptyB at then end of the block.
+      </h3>
+      <pre>
+   <em>
+      struct _strct
+      {
+         int   fldA;
+         _strct(int  a)               
+         {
+            fldA = a;
+         }
+      } strct = new _strct
+           
+      </em>
+      </pre>
+      <h2 id="COM">COM</h2>
+      <h3>What is the first task a COM developer must perform before doing anything else 
+         in developing COM component.
+      </h3>
+      <p style="FONT-STYLE: italic">Describe the interface either in an IDL file, or in 
+         a attributed C++ interface definition.
+      </p>
+      <h3>Describe the COM Apartment Models.
+      </h3>
+      <ul style="FONT-STYLE: italic">
+         <li>
+            Single-Threaded Apartment (STA)
+            <ol type="1">
+         <li>
+         Only the original, "creator" thread will call the methods.
+         <li>
+            There may be multiple STAs in a process.
+         </li>
+         </OL>
+         <li>
+            Multi-threaded Apartment (MTA)
+            <ol type="1">
+         <li>
+         Any thread may call the methods of the component.
+         <li>
+            There is only one MTA in a process.
+         </li>
+         </OL></LI></ul>
+      <h3>What role does a class factory perform in a COM environment.
+      </h3>
+      <h2>Architecture</h2>
+      <h3>Given two processes on the same computer, communicate an array of numbers 
+         between them. Give 4 examples on how this could be done.
+      </h3>
+      <h2>SQL
+      </h2>
+      <h3>Describe the ACID rule for Transactions
+      </h3>
+      <dl style="FONT-STYLE: italic">
+         <dd style="FONT-WEIGHT: bold">
+            Atomic
+         </dd>
+         <dt style="TEXT-INDENT: 30pt">All operations carried out within the scope of the 
+            transaction are as one; either they all happen, or none happen. </dt>
+         <dd style="FONT-WEIGHT: bold">
+            Consistent
+         </dd>
+         <dt style="TEXT-INDENT: 30pt">The result of a transaction is the database in a 
+            state consistent with it's functional requirements. </dt>
+         <dd style="FONT-WEIGHT: bold">
+            Isolated
+         </dd>
+         <dt style="TEXT-INDENT: 30pt">The operations of a transaction are not affected by 
+            other transaction happening at the same time. This will allow the transaction 
+            to be repeatable. </dt>
+         <dd style="FONT-WEIGHT: bold">
+            Durable
+         </dd>
+         <dt style="TEXT-INDENT: 30pt">Once a transaction is commited, it stays committed. 
+            No failure can undo a committed transaction. </dt>
+      </dl>
+      <h3>
+         What is the purpose of an INDEX on a table?
+      </h3>
+      <ol style="FONT-STYLE: italic">
+         <li>
+         Creates an ordering on the rows of the table.
+         <li>
+            Optimizes searching a table.
+         </li>
+      </ol>
+      <h3>
+         Describe the steps of processing a query.
+      </h3>
+      <ol style="FONT-STYLE: italic">
+         <li>
+         Query string is parsed.
+         <li>
+         A query plan is generated.
+         <li>
+            Query plan is executed.
+         </li>
+      </ol>
+      <h3>
+         What is the primary advantage in terms of performance in using a 
+         stored-procedure?
+      </h3>
+      <p style="FONT-STYLE: italic">
+         The query is pre-parsed and the query plan is pre-generated.
+      </p>
+      <h3>
+         Describe the difference between CLUSTERED and UNCLUSTERED indices.
+      </h3>
+      <span style="FONT-STYLE: italic">
+         <p>
+            Indices are implemented as a type of tree, with pointers in the index referring 
+            to pages within the database store itself.
+         </p>
+         <p>
+            The leaf nodes of a CLUSTERED index are the data pages themselves.
+         </p>
+         <p>
+            The leaf nodes of a NONCLUSTERED index are pointers to the data pages.
+         </p>
+      </span>
+      <h3>
+         Follow up to previous: How many CLUSTERED indices are allowed on a table?
+      </h3>
+      <span style="FONT-STYLE: italic">
+         <p>
+            One. If there were more than one, that would imply that a table could have more 
+            than one primary ordering of its data pages.
+         </p>
+      </span>
+   </body>
+</html>

@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <style type="text/css">
+          
+         
+      div#toc a
+         {
+         border : solid 1px white;
+         display : block;
+         font-family : "Times New Roman", serif;
+         margin-top : .1em;
+         margin-bottom : .1em;
+         padding-top : .5em;
+         padding-bottom : .75em;
+         height : 1em;
+         width : 95%;
+         left-margin : 5px;
+         text-decoration : none;
+         text-indent : 1em;
+
+         }
+             
+      div#toc a:hover
+         {
+         background : #FFFFE1;
+         border : solid 1px silver;
+         }
+             
+     
+      body 
+         {
+         background : #F8F8E1;
+         }   
+         
+      :target
+         {
+         border : 1px solid black;
+         }  
+         
+   </style>
+   
+   <title>Mike Mohrbacher's Website</title>
+
+   <script type="text/javascript">
+   function inflate(sender)
+      {
+      sender.style="background : green";
+      }
+      
+   function switch_image(sender, img)
+      {
+      sender.src = img;
+      }
+      
+   function goto(href)
+      {
+      location = href;
+      defaultStatus = href;
+      return true;
+      }
+   </script>
+
+</head>
+<body>
+   <div id="toc">
+      <a href="mikemohrbacher.html#CONTACT" target="MAIN">contact</a>
+      <a href="mikemohrbacher.html#FOCUS" target="MAIN">summary</a>
+      <a href="mikemohrbacher.html#SKILLS" target="MAIN">skills</a>
+      <a href="mikemohrbacher.html#EXPERIENCE" target="MAIN">experience</a>
+      <a href="mikemohrbacher.html#ASSOCIATIONS" target="MAIN">professional associations</a>
+      <a href="mikemohrbacher.html#EDUCATION" target="MAIN">education</a>
+   </div>
+</body>
+</html>
