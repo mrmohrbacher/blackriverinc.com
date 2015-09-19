@@ -2,7 +2,7 @@
     outline: solid 1px green;
 }*/
 
-p, li, h1, h2, h3, a, table, #nav a, .filter {
+p, li, h1, h2, h3, h4, a, table, #nav a, .filter {
     font-family: Verdana, Geneva, 'Open Sans', sans-serif;
     line-height: 1.4;
 }
@@ -10,12 +10,11 @@ p, li, h1, h2, h3, a, table, #nav a, .filter {
     p.xskills > span {
         font-style: italic;
     }
-
 ul {
-    margin-top: 6pt;
-    list-style-position: inside;
+  margin-top: .5em;
+  margin-left: 1em;
+  list-style-position: outside;
 }
-
 .target-offset {
     position: absolute;
     width: 0;
@@ -112,9 +111,15 @@ h1 {
         border: 1px solid transparent;
     }
 
-h2, h3 {
+h2, h3, h4 {
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+h4 {
+    font-weight: normal;
+    text-decoration:underline;
+    margin-left: 0px;
 }
 
 #nav {
@@ -285,7 +290,7 @@ div.masked[xskills] > h3 > a {
     transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
 }
 
-    .filter.tooltip:after {
+    .filter.tooltip::after {
         content: 'Drag to Experience bar to add to filters.';
     }
 
@@ -404,9 +409,45 @@ tr.row-subset td {
     display: none;
 }
 
-@viewport
+.x-ref {
+    background-color: white;
+    color: GrayText;
+}
 
-{
+.x-ref.tooltip::after {
+  content: 'Click to see more...';
+}
+
+.x-more {
+    background-color: white;
+    color: black;
+    padding: 8px;
+    border: 2px outset darkgrey;
+    width: 75%;
+    position: relative;
+    left: 12.5%;
+}
+
+    .x-more > .toggle {
+        display: inline-block;
+        height: 10px;
+        vertical-align: -1px;
+        cursor: pointer;
+        position: absolute;
+        top: -2px;
+        right: -16px;
+        border-right: 2px outset darkgrey;
+        border-bottom: 2px outset darkgrey;
+        border-top: 2px outset darkgrey;
+        border-left-color: white;
+        border-left-width: 2px;
+        z-index: 10;
+        background-color: lightgray;
+        padding: 2px;
+    }
+
+
+@viewport {
     -ms-zoom: 1.0;
     zoom: 1.0;
     width: extend-to-zoom;

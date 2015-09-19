@@ -202,6 +202,7 @@ blackriverinc.filters = {
             });
         });
 
+        //
         var selectSkill = function (target, droppable) {
             blackriverinc.filters.debug && console.log('drop : ' + target.textContent.trim());
 
@@ -251,6 +252,46 @@ blackriverinc.filters = {
             tolerence: "touch",
             drop: function (evt, droppable) { selectSkill(evt.target, droppable); },
             accept: '.filter'
+        });
+
+        //-------------------------------------------------------------
+        // x-ref : Click to see more...
+        $('.x-ref').mouseover(function (evt) {
+            blackriverinc.filters.glowOn($(evt.target));
+            mouseTimer = setTimeout(function () {
+                $(evt.target).addClass('tooltip');
+            }, 2000);
+        });
+
+        $('.x-ref').mouseout(function (evt) {
+            blackriverinc.filters.glowOff($(evt.target));
+            if (mouseTimer != null) {
+                $(evt.target).removeClass('tooltip');
+                clearTimeout(mouseTimer);
+            }
+        });
+
+        $('.x-ref').click(function (evt) {
+            // Clear the 'tooltip'
+            if (mouseTimer != null) {
+                $(evt.target).removeClass('tooltip');
+                clearTimeout(mouseTimer);
+            }
+            // Hide the previous 'x-more' box.
+            $('.x-more > .toggle').closest('.x-more').hide('slideDown');
+
+            // Show the box and add a 'chi'-toggler
+            var targetAttr = $(evt.target).attr('x-ref-target');
+            if (targetAttr != null) {
+                var $target = $('.' + targetAttr + '.' + 'x-more');
+                $target.append("<img src='chi.black.png' class='toggle' />")
+                $target.show('slideDown');
+            }           
+        });
+
+        $('#experience').on('click', '.x-more > .toggle', function (evt) {
+            $(evt.target).closest('.x-more').hide('slideDown');
+            $(evt.target).remove();
         });
 
         // Invoke skill filters when page loaded or reloaded.
