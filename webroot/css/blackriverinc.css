@@ -6,6 +6,7 @@ li,
 h1,
 h2,
 h3,
+h4,
 a,
 table,
 #nav a,
@@ -17,8 +18,9 @@ p.xskills > span {
   font-style: italic;
 }
 ul {
-  margin-top: 6pt;
-  list-style-position: inside;
+  margin-top: .5em;
+  margin-left: 1em;
+  list-style-position: outside;
 }
 .target-offset {
   position: absolute;
@@ -101,9 +103,17 @@ h1.spacer {
   border: 1px solid transparent;
 }
 h2,
-h3 {
+h3,
+h4 {
   margin-top: 8px;
   margin-bottom: 8px;
+  margin-left: 0px;
+}
+
+h4 {
+    font-weight: normal;
+    text-decoration:underline;
+
 }
 #nav {
   background: #F8F8E1;
@@ -250,7 +260,7 @@ div.masked[xskills] > h3 > a {
   -webkit-transition: color 1s ease-out 0.3s, box-shadow 1s ease-out 0.3s, background-color 1s ease-out 0.3s, background-image 1s ease-out 0.3s;
   transition: color 1s ease-out 0.3s, box-shadow 1s ease-out 0.3s, background-color 1s ease-out 0.3s, background-image 1s ease-out 0.3s;
 }
-.filter.tooltip:after {
+.filter.tooltip::after {
   content: 'Drag to Experience bar to add to filters.';
 }
 .filter.ghost {
@@ -352,6 +362,45 @@ tr.row-subset td {
 .hidden {
   display: none;
 }
+
+.x-ref {
+    background-color: white;
+    color: GrayText;
+}
+
+.x-ref.tooltip::after {
+  content: 'Click to see more...';
+}
+
+.x-more {
+    background-color: white;
+    color: black;
+    padding: 8px;
+    border: 2px outset darkgrey;
+    width: 75%;
+    position: relative;
+    left: 12.5%;
+}
+
+    .x-more > .toggle {
+        display: inline-block;
+        height: 10px;
+        vertical-align: -1px;
+        cursor: pointer;
+        position: absolute;
+        top: -2px;
+        right: -16px;
+        border-right: 2px outset darkgrey;
+        border-bottom: 2px outset darkgrey;
+        border-top: 2px outset darkgrey;
+        border-left-color: white;
+        border-left-width: 2px;
+        z-index: 10;
+        background-color: lightgray;
+        padding: 2px;
+    }
+
+
 @viewport {
   -ms-zoom: 1.0;
   zoom: 1.0;
