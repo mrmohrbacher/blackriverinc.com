@@ -368,8 +368,18 @@ tr.row-subset td {
   padding-left: 8px;
   margin-left: -8px;
 }
-.x-ref.tooltip::after {
-  content: 'Click to see more...';
+.x-ref::after {
+  content: '+';
+  position: absolute;
+  right: 4px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.x-ref.open::after,
+.x-ref.glow::after {
+  color: #000000;
+}
+.x-ref.open::after {
+  content: '-';
 }
 .x-more {
   background-color: white;
@@ -387,13 +397,13 @@ tr.row-subset td {
   vertical-align: -1px;
   cursor: pointer;
   position: absolute;
-  top: -2px;
-  right: -16px;
+  top: -16px;
+  right: -2px;
   border-right: 2px outset darkgrey;
-  border-bottom: 2px outset darkgrey;
+  border-left: 2px outset darkgrey;
   border-top: 2px outset darkgrey;
-  border-left-color: white;
-  border-left-width: 2px;
+  border-bottom-color: white;
+  border-bottom-width: 2px;
   z-index: 10;
   background-color: lightgray;
   padding: 2px;

@@ -217,7 +217,7 @@ blackriverinc.filters = {
 
                 var $clonedTarget = $(droppable.draggable).clone();
                 $clonedTarget.removeClass('tooltip');
-                $clonedTarget.append("<img src='chi.black.png' />");
+                $clonedTarget.append("<img src='images/chi.black.png' />");
                 $(target).append($clonedTarget);
 
                 droppable.draggable.draggable({ disabled: true });
@@ -256,51 +256,43 @@ blackriverinc.filters = {
 
         //-------------------------------------------------------------
         // x-ref : Click to see more...
-        $('.x-ref').mouseover(function (evt) {
+        $('.x-ref:not(.open)').mouseover(function (evt) {
             blackriverinc.filters.glowOn($(evt.target));
-            mouseTimer = setTimeout(function () {
-                $(evt.target).addClass('tooltip');
-            }, 2000);
         });
 
         $('.x-ref').mouseout(function (evt) {
             blackriverinc.filters.glowOff($(evt.target));
-            if (mouseTimer != null) {
-                $(evt.target).removeClass('tooltip');
-                clearTimeout(mouseTimer);
-            }
         });
 
         $('.x-ref').click(function (evt) {
             // Clear the 'tooltip'
-            if (mouseTimer != null) {
-                $(evt.target).removeClass('tooltip');
-                clearTimeout(mouseTimer);
-            }
-            var targetAttr = $(evt.target).attr('x-ref');
+            var $source = $(evt.target);
+            var sourceAttr = $source.attr('x-ref');
 
             // Hide the previous 'x-more' box.
-            var $xmore = $('.x-more > .toggle').closest('.x-more');
+            var $xmore = $('.x-more:visible');
             if ($xmore.length > 0) {
-                $xmore.hide('slideDown');
-                var lastTarget = ($xmore.attr('x-ref-target'));
-                $('.x-more > .toggle').remove();
-                if (lastTarget == targetAttr) {                    
+                $xmore.hide('slideUp');
+                var lastTarget = $xmore.attr('x-ref-target');
+                $('[x-ref="' + lastTarget + '"]').removeClass('open');
+                if (lastTarget == sourceAttr) {
                     return;
                 }
             }
 
-            // Show the box and add a 'chi'-toggler
-            if (targetAttr != null) {
-                var $target = $('[x-ref-target="' + targetAttr + '"].x-more');
-                $target.append("<img src='images/chi.black.png' class='toggle' />")
-                $target.show('slideDown');
+            // Show the box.
+            if (sourceAttr != null) {
+                var $xmore = $('[x-ref-target="' + sourceAttr + '"].x-more');
+                $source.addClass('open')
+                $xmore.show('slideDown');
             }           
         });
 
-        $('#experience').on('click', '.x-more > .toggle', function (evt) {
-            $(evt.target).closest('.x-more').hide('slideDown');
-            $(evt.target).remove();
+        $('#experience').on('click', '.x-more', function (evt) {
+            var $xmore = $(evt.target).closest('.x-more');
+            $xmore.hide('slide');
+            var lastTarget = $xmore.attr('x-ref-target');
+            $('[x-ref="' + lastTarget + '"]').removeClass('open');
         });
 
         // Invoke skill filters when page loaded or reloaded.
