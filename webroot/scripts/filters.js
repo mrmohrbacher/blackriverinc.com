@@ -277,14 +277,23 @@ blackriverinc.filters = {
                 $(evt.target).removeClass('tooltip');
                 clearTimeout(mouseTimer);
             }
+            var targetAttr = $(evt.target).attr('x-ref');
+
             // Hide the previous 'x-more' box.
-            $('.x-more > .toggle').closest('.x-more').hide('slideDown');
+            var $xmore = $('.x-more > .toggle').closest('.x-more');
+            if ($xmore.length > 0) {
+                $xmore.hide('slideDown');
+                var lastTarget = ($xmore.attr('x-ref-target'));
+                $('.x-more > .toggle').remove();
+                if (lastTarget == targetAttr) {                    
+                    return;
+                }
+            }
 
             // Show the box and add a 'chi'-toggler
-            var targetAttr = $(evt.target).attr('x-ref-target');
             if (targetAttr != null) {
-                var $target = $('.' + targetAttr + '.' + 'x-more');
-                $target.append("<img src='chi.black.png' class='toggle' />")
+                var $target = $('[x-ref-target="' + targetAttr + '"].x-more');
+                $target.append("<img src='images/chi.black.png' class='toggle' />")
                 $target.show('slideDown');
             }           
         });

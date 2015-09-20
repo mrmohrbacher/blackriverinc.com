@@ -360,9 +360,13 @@ tr.row-subset td {
 .hidden {
   display: none;
 }
+/* ----------------------------- */
+/* X-ref : Activates a callout.  */
+/* ----------------------------- */
 .x-ref {
-  background-color: white;
-  color: GrayText;
+  cursor: pointer !important;
+  padding-left: 8px;
+  margin-left: -8px;
 }
 .x-ref.tooltip::after {
   content: 'Click to see more...';
@@ -372,9 +376,10 @@ tr.row-subset td {
   color: black;
   padding: 8px;
   border: 2px outset darkgrey;
-  width: 75%;
+  width: calc(100% - 12px);
   position: relative;
-  left: 12.5%;
+  left: -8px;
+  top: -8px;
 }
 .x-more > .toggle {
   display: inline-block;
