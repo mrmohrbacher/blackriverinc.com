@@ -10,11 +10,13 @@ p, li, h1, h2, h3, h4, a, table, #nav a, .filter {
     p.xskills > span {
         font-style: italic;
     }
+
 ul {
-  margin-top: .5em;
-  margin-left: 1em;
-  list-style-position: outside;
+    margin-top: .5em;
+    margin-left: 1em;
+    list-style-position: outside;
 }
+
 .target-offset {
     position: absolute;
     width: 0;
@@ -118,7 +120,7 @@ h2, h3, h4 {
 
 h4 {
     font-weight: normal;
-    text-decoration:underline;
+    text-decoration: underline;
     margin-left: 0px;
 }
 
@@ -375,6 +377,9 @@ tr.row-subset td {
 
 
 .prompt {
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
     position: relative;
     left: 0;
     top: 0px;
@@ -383,8 +388,9 @@ tr.row-subset td {
     color: darkgrey;
     font-size: 1.0em;
     font-weight: 300;
-    line-height: 2.0em;
+    line-height: 1.2em;
     display: inline-block;
+    margin: 2px 0;
     -moz-transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
     -o-transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
     -webkit-transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
@@ -418,22 +424,22 @@ tr.row-subset td {
     margin-left: -8px;
 }
 
-.x-ref::after {
-    content: '+';
-    position: absolute;
-    right: 4px;
-    color: rgba(0,0,0, 0.5);
-}
+    .x-ref::after {
+        content: '+';
+        position: absolute;
+        right: 4px;
+        color: rgba(0,0,0, 0.5);
+    }
 
-.x-ref.open::after,
-.x-ref.glow::after {
-    color: rgba(0,0,0, 1);
-}
+    .x-ref.open::after,
+    .x-ref.glow::after {
+        color: rgba(0,0,0, 1);
+    }
 
 
-.x-ref.open::after {
-    content: '-';
-}
+    .x-ref.open::after {
+        content: '-';
+    }
 
 .x-more {
     background-color: white;
@@ -465,7 +471,9 @@ tr.row-subset td {
     }
 
 
-@viewport {
+@viewport
+
+{
     -ms-zoom: 1.0;
     zoom: 1.0;
     width: extend-to-zoom;
