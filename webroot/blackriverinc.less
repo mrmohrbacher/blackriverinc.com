@@ -99,6 +99,7 @@ h1 {
     margin: 4px 0px 4px 0px;
     font-size: 1.25em;
     line-height: 1.25em;
+    width: ~"calc(100% - 10px)";
 }
 
     h1.current {
@@ -161,7 +162,7 @@ h4 {
 
 #header {
     background: #F8F8E1;
-    width: 100%;
+    width: calc(~"100% - 10px");
     height: 166px;
     z-index: 100;
     padding-left: 8px;
@@ -471,9 +472,7 @@ tr.row-subset td {
     }
 
 
-@viewport
-
-{
+@viewport {
     -ms-zoom: 1.0;
     zoom: 1.0;
     width: extend-to-zoom;
