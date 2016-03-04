@@ -8,28 +8,65 @@
     <link href="/css/blackriverinc.css" rel="stylesheet" />
 
     <script type="text/javascript">
+        function formatJSON(jsonString) {
+            return jsonString
+                    .replace(/\}/g, '}<br/>')
+                    .replace(/,/g, ',<br/>')
+                    .replace(/\{/g, '<br/>{<br/>')
+                    .replace(/<br\/>/, '')
+                    ;
+
+        }
+
         $(document).ready(function () {
+
+            $('#response').hide();
 
             console.log('Ready!');
 
-            var portal = 'https://portalwebservice.e-imo.com:443/api/product?xv=';
+            var portal = 'https://portalwebservice.e-imo.com:443/api/product';
 
-            $('#request').click(function () {
+            $('#path').val(portal);
 
-                $.ajax(portal + (new Date()).getMilliseconds().toString())
-                    .done(function () {
-                        $('#response').html('<h4>Good!</h4>')
+            $('#request').click(function (src) {
+
+                $('#response').hide();
+
+                var path = $('#path').val() + '?xv=' + (new Date()).getMilliseconds().toString();
+
+                $.ajax(path, {
+                    crossDomain: true,
+                    method: 'GET'
+                    })
+                    .done(function (data, status, response) {
+                        if (response.responseJSON == null) {
+                            $('#response').html(data)
+                        } else {
+                            $('#response').html(formatJSON(response.responseText))
+                        }
                     })
                     .fail(function () {
                         $('#response').html('<h4>Query failed!</h4>')
                     });
 
+                $('#response').show();
             });
         });
     </script>
 </head>
-<body style="margin-left: 24px;">
-    <h2>Hello, there!</h2>
-    <button id="request" class="button">Query IMO Portal</button><span id="response" style="margin-left: 6px; width: 40px;"></span>
+<body style="margin-left: 25%; width: 50%;">
+    <h2>AJAX CORS Test</h2>
+    <!--
+    <form id="portal" action="https://portalwebservice.e-imo.com:443/api/product?xv=" method="get">
+    -->
+    <div style="width: 75%; margin-right: auto; margin-left: auto;">
+        <input type="text" id="path" style="width: 50%;border: 2px inset darkgray;padding: 4px;background-color: white;" />
+
+        <button id="request" class="button" style="cursor:pointer;">Query</button>
+    </div>
+    <div id="response" style="margin-top: 8px; width: 75%;margin-right: auto; margin-left: auto;border: 2px inset darkgray;padding: 4px;background-color: whitesmoke;font-family:Courier New, Courier, monospace;"></div>
+    <!--
+    </form>
+    -->
 </body>
 </html>
