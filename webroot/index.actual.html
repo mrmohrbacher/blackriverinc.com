@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
@@ -9,15 +9,450 @@
 
     <script type="text/javascript" src="scripts/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="scripts/jquery-ui.js"></script>
-<!--    <script type="text/javascript" src="scripts/jquery.ui.touch-punch.min.js"> </script>-->
+    <script type="text/javascript" src="scripts/jquery.ui.touch-punch.min.js"> </script>
     <script type="text/javascript" src="scripts/filters.js"></script>
-
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href="css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="css/standard.css" type="text/css" rel="stylesheet" />
-    <link href="css/tooltip.css" type="text/css" rel="stylesheet" />
+    <link type="text/css" src="styles/reset.css" rel="stylesheet" />
+    <link href="styles/standard.css" type="text/css" rel="stylesheet" />
     <link href="scripts/jquery-ui.css" type="text/css" rel="stylesheet" />
-    <link href="css/blackriverinc.css" rel="stylesheet" />
+    <style type="text/css">
+        <!--
+
+        .target-offset {
+            position: absolute;
+            width: 0;
+            height: 166px;
+            bottom: 100%;
+        }
+
+        .inline {
+            display: inline-block;
+        }
+
+        .top {
+            position: fixed;
+            top: 0px;
+        }
+
+        .block {
+            left: 200px;
+        }
+
+        .left {
+            float: left;
+        }
+
+
+        hr.section {
+            bottom: 0;
+            margin: 12px 4px 16px 4px;
+        }
+
+        .footer {
+            background-color: #F8F8E1;
+            position: fixed;
+            bottom: 0;
+            z-index: 30;
+            width: 100%;
+            font-size: 8pt;
+            padding: 2px;
+            display: inline-block;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-left: -100px;
+        }
+
+        .spacer {
+            width: 0;
+            height: 26px;
+            background-color: transparent;
+            background-image: none;
+            margin-top: 6px;
+            display: inline-block;
+            margin: 0;
+        }
+
+        div.section {
+            position: relative;
+        }
+
+        body {
+            background: #F8F8E1;
+            position: relative;
+            max-width: 60em;
+        }
+
+        a {
+            font-size: 1.0em;
+        }
+
+        h1 {
+            position: relative;
+            background: linear-gradient(silver, darkgray);
+            background-color: silver;
+            border: 1px outset;
+            padding-left: 4px;
+            padding-right: 4px;
+            margin: 4px 0px 4px 0px;
+            font-size: 1.25em;
+            line-height: 1.25em;
+        }
+
+            h1.current {
+                border: 1px inset;
+                position: fixed;
+                top: 162px;
+                margin-right: 8px;
+            }
+
+            h1.spacer {
+                border: 1px solid transparent;
+            }
+
+        h2, h3 {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        #nav {
+            background: #F8F8E1;
+            width: 200px;
+            left: 0;
+        }
+
+            #nav a {
+                border: solid 1px white;
+                display: block;
+                font-family: "Times New Roman", serif;
+                margin-top: .1em;
+                margin-bottom: .1em;
+                padding-top: .5em;
+                padding-bottom: .75em;
+                height: 1em;
+                width: 95%;
+                margin-left: 5px;
+                text-decoration: none;
+                text-indent: 1em;
+                font-size: 12pt;
+            }
+
+                #nav a:hover {
+                    background: #FFFFE1;
+                    border: solid 1px silver;
+                }
+
+
+        #content {
+            background: #F8F8E1;
+            max-width: 70em;
+            position: absolute;
+            top: 166px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        #header {
+            background: #F8F8E1;
+            width: 100%;
+            height: 166px;
+            z-index: 100;
+            padding-left: 8px;
+            padding-right: 4px;
+        }
+
+        #header h2 {
+            margin: 4px;
+        }
+
+        #address-header {
+            position: relative;
+        }
+        .show-outline #address-header {
+            outline: 1px solid red;
+        }
+
+        #address-header p {
+            position: relative;
+            margin-left: 4px;
+        }
+
+        #address-header address, #address-header img {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #address-header address {
+            position: relative;
+            
+        }
+
+        #address-header img {
+            border: 2px outset #888888;
+            padding: 0px;
+        }
+
+        address {
+            margin-left: 12px;
+            width: 200px;
+        }
+
+             address > p {
+                display: inline-block;
+                margin: 0 2px;
+            }
+            .show-outline address > p {
+                outline: 1px solid red;
+            }
+
+        .show-outline address {
+            outline: 1px solid red;
+        }
+        #skill-op {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            font-size: 10pt;
+            color: black;
+            position: relative;
+            top: 4px;
+            display:none;
+        }
+
+        #content th {
+            border-bottom-style: solid;
+            border-bottom-color: black;
+            border-bottom-width: 1px;
+            text-align: left;
+        }
+
+        #content h2 + table {
+            width: 85%;
+        }
+
+        div.masked[xskills] *, div.masked[xskills] * {
+            display: none;
+            transition: display 2s ease-out;
+        }
+
+        div.masked[xskills] > h2,
+        div.masked[xskills] > h3,
+        div.masked[xskills] > h2 > a,
+        div.masked[xskills] > h3 > a {
+            font-weight: 300;
+            color: darkgray;
+            display: initial;
+        }
+
+        @keyframes pulse-glow {
+            50% {
+                box-shadow: 0px 0px 18px black;
+            }
+        }
+
+        .filter {
+            border: 1px solid black;
+            font-size: 9pt;
+            font-weight: normal;
+            z-index: 25;
+            transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+            -o-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+            -webkit-transition: color 1s ease-out .3s, box-shadow 1s ease-out .3s, background-color 1s ease-out .3s, background-image 1s ease-out .3s;
+        }
+
+        .glow {
+            animation: pulse-glow 2.5s ease-in-out 4;
+            -o-animation: pulse-glow 2.5s ease-in-out 4;
+            -webkit-animation: pulse-glow 2.5s ease-in-out 4;
+            background-color: whitesmoke;
+            background-image: none;
+            cursor: move;
+        }
+
+        .filter.ghost {
+            background-color: whitesmoke;
+            background-image: none;
+            color: darkgray;
+            cursor: default;
+        }
+
+        .button {
+            padding: 1px 4px;
+        }
+
+        tr.row-subset td {
+            border-bottom: 1px solid black;
+        }
+
+        .cell-text {
+            font-size: 10pt;
+        }
+
+        /*
+        .section {
+            outline: 1px solid red;
+        } */
+        /* 
+         *  Position title and skill filter within Experience header.
+         */
+        #experience .title {
+            display: table;
+            border-spacing: 0 4px;
+            width: calc(100% - 10px);
+        }
+
+        .title-left, .title-right {
+            display: table-cell;
+        }
+
+        .title-left {
+            width: 120px;   
+        }
+
+        .title-right {
+            line-height: 14px;
+        }
+
+        .selected-skills {
+            position: relative;
+            border: 1px inset ButtonText;
+            border-radius: 4px;
+            padding: 0 4px;
+            color: transparent;
+            background-color: white;
+            margin-top: 2px;
+        }
+
+            .selected-skills .filter {
+                position: relative;
+                margin: 2px 0;
+                vertical-align: 3px;
+            }
+
+
+        .prompt {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            padding-left: 4px;
+            background-color: white;
+            color: darkgrey;
+            font-size: .6em;
+            font-weight: 300;
+            transition: color 1s ease-out;
+            vertical-align: 4px;
+            display: inline-block;
+            transition: color 1s ease-in-out .3s, font-weight 1s ease-in-out .3s;
+        }
+
+        @keyframes pulse-highlight {
+            50% {
+                color: black;
+                font-weight: 500;
+            }
+        }
+
+        .prompt.highlight {
+            animation: pulse-highlight 2.5s ease-in-out 4;
+            -o-animation: pulse-highlight 2.5s ease-in-out 4;
+            -webkit-animation: pulse-highlight 2.5s ease-in-out 4;
+        }
+
+       .hidden {
+            display: none;
+        }
+
+        @viewport {
+            zoom: 1.0;
+            width: extend-to-zoom;
+        }
+
+        @media only screen and (max-width: 720px) {
+            .street-address, .zipcode {
+                display: none;
+            }
+
+            address {
+                margin-left: 0px;
+            }
+
+            #address-header {
+                padding-left: 4px;
+            }
+            #nav {
+                display: none;
+                width: 0px;
+            }
+
+            #content {
+                left: 0px;
+                position: static;
+                top: 0;
+            }
+
+            div#header {
+                left: 0px;
+            }
+
+            h1.current {
+                position: relative;
+                top: 0;
+            }
+
+            .section .target-offset {
+                position:initial;
+                display: none;
+            }
+
+            h1.spacer {
+                display:none;
+            }
+
+            p {
+                margin-top:10px;
+            }
+
+            #address-header  p {
+                margin: 0;
+            }
+
+            .top {
+                position: relative;
+            }
+
+            .footer {
+                display:none;
+            }
+
+            .text-center {
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+        @media only screen and (max-width: 562px) {
+
+            h1 {
+                font-size: 1.0em;
+                height: initial;
+                width: 100%;
+            }
+
+            #address-header img {
+                display: none;
+            }
+            .prompt {
+                top: 2px;
+            }
+
+            .selected-skills {
+                display: none;
+            }
+
+            h2 {
+                font-size: 1em;
+            }
+        }
+        -->
+    </style>
 
     <script type="text/javascript">
 
@@ -39,7 +474,7 @@
             blackriverinc.filters.documentReady('xskills');
 
             var scroller = {
-                debug: false,
+                debug : false,
 
                 $currentSection: null,
 
@@ -108,7 +543,7 @@
                                                          + " {width: " + $title.width()
                                                          + "}");
                                 }
-                                $title.css({ width: containerWidth - 10 });
+                                $title.css({ width: containerWidth - 8});
                                 $title.addClass('current');
                                 $('h1.spacer', scroller.$currentSection).removeClass('hidden');
                             }
@@ -157,8 +592,8 @@
         <a href="#education-target">education</a>
 
         <input type="button" value="<<" class="scroll-cmd hidden" />
-        <input type="button" value="<" class="scroll-cmd  hidden" />
-        <input type="button" value=">" class="scroll-cmd hidden" />
+        <input type="button" value="<" class="scroll-cmd  hidden"  />
+        <input type="button" value=">" class="scroll-cmd hidden"  />
         <input type="button" value=">>" class="scroll-cmd hidden" />
     </div>
 
@@ -177,14 +612,12 @@
 
             <address>
                 <span id='electronica'>
-                    <a href="mailto:mike@blackriverinc.com">mike@blackriverinc.com</a>
-                    847&#8209;361&#8209;3794
+                <a href="mailto:mike@blackriverinc.com">mike@blackriverinc.com</a>
+                847&#8209;361&#8209;3794
                 </span>
                 <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;geocode=&amp;q=115+W+Euclid+Ave,+Arlington+Heights,+Cook,+Illinois+60004&amp;sll=42.0939,-87.909787&amp;sspn=0.006059,0.006298&amp;ie=UTF8&amp;ll=42.09784,-87.980404&amp;spn=0.024237,0.025191&amp;z=14&amp;iwloc=addr">
-                    <span class='street-address'>115&nbsp;West&nbsp;Euclid&nbsp;Avenue<br />
-                    </span>
-                    <span class='city-state'>Arlington&nbsp;Heights,&nbsp;IL<br />
-                    </span>
+                    <span class='street-address'>115&nbsp;West&nbsp;Euclid&nbsp;Avenue<br /></span>
+                    <span class='city-state'>Arlington&nbsp;Heights,&nbsp;IL<br /></span>
                     <span class='zipcode'>60004-5538</span>
                 </a>
             </address>
@@ -196,11 +629,10 @@
         <div id="story" class="section">
             <div id="story-target" class="target-offset"></div>
             <h1 class="title">Story</h1>
-            <h1 class="spacer hidden"></h1>
+            <h1 class="spacer hidden" ></h1>
             <p>
                 I am a systems architect and developer who has worked as a independent software
-               consultant since 1996 at <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River Systems, Inc.</a>
-                I bring with me extensive experience recommending
+               consultant since 1997. I bring with me extensive experience recommending
                and implementing technology that augments my clients' business practices. During
                my thirty-plus year technical career, I have held senior consulting roles in
                the financial, scientific, and insurance industries.
@@ -218,6 +650,9 @@
             </select>
             <h1 class="title">
                 <div class="title-left">Experience</div>
+                <div class="title-right selected-skills">
+                    <span class="prompt">Drop skills here to filter experience...</span>
+                </div>
             </h1>
             <h1 class="spacer hidden"></h1>
 
@@ -227,26 +662,21 @@
 
                 <tbody>
                     <tr class="row-subset">
-                        <td class="cell-text x-refXXX" x-ref="veryexperienced">Very Experienced
-                            <p class="x-more" x-ref-target="veryexperienced" style="display:none;">
-                            "Very Experienced" I have mastery of the advanced concepts, have solved significantly 
-                            difficult or advanced problems on a regular basis, and can provide multiple 
-                            alternative solutions to provide the best fit for the context I am working in.
-                            </p>
+                        <td class="cell-text">Very Experienced</td>
                     </tr>
-                    
                     <tr class="row-filters">
                         <td>
                             <div class="filter button">.NET</div>
                             <div class="filter button">C#</div>
-                            <div class="filter button">ADO.NET</div>
+                            <div class="filter button">
+                                ADO.NET
+                            </div>
                             <div class="filter button">
                                 LINQ
                             </div>
                             <div class="filter button">
                                 SQL&nbsp;Server
                             </div>
-                            <div class="filter button">SQL</div>
                             <div class="filter button">
                                 Entity&nbsp;Framework
                             </div>
@@ -257,18 +687,11 @@
                     </tr>
                     <tr class="row-filters">
                         <td>
-                            <div class="filter button">IIS</div>
                             <div class="filter button">MVC</div>
                             <div class="filter button">HTML</div>
                             <div class="filter button">C++</div>
                             <div class="filter button">C</div>
                             <div class="filter button">COM</div>
-                            <div class="filter button">Javascript</div>
-                            <div class="filter button">JQuery</div>
-                            <div class="filter button">Razor</div>
-                            <div class="filter button">CSS</div>
-                            <div class="filter button">Git</div>
-                            <div class="filter button">TFS</div>
                         </td>
                     </tr>
                     <tr class="row-subset">
@@ -276,92 +699,63 @@
                     </tr>
                     <tr class="row-filters">
                         <td>
-                            <div class="filter button">ASP.NET</div>
-                            <div class="filter button">DCOM</div>
-                            <div class="filter button">Sockets</div>
-                            <div class="filter button">.NET&nbsp;Remoting</div>
-                            <div class="filter button">WebServices</div>
-                            <div class="filter button">WCF</div>
-                            <div class="filter button">Azure</div>
-                            <div class="filter button">VB.NET</div>
-                            <div class="filter button">XML</div>
+
+                            <div class="filter button">
+                                Javascript
+                            </div>
+                            <div class="filter button">
+                                JQuery
+                            </div>
+                            <div class="filter button">
+                                IIS
+                            </div>
+                            <div class="filter button">
+                                ASP.NET
+                            </div>
+                            <div class="filter button">
+                                Razor
+                            </div>
+                            <div class="filter button">
+                                CSS
+                            </div>
+                            <div class="filter button">
+                                DCOM
+                            </div>
+                            <div class="filter button">
+                                Sockets
+                            </div>
+                            <div class="filter button">
+                                .NET&nbsp;Remoting
+                            </div>
+                            <div class="filter button">
+                                WebServices
+                            </div>
+                            <div class="filter button">
+                                WCF
+                            </div>
+                            <div class="filter button">
+                                Azure
+                            </div>                           
+                            <div class="filter button">
+                                SGML
+                            </div>
+                            <div class="filter button">
+                                XML
+                            </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="selected-skills">
-                <span class="prompt">Drop skills here to filter experience...</span>
-            </div>
 
-            <h2>July 1996 - Present <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River
+            <h2>July 1996 - Present <a href="http://www.blackriverinc.com/blackriverinc.html" target="_top">Black River
             Systems, Inc.</a> - Principal Consultant
             </h2>
             <p>Independent software consultant to businesses in the Chicago metropolitan area.</p>
             <div class="indent">
-                <div xskills="Scrum Agile .NET MVC 4.0 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML Oracle SQL IIS&nbsp;7">
-                    <h3>May 2016 - Present : Intelligent Medical Objects</h3>
-                        <p class="xskills">Team mentoring. Software development. System Engineering.</p>
-                </div>
-
-                <div xskills=".NET C# SQL IIS SSRS Razor SQL&nbsp;Server Entity&nbsp;Framework Git CSS JQuery Javascript Bootstrap PGP">
-                    <h3>March 2015&nbsp; - May 2016 : Horizon Pharmaceuticals</h3>
-                    <p class='xskills'>Introduced software source control mechanisms and procedures. Created installation packages for software delivery. 
-                        Replaced unsupportable and inflexible technologies with modern software techiques and technologies. 
-                        Scope of responsibilites include analysis, design, development, testing and deployment of repairs to existing system
-                        and replacement of current implementations.
-                    </p>
-                    <h4 class='x-ref' x-ref='roster'>Sales Operations Roster</h4>
-                    <p class="x-more" x-ref-target="roster" style="display:none;">
-                        The Sales Operations Roster is a support system employed by sales operations and management to track territory assignments of the sales force.
-                    </p>
-                        <ul>
-                            <li>Liason with user-community on design requirements.</li>
-                            <li>Front-end and back-end development of new web-site.</li>
-                            <li>Redevelopment and redeployment of reports onto SQL Server Reporting Services (SSRS) platform.</li>
-                            <li>Redesign of database schema.</li>
-                            <li>Redevelopment of integration with HRIS system</li>
-                        </ul>
-                    <h4 class='x-ref' x-ref='aggspend'>Aggregate Spend Integration</h4>
-                    <p class="x-more" x-ref-target="aggspend" style="display:none;">
-                        Aggregate Spend is a requirement of the Federal and state governments that pharmaceutical companies provide "Sunshine" reporting on value 
-                        transferred to health-care providers.
-                    </p>
-                        <ul>
-                            <li>Assured and auditable delivery of data between third-party expense reporting system and 
-                                <a href="https://www.aggregatespend.com/public/index.asp" target="other">MedPro AggregateSpendID&reg;</a> system.</li>
-                            <li>Extraction and delivery of data from corporate database to <a href="https://www.aggregatespend.com/public/index.asp" target="other">MedPro AggregateSpendID&reg;</a>.</li>
-                        </ul>
-                    </p>
-                </div>
-                <div xskills=".NET MVC&nbsp;4 C# JQuery Javascript AJAX Razor CSS HTML Oracle SQL IIS TFS">
-                    <h3>November 2014&nbsp; - January 2015 : Allstate</h3>
-                    <p class='xskills'>
-                        Developer of internal web-site for workflow automation. Site captures work requests and passes them to TIBCO messaging system.
-                    </p>
-                    <ul type="disc">
-                        <li>Front-end development of responsive web-pages.</li>
-                        <li>Server-side programming of web-page processing.</li>
-                        <li>Programming of complex business layer logic.</li>
-                        <li>Programming of database service layer and SQL queries.</li>
-                        <li>Design and development of access control framework.</li>
-                        <li>Mentoring of MVC model-binding and data annotations concepts to the development and support teams.</li>
-                        <li>Solution of programming conundrums for the development team.</li>
-                        <li>Diagnosis and repair of IIS configuration.</li>
-                    </ul>
-                </div>
-                <div xskills=".NET C# LINQ SQL&nbsp;Server Entity&nbsp;Framework TFS">
-                    <h3>August 2014&nbsp; - October 2014 : Shift - Communication Supply Chain Solutions</h3>
-                    <p class="xskills">
-                        Consultant to marketing communications' development team.
-                    </p>
-                    <ul type="disc">
-                        <li>Validation of new operations flow by &#8220;smart&#8221; processing against legacy system.</li>
-                    </ul>
-                </div>
-                <div xskills=".NET MVC&nbsp;2.0 C# JQuery Javascript AJAX ASP.NET CSS HTML SQL&nbsp;Server XML Git">
-                    <h3>May 2014&nbsp; - July 2014 : Ogilvy &amp; Mather Advertising</h3>
-                    <p class='xskills'>
-                        Developer for a major consumer product's web-site.
+                <div xskills=".NET MVC&nbsp;2.0 C# JQuery Javascript AJAX ASP.NET CSS HTML SQL&nbsp;Server XML">
+                    <h3>May 2014&nbsp; - July 2014 : <a href='http://ogilvy.com/' target="OGILVY">Ogilvy &amp; Mather Advertising</a></h3>
+                    <p>
+                        Developer for a major consumer product's web-site. (CSS, JQuery, Javascript,  C#, XML, ASP.NET, MVC 2.0, SQL Server)
                     </p>
                     <ul>
                         <li>Front-end development of responsive web-pages.</li>
@@ -369,10 +763,11 @@
                         <li>Server-to-server interface to a third-party customer-service vendor.</li>
                     </ul>
                 </div>
-                <div xskills=".NET&nbsp;4.0 MVC&nbsp;4 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server&nbsp;2012 IIS&nbsp;7 Entity&nbsp;Framework Generics TFS">
-                    <h3>February 2013&nbsp; - April 2014 : Shift - Communication Supply Chain Solutions</h3>
-                    <p class='xskills'>
+                <div xskills=".NET MVC 4.0 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server 2012 SQL IIS 7 Entity&nbsp;Framework Generic">
+                    <h3>February 2013&nbsp; - April 2014 : <a href='http://www.shift365.com'>Shift - Comunication Supply Chain Solutions</a></h3>
+                    <p>
                         Architect and developer of a web portal for sale and distribution of marketing materials to Bridgestone / Firestone dealerships. 
+            (MVC 4.0, C#, LINQ, JQuery, AJAX, Razor, SQL&nbsp;Server 2012, IIS 7)
                     </p>
                     <ul>
                         <li>Team leadership.</li>
@@ -385,25 +780,28 @@
                         <li>Web-site and database deployment.</li>
                     </ul>
                 </div>
-                <div xskills="JQuery Cordova CSS HTML Javascript">
-                    <h3>November 2012 - Present : Nancy Mohrbacher Solutions</h3>
-                    <p class='xskills'>
-                        Technical project manager for Breastfeeding Solutions phone application (25,000+ downloads).
+                <div xskills="Android iOS">
+                    <h3>November 2012 - Present : Breastfeeding Solutions</h3>
+                    <p>
+                        Technical project management for phone application: Breastfeeding Solutions. Available on iOS and Android platforms.
                     </p>
                 </div>
-                <div xskills=".NET C# MVC ASP.NET LINQ WCF SQL&nbsp;Server HTML SAP">
-                    <h3>November 2012 - January 2013 : Astellas Pharma US, Inc</h3>
-                    <p class="xskills">
-                        Maintenance developer for internal web-portal to accept, manage, and track personnel change notifications.
+                <div xskills=".NET C# MVC ASP.NET LINQ SAS WCF SQL&nbsp;Server SQL HTML">
+                    <h3>November 2012 - January 2013 : <a href="http://us.astellas.com/about/profile/index.aspx">Astellas Pharma US, Inc</a></h3>
+                    <p>
+                        Maintenance developer for internal web-portal to accept, manage, and track personnel change notifications.(C#, MVC, ASP.NET, SQL&nbsp;Server, ADO.NET, Linq, WCF, SAP)
                     </p>
                 </div>
-                <div xskills=".NET C# .NET .NET&nbsp;3.5 .NET&nbsp;4.0 SQL&nbsp;Server ASP.NET FTP TFS HTML Javascript WinForms ASP.NET DB2 SQL">
+                <div xskills=".NET C# .NET .NET&nbsp;3.5 .NET&nbsp;4.0 SQL&nbsp;Server ASP.NET FTP 
+            TFS HTML Javascript DevExpress 12.1 WinForms ASP.NET DB2 SQL">
                     <h3>April 2012 - October 2012&nbsp; CDW</h3>
-                    <p class="xskills">
+                    <p>
                         Software development of proprietary batch, web, and workstation applications for 
             support of client's sales and marketing functions. Responsibilties included 
             technical analysis, development, and deployment across a broad mix of 
-            technologies and methodologies in a dynamic environment.
+            technologies and methodologies in a dynamic environment. (C#/.NET 3.5, 4.0/SQL 
+            Server 2005/ASP.NET 2.0/FTP/TFS/HTML with Prototype Javascript 
+            Library/DevExpress 12.1 Windows Forms and ASP.NET Controls/DB2 on iSeries)
                     </p>
                 </div>
                 <div xskills=".NET C++ C# ASP.NET MVC CSS JQuery WCF SQL Azure Entity&nbsp;Framework Javascript">
@@ -413,17 +811,17 @@
             for friends, and self-education.
                     </p>
                     <ul>
-                        <li>Developed a custom web-site to accept equipment rentals and service requests for 
-                            Lact Corp Solutions, a vendor of Ceridian/Lifeworks. (C#/ASP.NET/jQuery/Azure)
+                        <li>Developed a custom web-site to accept equipment rentals and service requests for <a
+                            href="htp://www.lactcorp.com">Lact Corp Solutions</a>, a vendor of Ceridian/Lifeworks. (C#/ASP.NET/jQuery/Azure)
                         </li>
-                        <li>Consulting software engineer for Digital
-                Acoustics, a vendor of IP intercom systems and their clients. (C++/C#)
+                        <li>Consulting software engineer for <a href="http://www.digitalacoustics.com">Digital
+                Acoustics</a>, a vendor of IP intercom systems and their clients. (C++/C#)
                         </li>
-                        <li>Development and deployment of Azure web-service and table storage. (WCF, Azure)</li>
+                        <li>Self-education. (WCF/Azure/SQL Azure)</li>
                     </ul>
                 </div>
                 <div xskills=".NET SQL&nbsp;Server SQL C# XML XPath Powershell Entity&nbsp;Framework Generic">
-                    <h3>June - December 2011 Incept Consulting
+                    <h3>June - December 2011 <a href="http://www.inceptconsulting.com/">Incept Consulting</a>
                     </h3>
                     <p>
                         Co-architect of online report presentation system. The goal of the project was 
@@ -446,7 +844,7 @@
                     </ul>
                 </div>
                 <div xskills=".NET SQL&nbsp;Server VB.NET XML XSLT DOM C# LINQ ADO.NET ASP.NET Entity&nbsp;Framework Performance SQL">
-                    <h3>January 2009 - May 2011 Incept Consulting</h3>
+                    <h3>January 2009 €- May 2011 <a href="http://www.inceptconsulting.com/">Incept Consulting</a></h3>
                     <p>
                         Working as a software developer to modify and extend custom Window Forms and 
             ASP.NET workflow management system for background-security vendor.
@@ -469,7 +867,7 @@
                     </p>
                 </div>
                 <div xskills=".NET VB.NET SQL&nbsp;Server XML DOM FTP SQL">
-                    <h3>November 2008 - January 2009 NCSBN
+                    <h3>November 2008 - January 2009 <a href="http://www.ncsbn.org/">NCSBN</a>
                     </h3>
                     <p>
                         Added XML transforms to replace BizTalk. Rewrote document distribution program using <a href="http://www.enterprisedt.com/">secure FTP package</a>.
@@ -480,7 +878,7 @@
                 </div>
 
                 <div xskills=".NET C++ Bloomberg B-Pipe Templates DCOM COM Shared&nbsp;Memory SVN Visual&nbsp;Studio&nbsp;2005 Javascript XML MFC Perl WinForms C# Generic">
-                    <h3>October 2006 - November 2008 Options Clearing Corporation
+                    <h3>October 2006 - November 2008 <a href="http://www.theocc.com/">Options Clearing Corporation</a>
                     </h3>
                     <p>
                         Lead designer, architect, and developer for Bloomberg real-time price feed and cache.
@@ -503,16 +901,19 @@
                 </div>
 
                 <div xskills=".NET C# SQL&nbsp;Server Office&nbsp;Automation SQL ADO.NET">
-                    <h3>March 2007 - April 2007 IsoSoft Solutions
+                    <h3>March 2007 - April 2007 <a href="http://www.isosoftsol.com/">IsoSoft Solutions</a>
                     </h3>
-                    <p class="xskills">
+                    <p>
                         Development of Office Automation program to generate Word documents from templates
                 and database tables.
-                    </p>                   
+                    </p>
+                    <p>
+                        Environment: C#, SQL&nbsp;Server2K, Office Automation
+                    </p>
                 </div>
 
                 <div xskills=".NET C# LEADTools ADO.NET SMO WinForms SQL">
-                    <h3>February 2006 - October 2006 Progeny Dental
+                    <h3>February 2006 - October 2006 <a href="http://www.progenydental.com/">Progeny Dental</a>
                     </h3>
                     <p>
                         Development of imaging application for dental x-ray radiography suite.
@@ -538,8 +939,9 @@
                         Environment: .NET, SQL&nbsp;Server2K, WinForms, ReportingServices, VB.NET
                     </p>
                 </div>
-                <div xskills=".NET C# WinForms C++ Templates XML Sockets COM TCP/IP Generic .NET&nbsp;Remoting">
-                    <h3>December 2002 - November 2005 Bio-Imaging Research
+                <div xskills=".NET C# WinForms C++ Templates Sockets COM TCP/IP Generic .NET&nbsp;Remoting">
+                    <h3>December 2002 - November 2005 <a href="http://www.bio-imaging.com/">Bio-Imaging
+                Research</a>
                     </h3>
                     <p>
                         Design and develop software infrastructure and GUI components for industrial and
@@ -580,7 +982,7 @@
                     </p>
                 </div>
                 <div xskills=".NET VB.NET SQL&nbsp;Server MSMQ ASP.NET ADO.NET SQL HTML XML C#">
-                    <h3>June 2002 - November 2002 Technium
+                    <h3>June 2002 - November 2002 <a href="http://www.technium.com/">Technium </a>
                     </h3>
                     <p>
                         Team leadership. design and development of sophisticated .NET Web applications and
@@ -589,7 +991,7 @@
                     </p>
                     <ul>
                         <li>Framework design and application development of rule-based policy quote component.
-                    (VB.NET, .NET, MSMQ) </li>
+                    (.NET, MSMQ) </li>
                         <li>Process, class design and SQL&nbsp;Server stored procedures to bind quoted application
                     as XML datasets to policy database. (XML, SQL&nbsp;Server) </li>
                         <li>Schema-driven code generator to load insurance-quoting rule tables (C#, .NET Reflection).
@@ -602,7 +1004,7 @@
                     </p>
                 </div>
                 <div xskills="C++ COM ATL Templates Multi-threaded Windows NT">
-                    <h3>January 2002 - May 2002 Matlock Capitol, LLC
+                    <h3>January 2002 - May 2002 <a href="http://www.matcap.com/">Matlock Capitol, LLC </a>
                     </h3>
                     <ul type="disc">
                         <li>Development of system infrastructure components for automated trading system. </li>
@@ -613,7 +1015,7 @@
                     </p>
                 </div>
                 <div xskills="C++ COM ATL Multi-threaded Windows USB MSI">
-                    <h3>April 2000 - January 2002 ArialPhone, LLC
+                    <h3>April 2000 - January 2002 <a href="http://www.arialphone.com/">ArialPhone, LLC </a>
                     </h3>
                     <p>
                         Co-design functional interface and systems architecture as well as software engineering
@@ -629,7 +1031,8 @@
                     </p>
                 </div>
                 <div xskills="HTML">
-                    <h3>December 1998 -&nbsp;December 2000&nbsp; The Art of Breastfeeding, Inc.
+                    <h3>December 1998 -&nbsp;December 2000&nbsp; <a href="http://www.artofbreastfeeding.com/"
+                        target="_top">The Art of Breastfeeding, Inc.</a>
                     </h3>
                     <p>
                         Site engineering and management of retail internet site.
@@ -639,7 +1042,7 @@
                     </p>
                 </div>
                 <div xskills="SQL&nbsp;Server SQL">
-                    <h3>March 2000 EthnicGrocer.COM
+                    <h3>March 2000 <a href="http://www.ethnicgrocer.com/" target="_top">EthnicGrocer.COM</a>
                     </h3>
                     <p>
                         Database support and administration.
@@ -653,7 +1056,7 @@
                     </p>
                 </div>
                 <div xskills="C++ COM Windows NT SQL&nbsp;Server ODBC SQL">
-                    <h3>July 1998 - February 2000 McKesson-HBOC
+                    <h3>July 1998 - February 2000 <a href="http://www.hboc.com/" target="_top">McKesson-HBOC</a>
                     </h3>
                     <p>
                         Software engineering of surgical management package.
@@ -672,7 +1075,7 @@
                 </div>
 
                 <div xskills="C++ COM Windows NT 4.0 MS SQL&nbsp;Server ODBC SQL">
-                    <h3>June 1997 - June 1998 Wheels, Inc.
+                    <h3>June 1997 - June 1998 <a href="http://www.wheels.com/" target="_top">Wheels, Inc.</a>
                     </h3>
                     <p>
                         Programming for vehicle leasing orders system.
@@ -700,7 +1103,7 @@
                 </div>
 
                 <div xskills="Windows OpenVMS SQL&nbsp;Server SQL DBLib Javascript ColdFusion HTML Perl C">
-                    <h3>July 1996 - May 1997 William M. Mercer
+                    <h3>July 1996 - May 1997 <a href="http://www.wmmercer.com/" target="_top">William M. Mercer</a>
                     </h3>
                     <p>
                         Developed integrated Voice Response/Web employee benefit enrollment system for Dell.
@@ -735,7 +1138,7 @@
                 </p>
             </div>
             <div xskills="C++ C">
-                <h2>May 1993 - June 1995 William M. Mercer
+                <h2>May 1993 - June 1995 <a href="http://www.wmmercer.com/" target="_top">William M. Mercer</a>
                     - Senior Systems Analyst</h2>
                 <p>
                     Design and programming of interactive systems to capture benefit enrollments.
@@ -753,6 +1156,63 @@
                 </p>
             </div>
 
+            <div xskills="C++ VMS SQL SGML">
+                <h2>November 1988 - May 1993 <a href="http://www.datalogics.com/" target="_top">Datalogics,
+                Inc.</a> - Technical Consultant
+                </h2>
+                <p>
+                    Development of SGML and text database applications.
+                </p>
+                <ul>
+                    <li>Design and programming of New Drug Application database management system for Searle
+                Pharmaceuticals. </li>
+                    <li>Systems analysis, design, and team leader of SGML-compliant technical document management
+                system for General Dynamics Land Systems. </li>
+                    <li>Team lead and programming of document management and SGML-driven publication system
+                for Callaghan Publishing. </li>
+                </ul>
+                <p>
+                    Remote process execution and control utility. DEC/VMS server processes controlled
+            throughTCP/IP library.
+                </p>
+                <p>
+                    Environment: DEC/VMS, C, C++, TCP/IP, SQL(Rdb), SGML
+                </p>
+            </div>
+
+            <div xskills="Consulting C 8086-Assembler MS-DOS">
+                <h2>August 1987 - October 1988 <u>Wizdom Systems, Inc</u>- Senior Software Engineer
+                </h2>
+                <p>
+                    Management and Information Systems Consulting.
+                </p>
+                <ul>
+                    <li>Functional and data modeling to integrate heterogeneous systems at telecommunications
+                manufacturer Stromberg-Carlson. </li>
+                    <li>Interrupt-driven operating system for embedded-microprocessor data collection device.
+                    </li>
+                </ul>
+                <p>
+                    Environment: IDEF-0, IDEF-1, C, 8086-Assembler, MS-DOS
+                </p>
+            </div>
+
+            <div xskills="C MDBS Database MS-DOS">
+                <h2>June 1984 - July 1987 <u>mdbs, inc.</u>- Systems Designer
+                </h2>
+                <p>
+                    Information Systems Consulting: Team Lead, Design, and Programming.
+                </p>
+                <ul>
+                    <li>Dictation-management system. </li>
+                    <li>Funds-transfer banking package. </li>
+                    <li>Data communications driver. </li>
+                    <li>Marshalling interface to interactive forms sub-system. </li>
+                </ul>
+                <p>
+                    Environment: C, MDBS (Network-model DBMS), MS-DOS
+                </p>
+            </div>
             <hr class="section" />
         </div>
 
@@ -784,6 +1244,6 @@
             <hr class="section" />
         </div>
     </div>
-    <div class="footer text-center block"><span style="">&copy; Black River Systems, Inc of Illinois - September 23, 2015</span></div>
+    <div class="footer text-center block"><span style="">&copy; Black River Systems, Inc of Illinois - Aug 4, 2014</span></div>
 </body>
 </html>
