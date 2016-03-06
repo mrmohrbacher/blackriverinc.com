@@ -8,63 +8,104 @@
     <link href="/css/blackriverinc.css" rel="stylesheet" />
 
     <script type="text/javascript">
-        function formatJSON(jsonString) {
+        function formatJSONString(jsonString) {
             return jsonString
                     .replace(/\}/g, '}<br/>')
                     .replace(/,/g, ',<br/>')
                     .replace(/\{/g, '<br/>{<br/>')
                     .replace(/<br\/>/, '')
-                    ;
+            ;
 
         }
 
-        $(document).ready(function () {
+        function formatJSON(objet, depth) {
 
-            $('#response').hide();
+            if (depth == null) {
+                depth = 0;
+            }
+            if (depth > 6) {
+                return "   *Runaway recursion*   ";
+            }
 
-            console.log('Ready!');
+            var jStrings = new Array(3);
+            jStrings[1] = '';
+            if (typeof (objet) == 'object') {
 
-            var portal = 'https://portalwebservice.e-imo.com:443/api/product';
+                jStrings[0] = ((depth > 0)?('<br/>' + '&nbsp;'.repeat(depth * 2)):'') 
+                                + '{<br/>';
+                for (var prop in objet) {
+                    if (!objet.hasOwnProperty(prop)) {
+                        continue;
+                    }
+                    if (jStrings[1].length > 0) {
+                        jStrings[1] += ',</br>';
+                    } else {
+                        jStrings[1] = '';
+                    }
+                    jStrings[1] += '&nbsp;'.repeat(depth * 2) + '"' + prop + '" : '
+                                      + formatJSON(objet[prop], depth + 1);
+                }
+                jStrings[2] = '<br/>' + '&nbsp;'.repeat(depth * 2) + '}';
 
-            $('#path').val(portal);
+            } else {
+                jStrings[0] = '"';
+                jStrings[1] = objet;
+                jStrings[2] = '"';
+            }
+            return jStrings.join('');
+        }
 
-            $('#request').click(function (src) {
+            $(document).ready(function () {
 
                 $('#response').hide();
 
-                var path = $('#path').val() + '?xv=' + (new Date()).getMilliseconds().toString();
+                console.log('Ready!');
 
-                $.ajax(path, {
-                    crossDomain: true,
-                    method: 'GET'
-                    })
-                    .done(function (data, status, response) {
-                        if (response.responseJSON == null) {
-                            $('#response').html(data)
-                        } else {
-                            $('#response').html(formatJSON(response.responseText))
-                        }
-                    })
-                    .fail(function () {
-                        $('#response').html('<h4>Query failed!</h4>')
-                    });
+                var portal = 'https://portalwebservice.e-imo.com:443/api/product';
 
-                $('#response').show();
+                $('#path').val(portal);
+
+                $('#request').click(function (src) {
+
+                    $('#response').hide();
+
+                    var path = $('#path').val() + '?xv=' + (new Date()).getMilliseconds().toString();
+
+                    $.ajax(path, {
+                        crossDomain: true,
+                        method: 'GET'
+                    })
+                        .done(function (data, status, response) {
+                            if (response.responseJSON == null) {
+                                $('#response').html(data)
+                            } else {
+                                $('#response').html(formatJSON(response.responseJSON))
+                            }
+                            $('#response').show();
+                        })
+                        .fail(function () {
+                            $('#response').html('<h4>Query failed!</h4>')
+                            $('#response').show();
+                        });
+
+                });
             });
-        });
     </script>
 </head>
-<body style="margin-left: 25%; width: 50%;">
+<body style="margin-left: auto; margin-right: auto; width: 75%;" class="box-border-all">
     <h2>AJAX CORS Test</h2>
     <!--
     <form id="portal" action="https://portalwebservice.e-imo.com:443/api/product?xv=" method="get">
     -->
     <div style="width: 75%; margin-right: auto; margin-left: auto;">
-        <input type="text" id="path" style="width: 50%;border: 2px inset darkgray;padding: 4px;background-color: white;" />
+        <input type="text" id="path" style="width: 80%; border: 2px inset darkgray; padding: 4px; background-color: white;" />
 
-        <button id="request" class="button" style="cursor:pointer;">Query</button>
+        <button id="request" class="button" style="float: right;">Query</button>
     </div>
-    <div id="response" style="margin-top: 8px; width: 75%;margin-right: auto; margin-left: auto;border: 2px inset darkgray;padding: 4px;background-color: whitesmoke;font-family:Courier New, Courier, monospace;"></div>
+    <div id="response"
+        class="blockquote"
+        style="margin-top: 8px; width: 75%; margin-right: auto; margin-left: auto; border: 2px inset darkgray; padding: 4px; background-color: whitesmoke;">
+    </div>
     <!--
     </form>
     -->

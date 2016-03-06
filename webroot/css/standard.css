@@ -91,7 +91,7 @@ hr.c1 {
     text-align: center;
 }
 
-blockquote {
+blockquote, .blockquote {
     font-size: 10pt;
     font-family: 'Courier New', serif;
     font-weight: bold;
@@ -136,10 +136,23 @@ code {
 }
 
 .button {
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
     border-radius: 2px;
     display: inline-block;
     background-image: linear-gradient(silver, darkgray);
     background-color: silver;
     color: black;
-    cursor: move;
+    cursor: pointer;
+    margin-left: 4px;
+}
+
+.outlined * {
+    outline: 1px solid green;
+}
+
+.box-border-all * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
