@@ -1,0 +1,119 @@
+﻿
+.ui-tabs {
+    background-color: #555555;
+}
+
+    .ui-tabs .ui-tabs-nav {
+        background-color: #555555;
+        display: flex;
+    }
+
+        .ui-tabs .ui-tabs-nav::after {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #555555;
+            -webkit-border-bottom-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            align-self: flex-end;
+            z-index: 101;
+        }
+
+        .ui-tabs .ui-tabs-nav li {
+            top: 0;
+            height: 100%;
+            color: white;
+            clear: left;
+        }
+
+            .ui-tabs .ui-tabs-nav li > a {
+                margin: 5px 5px 0 5px;
+                position: relative;
+                color: white;
+            }
+
+            .ui-tabs .ui-tabs-nav li.ui-tabs-selected > a {
+                margin: 5px 5px 0 5px;
+                position: relative;
+                color: black;
+            }
+            .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+                position: relative;
+            }
+
+            .ui-tabs .ui-tabs-nav li.ui-state-default {
+                height: 100%;
+                background-color: #555555;
+                color: white;
+                border-bottom-width: 5px;
+                border-bottom-color: #555555;
+                -webkit-border-bottom-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+                -webkit-border-bottom-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+                z-index: 100;
+            }
+
+            .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+                color: black;
+                background-color: white;
+                -moz-border-radius: 10px 10px 0 0;
+                -webkit-border-radius: 10px 10px 0 0;
+                border-radius: 10px 10px 0 0;
+                border: 1px solid white;
+                position: relative;
+                z-index: 0;
+            }
+
+                /*
+                    Generate the "feet" on either aside of the 
+                    selected tab. The adjacent elements will need something
+                    to act as fill behind them.
+                */ 
+                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::before,
+                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::after {
+                    -moz-box-sizing: content-box;
+                    -webkit-box-sizing: content-box;
+                    box-sizing: content-box;
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background-color: white;
+                    bottom: 0px;
+                }
+
+                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::before {
+                    position: absolute;
+                    left: -10px;
+                }
+
+                .ui-tabs .ui-tabs-nav li.ui-tabs-selected:first-of-type::before {
+                    width: 0px;
+                    height: 0px;
+                    background-color: transparent;
+                }
+
+                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::after {
+                    right: -10px;
+                }
+
+                .ui-tabs .ui-tabs-nav li.ui-tabs-selected:last-of-type::after {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    background-color: white;
+                    position: absolute;
+                    bottom: 0px;
+                    right: -11px;
+                }
+
+
+    .ui-tabs .ui-tabs-panel {
+        -webkit-border-top-left-radius: 10px;
+        border-top-left-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        border-top-right-radius: 10px;
+        border: 1px solid white;
+        background-color: white;
+    }
