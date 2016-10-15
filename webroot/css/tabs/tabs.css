@@ -31,8 +31,8 @@
                 position: relative;
                 color: white;
             }
-
-            .ui-tabs .ui-tabs-nav li.ui-tabs-selected > a {
+            .ui-tabs li.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active > a, 
+            .ui-tabs .ui-tabs-nav li.ui-tabs-active > a {
                 margin: 5px 5px 0 5px;
                 position: relative;
                 color: black;
@@ -54,7 +54,7 @@
                 z-index: 100;
             }
 
-            .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+            .ui-tabs .ui-tabs-nav li.ui-tabs-active {
                 color: black;
                 background-color: white;
                 -moz-border-radius: 10px 10px 0 0;
@@ -70,8 +70,8 @@
                     selected tab. The adjacent elements will need something
                     to act as fill behind them.
                 */ 
-                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::before,
-                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::after {
+                .ui-tabs .ui-tabs-nav li.ui-tabs-active::before,
+                .ui-tabs .ui-tabs-nav li.ui-tabs-active::after {
                     -moz-box-sizing: content-box;
                     -webkit-box-sizing: content-box;
                     box-sizing: content-box;
@@ -83,22 +83,22 @@
                     bottom: 0px;
                 }
 
-                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::before {
+                .ui-tabs .ui-tabs-nav li.ui-tabs-active::before {
                     position: absolute;
                     left: -10px;
                 }
 
-                .ui-tabs .ui-tabs-nav li.ui-tabs-selected:first-of-type::before {
+                .ui-tabs .ui-tabs-nav li.ui-tabs-active:first-of-type::before {
                     width: 0px;
                     height: 0px;
                     background-color: transparent;
                 }
 
-                .ui-tabs .ui-tabs-nav li.ui-tabs-selected::after {
+                .ui-tabs .ui-tabs-nav li.ui-tabs-active::after {
                     right: -10px;
                 }
 
-                .ui-tabs .ui-tabs-nav li.ui-tabs-selected:last-of-type::after {
+                .ui-tabs .ui-tabs-nav li.ui-tabs-active:last-of-type::after {
                     content: "";
                     width: 10px;
                     height: 10px;
