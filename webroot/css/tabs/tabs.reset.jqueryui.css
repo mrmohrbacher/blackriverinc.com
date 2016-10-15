@@ -3,12 +3,23 @@
     border: 0;
 }
 
-.ui-tabs .ui-corner-all, 
-.ui-tabs .ui-corner-top {
-    border-radius: 0;
-}
+    .ui-tabs .ui-corner-all,
+    .ui-tabs .ui-corner-top {
+        -webkit-border-top-left-radius: 10px;
+        border-top-left-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        border-top-right-radius: 10px;
+    }
 
-    .ui-tabs  .ui-tabs-nav {
+    .ui-tabs .ui-corner-bottom {
+        -webkit-border-bottom-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        -webkit-border-bottom-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .ui-tabs .ui-tabs-nav {
+        background: none;
         padding: 0;
         border: 0;
         margin: 0;
@@ -17,22 +28,18 @@
     .ui-tabs .ui-widget-header {
         background: none;
     }
-    .ui-tabs .ui-tabs-nav {
-        background: none;
+
+    .ui-tabs .ui-tabs-nav li {
+        padding: 0;
+        border: 0;
+        margin: 0;
+        top: 0;
     }
 
-        .ui-tabs .ui-tabs-nav li {
+
+        .ui-tabs .ui-tabs-nav li.ui-state-default,
+        .ui-tabs .ui-tabs-nav li.ui-state-selected,
+        .ui-tabs .ui-tabs-nav li.ui-state-active {
             padding: 0;
-            border: 0;
-            margin: 0;
-			top: 0;
+            background-image: none;
         }
-
-
-            .ui-tabs .ui-tabs-nav li.ui-state-default,
-            .ui-tabs .ui-tabs-nav li.ui-state-selected,
-            .ui-tabs .ui-tabs-nav li.ui-state-active
-			 {
-                padding: 0;
-                background-image: none;
-            }

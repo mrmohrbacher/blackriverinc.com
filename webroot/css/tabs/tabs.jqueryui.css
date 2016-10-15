@@ -1,4 +1,7 @@
-﻿
+﻿.panel {
+    background-color: #555555;
+    padding: 10px;
+}
 .ui-tabs {
     background-color: #555555;
 }
@@ -63,6 +66,7 @@
                 border: 1px solid white;
                 position: relative;
                 z-index: 0;
+                margin-bottom: -2px;
             }
 
                 /*
@@ -89,9 +93,10 @@
                 }
 
                 .ui-tabs .ui-tabs-nav li.ui-tabs-active:first-of-type::before {
-                    width: 0px;
-                    height: 0px;
-                    background-color: transparent;
+                    width: 5px;
+                    height: 10px;
+                    left: -1px;
+                    bottom: -8px;
                 }
 
                 .ui-tabs .ui-tabs-nav li.ui-tabs-active::after {
@@ -116,4 +121,9 @@
         border-top-right-radius: 10px;
         border: 1px solid white;
         background-color: white;
+    }
+
+    .ui-tabs li.ui-tabs-active:first-of-type + .ui-tabs-panel {
+        -webkit-border-top-left-radius: 0px;
+        border-top-left-radius: 0px;
     }
