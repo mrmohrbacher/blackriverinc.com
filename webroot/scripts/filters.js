@@ -33,7 +33,7 @@ blackriverinc.filters = {
                 var skills = xskills[idx].getAttribute(xskillsClass).split(' ');
 
                 var displaySkills = $('.' + xskillsClass, xskills[idx]);
-                $(displaySkills).append('<span>(' + skills.join(', ') + ')</span>');
+                $(displaySkills).append('<span> (' + skills.join(', ') + ')</span>');
                 blackriverinc.filters.debug && console.log(skills);
             });
         }
