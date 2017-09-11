@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Blackriverinc.Framework.Utility</id>
+    <version>1.0.6460.36909</version>
+    <title>Framework Utililty</title>
+    <authors>Black River Systems, Inc of Illinois</authors>
+    <owners>Black River Systems, Inc of Illinois</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Common Classes and Extension Methods</description>
+    <releaseNotes>Initial release of package.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Utility string reflection template</tags>
+    <dependencies />
+  </metadata>
+</package>
