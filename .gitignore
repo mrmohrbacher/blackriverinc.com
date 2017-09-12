@@ -5,3 +5,6 @@
 /site/bin/*
 /site/obj/*
 *.user
+/site/Packages/mrm-win8.cache.bin
+/.vs/blackriverinc/v15/sqlite3/storage.ide
+/.vs/blackriverinc/v15/.suo
