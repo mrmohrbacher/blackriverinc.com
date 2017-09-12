@@ -24,7 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "webroot", "http://localhost
 		SlnRelativePath = "webroot\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "site", "site\site.csproj", "{26B1BC23-491A-4493-9E67-74D9D391A968}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "packageserver", "site\packageserver.csproj", "{26B1BC23-491A-4493-9E67-74D9D391A968}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

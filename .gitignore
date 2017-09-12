@@ -1,1 +1,7 @@
 /*.suo
+*.dll
+*.xdt
+/packages/*
+/site/bin/*
+/site/obj/*
+*.user
