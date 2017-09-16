@@ -127,3 +127,9 @@
         -webkit-border-top-left-radius: 0px;
         border-top-left-radius: 0px;
     }
+
+    footer {
+        font-size: small;
+        width: 100%;
+        text-align:center;
+    }
