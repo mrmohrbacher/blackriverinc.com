@@ -111,6 +111,9 @@
     <Content Include="Packages\Blackriverinc.Framework.Utility.1.0.6460.36909.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Packages\Blackriverinc.Framework.Utility\1.0.6460.36909\Blackriverinc.Framework.Utility.1.0.6460.36909.nupkg" />
+    <Content Include="Packages\Blackriverinc.Framework.Utility\1.0.6460.36909\Blackriverinc.Framework.Utility.1.0.6460.36909.nupkg.sha512" />
+    <Content Include="Packages\Blackriverinc.Framework.Utility\1.0.6460.36909\Blackriverinc.Framework.Utility.nuspec" />
     <None Include="Properties\PublishProfiles\Package Server.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -124,7 +127,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Packages\Readme.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataServices\Routes.cs" />

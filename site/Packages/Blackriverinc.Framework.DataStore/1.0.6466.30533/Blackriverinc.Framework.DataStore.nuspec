@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Blackriverinc.Framework.DataStore</id>
+    <version>1.0.6466.30533</version>
+    <title>Framwork DataStore</title>
+    <authors>Black River Systems, Inc. of ILlinois</authors>
+    <owners>Black River Systems, Inc. of ILlinois</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Keyed Data and Providers</description>
+    <releaseNotes>Initial release of package..</releaseNotes>
+    <copyright>Copyright Black River Systems, Inc. of Illinois 2011 - 2017</copyright>
+    <tags>Utilitu Keyed Data</tags>
+    <dependencies>
+      <dependency id="Blackriverinc.Framework.Utility" version="1.0.6460.36909" />
+    </dependencies>
+  </metadata>
+</package>
