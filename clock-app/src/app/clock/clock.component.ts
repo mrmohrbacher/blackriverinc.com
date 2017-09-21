@@ -28,6 +28,8 @@ export class ClockComponent implements OnInit {
   private drawFace(context: CanvasRenderingContext2D, radius: number) {
     context.beginPath();
     context.arc(0, 0, radius, 0, 2 * Math.PI);
+    context.lineWidth = 3;
+    context.stroke();
     context.fillStyle = "white";
     context.fill();
 
