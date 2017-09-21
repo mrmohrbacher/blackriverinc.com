@@ -15,6 +15,8 @@ export class ClockComponent implements OnInit {
   height: number;
   width: number;
 
+  analogVisible: boolean = true;
+  
   @ViewChild("clockface") clockFace: ElementRef;
 
   private context: CanvasRenderingContext2D;

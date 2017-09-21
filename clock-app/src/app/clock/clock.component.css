@@ -1,0 +1,24 @@
+.clock {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 175px;
+    height: 175px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clock > canvas.hidden {
+    display:none;
+}
+
+.clock  .digital {
+    background-color: rgba(200, 225, 225, 0.5);
+    border: 2px inset gray;
+    border-radius: 2px;
+    left: 0;
+    padding-top: 4px;
+    position: absolute;
+    text-align:center;
+    top: 100%;
+    width: 100%;
+}
