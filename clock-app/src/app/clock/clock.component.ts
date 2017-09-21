@@ -12,13 +12,17 @@ export class ClockComponent implements OnInit {
   currentTime: Date;
   subscription: Subscription;
 
+  height: number;
+  width: number;
+
   @ViewChild("clockface") clockFace: ElementRef;
 
   private context: CanvasRenderingContext2D;
   private radius: number;
 
   constructor(private timeService: TimeService) {
-
+    this.height = 100;
+    this.width = 100;
   }
 
   private drawFace(context: CanvasRenderingContext2D, radius: number) {
@@ -77,8 +81,10 @@ export class ClockComponent implements OnInit {
     second = (second * Math.PI / 30);
     this.drawHand(ctx, second, radius * 0.9, radius * 0.02);
   }
+
   private drawClock() {
     if (this.context != null) {
+      
       this.drawFace(this.context, this.radius);
       this.drawNumbers(this.context, this.radius);
       this.drawTime(this.context, this.radius);
@@ -95,12 +101,12 @@ export class ClockComponent implements OnInit {
 
   ngAfterViewInit() {
 
-    this.radius = this.clockFace.nativeElement.height / 2;
-
+    let container = this.clockFace.nativeElement.parentElement;
+    this.height = this.clockFace.nativeElement.height  = container.offsetHeight;
+    this.width = this.clockFace.nativeElement.width = container.offsetWidth;
+    this.radius = (this.height / 2 ) * 0.90;
     this.context = this.clockFace.nativeElement.getContext("2d");
-    this.context.scale(2, 1);
-    this.context.translate(this.radius, this.radius);
-    this.radius = this.radius * 0.90;
+    this.context.translate(this.width / 2, this.height / 2);
 
     this.drawClock();
   }
