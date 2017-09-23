@@ -13,7 +13,7 @@ import { TimeService } from './clock/time.service';
   imports: [
     BrowserModule
   ],
-  providers: [TimeService],
+  providers: [TimeService, {provide: "TIME_INTERVAL", useValue: 100}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

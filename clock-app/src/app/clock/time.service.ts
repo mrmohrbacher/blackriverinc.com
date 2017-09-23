@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable, Inject, EventEmitter, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 /// Implement a simple time service to emit an event 
@@ -10,9 +10,10 @@ export class TimeService {
   
   tick$ = this.ticker.asObservable();
 
-  constructor() { 
+  constructor(@Inject("TIME_INTERVAL") interval) { 
+    console.log("Interval = " + interval);
     window.setInterval(() => {
       this.ticker.next(new Date());
-    }, 1000);
+    }, interval);
   }
 }
