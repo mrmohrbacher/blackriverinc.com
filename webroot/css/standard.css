@@ -156,3 +156,8 @@ code {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+span[x-href] {
+    color: blue;
+    cursor: pointer;
+}

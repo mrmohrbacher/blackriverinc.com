@@ -49,47 +49,55 @@
 
             } else {
                 jStrings[0] = '"';
-                jStrings[1] = objet;
+                jStrings[1] = (objet.toString().startsWith('/api'))?'<span x-href="https://portalwebservice.e-imo.com' + objet + '" >' + objet + '</span>':objet;
                 jStrings[2] = '"';
             }
             return jStrings.join('');
         }
 
-            $(document).ready(function () {
+        $(document).ready(function () {
+
+            $('#response').hide();
+
+            console.log('Ready!');
+
+            var portal = 'https://portalwebservice.e-imo.com:443';
+
+            $('#path').val(portal + '/api/product');
+
+            $('#request').click(function (src) {
 
                 $('#response').hide();
 
-                console.log('Ready!');
+                var path = $('#path').val() + '?xv=' + (new Date()).getMilliseconds().toString();
 
-                var portal = 'https://portalwebservice.e-imo.com:443/api/product';
-
-                $('#path').val(portal);
-
-                $('#request').click(function (src) {
-
-                    $('#response').hide();
-
-                    var path = $('#path').val() + '?xv=' + (new Date()).getMilliseconds().toString();
-
-                    $.ajax(path, {
-                        crossDomain: true,
-                        method: 'GET'
+                $.ajax(path, {
+                    crossDomain: true,
+                    method: 'GET',
+                    contentType: 'application/json'
+                })
+                    .done(function (data, status, response) {
+                        if (response.responseJSON == null) {
+                            $('#response').html(data)
+                        } else {
+                            $('#response').html(formatJSON(response.responseJSON))
+                        }
+                        $('#response').show();
                     })
-                        .done(function (data, status, response) {
-                            if (response.responseJSON == null) {
-                                $('#response').html(data)
-                            } else {
-                                $('#response').html(formatJSON(response.responseJSON))
-                            }
-                            $('#response').show();
-                        })
-                        .fail(function () {
-                            $('#response').html('<h4>Query failed!</h4>')
-                            $('#response').show();
-                        });
+                    .fail(function () {
+                        $('#response').html('<h4>Query failed!</h4>')
+                        $('#response').show();
+                    });
 
-                });
             });
+
+            $('span').click(function (src) {
+                console.log('click');
+                return false;
+            });
+        });
+
+
     </script>
 </head>
 <body style="margin-left: auto; margin-right: auto; width: 75%;" class="box-border-all">
