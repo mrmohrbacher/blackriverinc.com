@@ -8,16 +8,12 @@
     <link href="/css/blackriverinc.css" rel="stylesheet" />
 
     <script type="text/javascript">
-        function formatJSONString(jsonString) {
-            return jsonString
-                    .replace(/\}/g, '}<br/>')
-                    .replace(/,/g, ',<br/>')
-                    .replace(/\{/g, '<br/>{<br/>')
-                    .replace(/<br\/>/, '')
-            ;
 
-        }
+        var portal = 'https://portalwebservice.e-imo.com:443';
 
+        //----------------------------------------------------------------------
+        // Recursively display a formatted JSON response; indented by 
+        // object's level in graph.
         function formatJSON(objet, depth) {
 
             if (depth == null) {
@@ -31,8 +27,8 @@
             jStrings[1] = '';
             if (typeof (objet) == 'object') {
 
-                jStrings[0] = ((depth > 0)?('<br/>' + '&nbsp;'.repeat(depth * 2)):'') 
-                                + '{<br/>';
+                jStrings[0] = ((depth > 0) ? ('<br/>' + '&nbsp;'.repeat(depth * 2)) : '')
+                    + '{<br/>';
                 for (var prop in objet) {
                     if (!objet.hasOwnProperty(prop)) {
                         continue;
@@ -43,56 +39,78 @@
                         jStrings[1] = '';
                     }
                     jStrings[1] += '&nbsp;'.repeat(depth * 2) + '"' + prop + '" : '
-                                      + formatJSON(objet[prop], depth + 1);
+                        + formatJSON(objet[prop], depth + 1);
                 }
                 jStrings[2] = '<br/>' + '&nbsp;'.repeat(depth * 2) + '}';
 
+            } else if (objet.toString().startsWith('/api')) {
+                // Transform to a link back into the API Portal.
+                jStrings[0] = '';
+                jStrings[1] = '<span x-href="' + portal + objet + '" >' + objet + '</span>';
+                jStrings[2] = '';
             } else {
                 jStrings[0] = '"';
-                jStrings[1] = (objet.toString().startsWith('/api'))?'<span x-href="https://portalwebservice.e-imo.com' + objet + '" >' + objet + '</span>':objet;
+                jStrings[1] = objet;
                 jStrings[2] = '"';
             }
             return jStrings.join('');
         }
 
+        //----------------------------------------------------------------------
+        // Create Query Request; format response data.
+        function queryRequest(path) {
+
+            $('#response').hide();
+
+            $.ajax(path + '?xv=' + (new Date()).getMilliseconds().toString(), {
+                crossDomain: true,
+                method: 'GET',
+                dataType: 'json'
+            })
+                .done(function (data, status, response) {
+                    if (response.responseJSON == null) {
+                        $('#response').html(data)
+                    } else {
+                        $('#response').html(formatJSON(response.responseJSON))
+                    }
+                    $('#response').show();
+                })
+                .fail(function (args) {
+                    if (args.getResponseHeader('Access-Control-Allow-Origin') == null) {
+                        $('#response').html("<h4>No 'Access-Control-Allow-Origin' header; CORS call blocked.</h4>");
+                    } else {
+                        $('#response').html('<h4>Query failed!</h4>')
+                    }
+                    $('#response').show();
+                });
+
+        }
+
+        //----------------------------------------------------------------------
+        // Document Ready; setup immediate and deferred event handlers.
         $(document).ready(function () {
 
             $('#response').hide();
 
             console.log('Ready!');
 
-            var portal = 'https://portalwebservice.e-imo.com:443';
-
-            $('#path').val(portal + '/api/product');
+            $('#path').val(portal + '/api/v2/product');
 
             $('#request').click(function (src) {
 
-                $('#response').hide();
+                var path = $('#path').val();
 
-                var path = $('#path').val() + '?xv=' + (new Date()).getMilliseconds().toString();
-
-                $.ajax(path, {
-                    crossDomain: true,
-                    method: 'GET',
-                    contentType: 'application/json'
-                })
-                    .done(function (data, status, response) {
-                        if (response.responseJSON == null) {
-                            $('#response').html(data)
-                        } else {
-                            $('#response').html(formatJSON(response.responseJSON))
-                        }
-                        $('#response').show();
-                    })
-                    .fail(function () {
-                        $('#response').html('<h4>Query failed!</h4>')
-                        $('#response').show();
-                    });
+                queryRequest(path);
 
             });
 
-            $('span').click(function (src) {
-                console.log('click');
+            //-------------------------------------------------------------
+            // Deferred click handler; the <span> elements are dynamically 
+            // created, so binding must be delegated to ancestor element
+            // present at the time of binding.
+            $(document).on('click', 'span[x-href]', portal, function (src) {
+                console.log('click' + src.currentTarget.innerHTML);
+                queryRequest(portal + src.currentTarget.innerHTML);
                 return false;
             });
         });
