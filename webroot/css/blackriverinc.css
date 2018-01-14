@@ -370,8 +370,7 @@ tr.row-subset td {
 /* ----------------------------- */
 .x-ref {
   cursor: pointer !important;
-  padding-left: 8px;
-  margin-left: -8px;
+  /* */
 }
 .x-ref::after {
   content: '+';

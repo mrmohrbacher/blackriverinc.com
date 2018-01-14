@@ -157,7 +157,12 @@ code {
     box-sizing: border-box;
 }
 
-span[x-href] {
+span[x-ref] {
     color: blue;
     cursor: pointer;
+}
+
+p + h4 {
+    padding-left: 8px;
+    margin-left: -8px;
 }
