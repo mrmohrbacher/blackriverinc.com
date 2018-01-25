@@ -270,7 +270,7 @@ blackriverinc.filters = {
             var sourceAttr = $source.attr('x-ref');
 
             // Hide the previous 'x-more' box.
-            var $xmore = $('.x-more:visible');
+            var $xmore = $source.siblings('.x-more:visible');
             if ($xmore.length > 0) {
                 $xmore.hide('slideUp');
                 var lastTarget = $xmore.attr('x-ref-target');
