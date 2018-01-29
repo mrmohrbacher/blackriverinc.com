@@ -36,7 +36,9 @@ ul {
   top: 0px;
 }
 .block {
-  left: 200px;
+  margin-left: 64px;
+  margin-right: 64px;
+  background-color: white;
 }
 .left {
   float: left;
@@ -46,14 +48,14 @@ hr.section {
   margin: 12px 4px 16px 4px;
 }
 .footer {
-  background-color: #F8F8E1;
-  position: fixed;
-  bottom: 0;
-  z-index: 30;
-  width: 100%;
-  font-size: 8pt;
-  padding: 2px;
-  display: inline-block;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    z-index: 30;
+    width: 100%;
+    font-size: 8pt;
+    padding: 2px;
+    display: inline-block;
 }
 .text-center {
   text-align: center;
@@ -73,28 +75,28 @@ div.section {
   width: 100%;
 }
 body {
-  background: #F8F8E1;
-  position: relative;
-  max-width: 60em;
-  padding: 4px;
+    background-color: white;
+    position: relative;
+    max-width: 60em;
+    padding: 4px;
 }
 a {
   font-size: 1.0em;
 }
 h1 {
-  position: relative;
-  background: linear-gradient(#c0c0c0, #a9a9a9);
-  background-color: silver;
-  border: 1px outset;
-  padding-left: 4px;
-  padding-right: 4px;
-  margin: 4px 0px 4px 0px;
-  font-size: 1.25em;
-  line-height: 1.25em;
-  width: calc(100% - 10px);
+    position: relative;
+    background-color: ghostwhite;
+    border-left: 1px solid silver;
+    border-bottom: 1px solid gray;
+    border-color: silver;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin: 4px 0px 4px -4px;
+    font-size: 1.0em;
+    line-height: 2em;
+    width: calc(100% - 10px);
 }
 h1.current {
-  border: 1px inset;
   position: fixed;
   top: 162px;
   margin-right: 8px;
@@ -103,6 +105,12 @@ h1.current {
 h1.spacer {
   border: 1px solid transparent;
 }
+
+h2 {
+    font-size: 1.0em;
+    line-height: 1.25em;
+}
+
 h2,
 h3,
 h4 {
@@ -114,13 +122,13 @@ h4 {
   text-decoration: underline;
   margin-left: 0px;
 }
-#nav {
-  background: #F8F8E1;
-  width: 200px;
-  left: 0;
+.brs-menu {
+    background: #F8F8E1;
+    width: 200px;
 }
-#nav a {
-  border: solid 1px white;
+
+.brs-menu a {
+  border: solid 1px ghostwhite;
   display: block;
   margin-top: .1em;
   margin-bottom: .1em;
@@ -133,12 +141,13 @@ h4 {
   text-indent: 1em;
   font-size: 14px;
 }
-#nav a:hover {
+.brs-menu a:hover {
   background: #FFFFE1;
   border: solid 1px silver;
 }
+
 #content {
-  background: #F8F8E1;
+  background-color: white;
   max-width: 70em;
   position: absolute;
   top: 166px;
@@ -146,8 +155,10 @@ h4 {
   padding-right: 4px;
 }
 #header {
-  background: #F8F8E1;
-  width: calc(100% - 10px);
+  background: white;
+  width: 100%;
+  margin-left: 64px;
+  margin-right: 64px;
   height: 166px;
   z-index: 100;
   padding-left: 8px;
@@ -310,15 +321,10 @@ tr.row-subset td {
   line-height: 14px;
 }
 .selected-skills {
-  position: relative;
-  border: 1px inset ButtonText;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
   padding: 0 4px;
   color: transparent;
-  background-color: white;
-  margin-top: 8px;
+  background-color: ghostwhite;
+  float: right;
 }
 .selected-skills .filter {
   position: relative;
@@ -331,18 +337,11 @@ tr.row-subset td {
   content: 'Click to remove from filters.';
 }
 .prompt {
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  position: relative;
-  left: 0;
-  top: 0px;
-  padding-left: 4px;
-  background-color: white;
+  background-color: ghostwhite;
   color: darkgrey;
-  font-size: 1.0em;
+  font-size: .75em;
   font-weight: 300;
-  line-height: 1.2em;
+  line-height: 2em;
   display: inline-block;
   margin: 2px 0;
   -moz-transition: color 1s ease-in-out 0.3s, font-weight 1s ease-in-out 0.3s;
@@ -385,7 +384,7 @@ tr.row-subset td {
 .x-ref.open::after {
   content: '-';
 }
-.x-more {
+.brs-popdown {
   color: black;
   padding: 8px;
   width: calc(100% - 12px);
@@ -393,17 +392,18 @@ tr.row-subset td {
   left: -8px; 
   top: -8px;
 }
-.x-more > .toggle {
-  display: inline-block;
-  height: 10px;
-  vertical-align: -1px;
-  cursor: pointer;
-  position: absolute;
-  top: -16px;
-  right: -2px;
-  z-index: 10;
-  padding: 2px;
-}
+    .brs-popdown > .toggle {
+        display: inline-block;
+        height: 10px;
+        vertical-align: -1px;
+        cursor: pointer;
+        position: absolute;
+        top: -16px;
+        right: -2px;
+        z-index: 10;
+        padding: 2px;
+    }
+
 @viewport {
   -ms-zoom: 1.0;
   zoom: 1.0;
@@ -432,7 +432,7 @@ tr.row-subset td {
   #address-header {
     padding-left: 4px;
   }
-  #nav {
+  #nav > .x-more {
     display: none;
     width: 0px;
   }
@@ -444,7 +444,7 @@ tr.row-subset td {
   div#header {
     left: 0px;
   }
-  h1.current {
+  h1.current, .h1.current {
     position: relative;
     top: 0;
   }
@@ -473,7 +473,7 @@ tr.row-subset td {
   }
 }
 @media only screen and (max-width: 562px) {
-  h1 {
+  h1, .h1 {
     font-size: 1.0em;
     height: initial;
     width: 100%;

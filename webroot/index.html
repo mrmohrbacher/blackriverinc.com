@@ -150,39 +150,28 @@
 </head>
 <body class=''>
 
-    <div id="nav" class="top">
-        <link href="images/hamburger-menu.svg" rel="icon" class="x-ref" x-ref="menu"/>
-        <div class="x-more" x-ref-target="menu">
-            <a href="#story-target">story</a>
-            <a href="#experience-target">experience</a>
-            <a href="#associations-target">professional associations</a>
-            <a href="#education-target">education</a>
-            <a class="x-ref" x-ref="applications">examples</a>
-            <p class="x-more" x-ref-target="applications" style="display:none;">
-                <a href="lendinglibrary">MVC/WCF/SQLServer</a>
-                <a href="applications/clock-app">Angular 2/HTML5</a>
-                <a href="applications/tabs.html">CSS</a>
-                <a href="applications/imo-portal.html">CORS Enabled AJAX</a>
-            </p>
-        </div>
+    <!-- div id="nav" class="top">
+
         <input type="button" value="<<" class="scroll-cmd hidden" />
         <input type="button" value="<" class="scroll-cmd  hidden" />
         <input type="button" value=">" class="scroll-cmd hidden" />
         <input type="button" value=">>" class="scroll-cmd hidden" />
-    </div>
+    </div -->
 
     <div id="header" class="block top">
-        <h1>Mike Mohrbacher - Professional&nbsp;Resume</h1>
-        <div id="address-header">
+        <h1>
+            Mike Mohrbacher - Professional&nbsp;Resume
+        </h1>
+        <div id="address-header" style="position: relative;">
 
             <img id="MRMJPG"
-                src="mikeMohrbacher.jpg"
-                style="border-width: 1px; border-style: inset; position: relative;"
-                height="102"
-                width="79"
-                alt="Mike Mohrbacher"
-                onmouseover="switch_image(this, 'mikeMohrbacherVanDyke.jpg')"
-                onmouseout="switch_image(this, 'mikeMohrbacher.jpg')" />
+                 src="mikeMohrbacher.jpg"
+                 style="border-width: 1px; border-style: inset; position: relative;"
+                 height="102"
+                 width="79"
+                 alt="Mike Mohrbacher"
+                 onmouseover="switch_image(this, 'mikeMohrbacherVanDyke.jpg')"
+                 onmouseout="switch_image(this, 'mikeMohrbacher.jpg')" />
 
             <address>
                 <span id='electronica'>
@@ -190,13 +179,30 @@
                     847&#8209;361&#8209;3794
                 </span>
                 <a href="https://www.google.com/maps/place/727+N+Gibbons+Ave,+Arlington+Heights,+IL+60004/@42.0910572,-87.9635148,17z/data=!3m1!4b1!4m5!3m4!1s0x880fba4fbdfd0b3f:0x3712d083e5fefd9f!8m2!3d42.0910572!4d-87.9613315?hl=en">
-                    <span class='street-address'>727&nbsp;N&nbsp;Gibbons<br />
+                    <span class='city-state'>
+                        Arlington&nbsp;Heights,&nbsp;IL<br />
                     </span>
-                    <span class='city-state'>Arlington&nbsp;Heights,&nbsp;IL<br />
-                    </span>
-                    <span class='zipcode'>60004</span>
                 </a>
             </address>
+            <div class="right top">
+                <svg class="x-ref" x-ref="menu" height="26px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
+                </svg>
+                <div class="x-more brs-menu" x-ref-target="menu" style="display:none;">
+                    <a href="#story-target">story</a>
+                    <a href="#experience-target">experience</a>
+                    <a href="#associations-target">professional associations</a>
+                    <a href="#education-target">education</a>
+                    <a href="http://www.blackriverinc.com/mikemohrbacher.doc">download resume...</a>
+                    <a class="x-ref" x-ref="applications">examples</a>
+                    <p class="x-more" x-ref-target="applications" style="display:none;">
+                        <a href="lendinglibrary">MVC/WCF/SQLServer</a>
+                        <a href="applications/clock-app">Angular 2/HTML5</a>
+                        <a href="applications/tabs.html">CSS</a>
+                        <a href="applications/imo-portal.html">CORS Enabled AJAX</a>
+                    </p>
+                </div>             
+            </div>
         </div>
     </div>
 
@@ -214,9 +220,6 @@
                my thirty-plus year technical career, I have held senior consulting roles in
                the financial, scientific, and insurance industries.
             </p>
-            <p>
-                <a href="http://www.blackriverinc.com/mikemohrbacher.doc" style="font-size: 1.2em;">Click here to download resume in MS-Word...</a>
-            </p>
         </div>
 
         <div id="experience" class="section">
@@ -225,8 +228,8 @@
                 <option value="|">Show experience that matches any selected skill.</option>
                 <option value="&">Show experience that matches all selected skills.</option>
             </select>
-            <h1 class="title">
-                <div class="title-left">Experience</div>
+            <h1 class="title title-left">
+                Experience<span class="selected-skills prompt">drop skills here...</span>
             </h1>
             <h1 class="spacer hidden"></h1>
 
@@ -300,9 +303,6 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="selected-skills">
-                <span class="prompt">Drop skills here to filter experience...</span>
-            </div>
 
             <h2>July 1996 - Present <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River
             Systems, Inc.</a> - Principal Consultant
@@ -336,7 +336,7 @@
                         and replacement of current implementations.
                     </p>
                     <h4 class='x-ref' x-ref='roster'>Sales Operations Roster</h4>
-                    <p class="x-more" x-ref-target="roster" style="display:none;">
+                    <p class="x-more brs-popdown" x-ref-target="roster" style="display:none;">
                         The Sales Operations Roster is a support system employed by sales operations and management to track territory assignments of the sales force. The system included integration with 
                         the company AD server to manage authorization to application functions.
                     </p>
@@ -348,7 +348,7 @@
                             <li>Redevelopment of integration with HRIS system</li>
                         </ul>
                     <h4 class='x-ref' x-ref='aggspend'>Aggregate Spend Integration</h4>
-                    <p class="x-more" x-ref-target="aggspend" style="display:none;">
+                    <p class="x-more brs-popdown" x-ref-target="aggspend" style="display:none;">
                         Aggregate Spend is a requirement of the Federal and state governments that pharmaceutical companies provide "Sunshine" reporting on value 
                         transferred to health-care providers.
                     </p>
