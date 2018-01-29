@@ -1,4 +1,4 @@
-h1 {
+h1, .h1 {
     margin-right: 0in;
     margin-left: 0in;
     font-size: 16.0pt;
@@ -165,4 +165,9 @@ span[x-ref] {
 p + h4 {
     padding-left: 8px;
     margin-left: -8px;
+}
+
+.right {
+    position:absolute;
+    right: 0;
 }
