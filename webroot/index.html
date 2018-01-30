@@ -9,7 +9,7 @@
 
     <script type="text/javascript" src="scripts/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="scripts/jquery-ui.js"></script>
-    <script type="text/javascript" src="scripts/jquery.ui.touch-punch.min.js"> </script>
+    <script type="text/javascript" src="scripts/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="scripts/filters.js"></script>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -99,21 +99,21 @@
                             }
                             // Add styles to new 'currentSection {position:fixed, top: 0}
                             if (scroller.$currentSection == null
-                            || scroller.$currentSection.attr('id') != scroller.sectionIds[i]) {
+                                || scroller.$currentSection.attr('id') != scroller.sectionIds[i]) {
                                 scroller.$currentSection = $('#' + scroller.sectionIds[i]);
                                 var containerWidth = scroller.$currentSection.width();
                                 $title = $('h1.title', scroller.$currentSection);
                                 if (scroller.debug) {
                                     console.log("Section : " + scroller.sectionIds[i]
-                                                         + " {width: " + $title.width()
-                                                         + "}");
+                                        + " {width: " + $title.width()
+                                        + "}");
                                 }
                                 $title.css({ width: containerWidth - 10 });
                                 $title.addClass('current');
                                 $('h1.spacer', scroller.$currentSection).removeClass('hidden');
                             }
 
-                            // We are iterating over the Sections in Y-order; break when we find the first 
+                            // We are iterating over the Sections in Y-order; break when we find the first
                             // Section in view
                             break;
                         }
@@ -185,8 +185,8 @@
                 </a>
             </address>
             <div class="right top">
-                <svg class="x-ref" x-ref="menu" height="26px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
+                <svg class="right x-ref" x-ref="menu" height="32px"style="padding-top: 2px;enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
                 </svg>
                 <div class="x-more brs-menu" x-ref-target="menu" style="display:none;">
                     <a href="#story-target">story</a>
@@ -196,12 +196,12 @@
                     <a href="http://www.blackriverinc.com/mikemohrbacher.doc">download resume...</a>
                     <a class="x-ref" x-ref="applications">examples</a>
                     <p class="x-more" x-ref-target="applications" style="display:none;">
-                        <a href="lendinglibrary">MVC/WCF/SQLServer</a>
-                        <a href="applications/clock-app">Angular 2/HTML5</a>
-                        <a href="applications/tabs.html">CSS</a>
-                        <a href="applications/imo-portal.html">CORS Enabled AJAX</a>
+                        <a href="lendinglibrary">MVC/WCF/SQLServer...</a>
+                        <a href="applications/clock-app">Angular 2/HTML5...</a>
+                        <a href="applications/tabs.html">CSS...</a>
+                        <a href="applications/imo-portal.html">CORS Enabled AJAX...</a>
                     </p>
-                </div>             
+                </div>
             </div>
         </div>
     </div>
@@ -214,11 +214,11 @@
             <h1 class="spacer hidden"></h1>
             <p>
                 I am a systems architect and developer who has worked as a independent software
-               consultant since 1996 at <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River Systems, Inc.</a>
+                consultant since 1996 at <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River Systems, Inc.</a>
                 I bring with me extensive experience recommending
-               and implementing technology that augments my clients' business practices. During
-               my thirty-plus year technical career, I have held senior consulting roles in
-               the financial, scientific, and insurance industries.
+                and implementing technology that augments my clients' business practices. During
+                my thirty-plus year technical career, I have held senior consulting roles in
+                the financial, scientific, and insurance industries.
             </p>
         </div>
 
@@ -233,20 +233,22 @@
             </h1>
             <h1 class="spacer hidden"></h1>
 
-            <h2>Summary of Skills
+            <h2>
+                Summary of Skills
             </h2>
             <table class="indent" id="skills" summary="Michael Mohrbacher: Summary of Technical Skills">
 
                 <tbody>
                     <tr class="row-subset">
-                        <td class="cell-text x-refXXX" x-ref="veryexperienced">Very Experienced
+                        <td class="cell-text x-refXXX" x-ref="veryexperienced">
+                            Very Experienced
                             <p class="x-more" x-ref-target="veryexperienced" style="display:none;">
-                            "Very Experienced" I have mastery of the advanced concepts, have solved significantly 
-                            difficult or advanced problems on a regular basis, and can provide multiple 
-                            alternative solutions to provide the best fit for the context I am working in.
+                                "Very Experienced" I have mastery of the advanced concepts, have solved significantly
+                                difficult or advanced problems on a regular basis, and can provide multiple
+                                alternative solutions to provide the best fit for the context I am working in.
                             </p>
                     </tr>
-                    
+
                     <tr class="row-filters">
                         <td>
                             <div class="filter button">.NET</div>
@@ -304,8 +306,11 @@
                 </tbody>
             </table>
 
-            <h2>July 1996 - Present <a href="http://www.blackriverinc.com/company-profile.html" target="_top">Black River
-            Systems, Inc.</a> - Principal Consultant
+            <h2>
+                July 1996 - Present <a href="http://www.blackriverinc.com/company-profile.html" target="_top">
+                    Black River
+                    Systems, Inc.
+                </a> - Principal Consultant
             </h2>
             <p>Independent software consultant to businesses in the Chicago metropolitan area.</p>
             <div class="indent">
@@ -330,33 +335,36 @@
 
                 <div xskills=".NET C# SQL IIS SSRS Razor SQL&nbsp;Server Entity&nbsp;Framework Git CSS JQuery Javascript Bootstrap PGP">
                     <h3>March 2015&nbsp; - November 2015 : Horizon Pharmaceuticals</h3>
-                    <p class='xskills'>Introduced software source control mechanisms and procedures. Created installation packages for software delivery. 
-                        Replaced unsupportable and inflexible technologies with modern software techiques and technologies. 
+                    <p class='xskills'>
+                        Introduced software source control mechanisms and procedures. Created installation packages for software delivery.
+                        Replaced unsupportable and inflexible technologies with modern software techiques and technologies.
                         Scope of responsibilites include analysis, design, development, testing and deployment of repairs to existing system
                         and replacement of current implementations.
                     </p>
                     <h4 class='x-ref' x-ref='roster'>Sales Operations Roster</h4>
                     <p class="x-more brs-popdown" x-ref-target="roster" style="display:none;">
-                        The Sales Operations Roster is a support system employed by sales operations and management to track territory assignments of the sales force. The system included integration with 
+                        The Sales Operations Roster is a support system employed by sales operations and management to track territory assignments of the sales force. The system included integration with
                         the company AD server to manage authorization to application functions.
                     </p>
-                        <ul>
-                            <li>Liason with user-community on design requirements.</li>
-                            <li>Front-end and back-end development of new web-site.</li>
-                            <li>Redevelopment and redeployment of reports onto SQL Server Reporting Services (SSRS) platform.</li>
-                            <li>Redesign of database schema.</li>
-                            <li>Redevelopment of integration with HRIS system</li>
-                        </ul>
+                    <ul>
+                        <li>Liason with user-community on design requirements.</li>
+                        <li>Front-end and back-end development of new web-site.</li>
+                        <li>Redevelopment and redeployment of reports onto SQL Server Reporting Services (SSRS) platform.</li>
+                        <li>Redesign of database schema.</li>
+                        <li>Redevelopment of integration with HRIS system</li>
+                    </ul>
                     <h4 class='x-ref' x-ref='aggspend'>Aggregate Spend Integration</h4>
                     <p class="x-more brs-popdown" x-ref-target="aggspend" style="display:none;">
-                        Aggregate Spend is a requirement of the Federal and state governments that pharmaceutical companies provide "Sunshine" reporting on value 
+                        Aggregate Spend is a requirement of the Federal and state governments that pharmaceutical companies provide "Sunshine" reporting on value
                         transferred to health-care providers.
                     </p>
-                        <ul>
-                            <li>Assured and auditable delivery of data between third-party expense reporting system and 
-                                <a href="https://www.aggregatespend.com/public/index.asp" target="other">MedPro AggregateSpendID&reg;</a> system.</li>
-                            <li>Extraction and delivery of data from corporate database to <a href="https://www.aggregatespend.com/public/index.asp" target="other">MedPro AggregateSpendID&reg;</a>.</li>
-                        </ul>
+                    <ul>
+                        <li>
+                            Assured and auditable delivery of data between third-party expense reporting system and
+                            <a href="https://www.aggregatespend.com/public/index.asp" target="other">MedPro AggregateSpendID&reg;</a> system.
+                        </li>
+                        <li>Extraction and delivery of data from corporate database to <a href="https://www.aggregatespend.com/public/index.asp" target="other">MedPro AggregateSpendID&reg;</a>.</li>
+                    </ul>
                     </p>
                 </div>
                 <div xskills=".NET MVC&nbsp;4 C# JQuery Javascript AJAX Razor CSS HTML Oracle SQL IIS TFS">
@@ -387,9 +395,9 @@
                     </ul>
                 </div>
                 <div xskills=".NET&nbsp;4.0 MVC&nbsp;4 C# JQuery LINQ Javascript AJAX Razor ASP.NET CSS HTML SQL&nbsp;Server&nbsp;2012 IIS&nbsp;7 Entity&nbsp;Framework Generics TFS">
-                    <h3>August 2014 - October 2014<br/>February 2013&nbsp; - April 2014  : Shift - Communication Supply Chain Solutions</h3>
+                    <h3>August 2014 - October 2014<br />February 2013&nbsp; - April 2014  : Shift - Communication Supply Chain Solutions</h3>
                     <p class='xskills'>
-                        Architect and developer of a web portal for sale and distribution of marketing materials to Bridgestone / Firestone dealerships. 
+                        Architect and developer of a web portal for sale and distribution of marketing materials to Bridgestone / Firestone dealerships.
                     </p>
                     <ul>
                         <li>Team leadership.</li>
@@ -417,76 +425,90 @@
                 <div xskills=".NET C# .NET .NET&nbsp;3.5 .NET&nbsp;4.0 SQL&nbsp;Server ASP.NET FTP TFS HTML Javascript WinForms ASP.NET DB2 SQL">
                     <h3>April 2012 - October 2012&nbsp; CDW</h3>
                     <p class="xskills">
-                        Software development of proprietary batch, web, and workstation applications for 
-            support of client's sales and marketing functions. Responsibilties included 
-            technical analysis, development, and deployment across a broad mix of 
-            technologies and methodologies in a dynamic environment.
+                        Software development of proprietary batch, web, and workstation applications for
+                        support of client's sales and marketing functions. Responsibilties included
+                        technical analysis, development, and deployment across a broad mix of
+                        technologies and methodologies in a dynamic environment.
                     </p>
                 </div>
                 <div xskills=".NET C++ C# ASP.NET MVC CSS JQuery WCF SQL Azure Entity&nbsp;Framework Javascript">
                     <h3>January 2012 - March 2012</h3>
                     <p>
-                        Sabbatical to recharge, spend time with family, develop small projects 
-            for friends, and self-education.
+                        Sabbatical to recharge, spend time with family, develop small projects
+                        for friends, and self-education.
                     </p>
                     <ul>
-                        <li>Developed a custom web-site to accept equipment rentals and service requests for 
+                        <li>
+                            Developed a custom web-site to accept equipment rentals and service requests for
                             Lact Corp Solutions, a vendor of Ceridian/Lifeworks. (C#/ASP.NET/jQuery/Azure)
                         </li>
-                        <li>Consulting software engineer for Digital
-                Acoustics, a vendor of IP intercom systems and their clients. (C++/C#)
+                        <li>
+                            Consulting software engineer for Digital
+                            Acoustics, a vendor of IP intercom systems and their clients. (C++/C#)
                         </li>
                         <li>Development and deployment of Azure web-service and table storage. (WCF, Azure)</li>
                     </ul>
                 </div>
                 <div xskills=".NET SQL&nbsp;Server SQL C# XML XPath Powershell Entity&nbsp;Framework Generic">
-                    <h3>June - December 2011 Incept Consulting
+                    <h3>
+                        June - December 2011 Incept Consulting
                     </h3>
                     <p>
-                        Co-architect of online report presentation system. The goal of the project was 
-            to periodically collect large volumes of data from several sources in disparate 
-            logical formats and expose them through an SSRS portal. The challenges were the 
-            large (50+) variety of logical record formats combined with the short timeframes 
-            (5 months). The consulting project team consisted of me as architect, another 
-            senior developer as co-architect, and two software technicians.
+                        Co-architect of online report presentation system. The goal of the project was
+                        to periodically collect large volumes of data from several sources in disparate
+                        logical formats and expose them through an SSRS portal. The challenges were the
+                        large (50+) variety of logical record formats combined with the short timeframes
+                        (5 months). The consulting project team consisted of me as architect, another
+                        senior developer as co-architect, and two software technicians.
                     </p>
                     <p>
                         Responsibilities
                     </p>
                     <ul type="disc">
                         <li>Design software and data architecture.</li>
-                        <li>Develop input data editors and report table 
-            loaders (SQL&nbsp;Server DDL and DML, C#,&nbsp;XML, XPath, Powershell)</li>
-                        <li>Supervise and train software technicians in use 
-            of SQL&nbsp;Server, SSRS, Monarch data parser, Team Foundation Server, Business 
-            Intelligence Studio 2008.</li>
+                        <li>
+                            Develop input data editors and report table
+                            loaders (SQL&nbsp;Server DDL and DML, C#,&nbsp;XML, XPath, Powershell)
+                        </li>
+                        <li>
+                            Supervise and train software technicians in use
+                            of SQL&nbsp;Server, SSRS, Monarch data parser, Team Foundation Server, Business
+                            Intelligence Studio 2008.
+                        </li>
                     </ul>
                 </div>
                 <div xskills=".NET SQL&nbsp;Server VB.NET XML XSLT DOM C# LINQ ADO.NET ASP.NET Entity&nbsp;Framework Performance SQL">
                     <h3>January 2009 - May 2011 Incept Consulting</h3>
                     <p>
-                        Working as a software developer to modify and extend custom Window Forms and 
-            ASP.NET workflow management system for background-security vendor.
+                        Working as a software developer to modify and extend custom Window Forms and
+                        ASP.NET workflow management system for background-security vendor.
                     </p>
                     <p>
                         Responsibilities:
                     </p>
                     <ul type="disc">
-                        <li>Modifications and enhancements 
-                to reporting sub-system.&nbsp; (SQL, VB.NET, XML, XSLT, DOM)</li>
-                        <li>Design and development of 
-                extensions to workflow management system (C#, LINQ, ADO.NET, ASP.NET, Entity Framework 
-                4.0)</li>
-                        <li>SQL&nbsp;Server performance tuning 
-                and query optimizations. (SQL&nbsp;Server, Performance Monitor, DMV)</li>
+                        <li>
+                            Modifications and enhancements
+                            to reporting sub-system.&nbsp; (SQL, VB.NET, XML, XSLT, DOM)
+                        </li>
+                        <li>
+                            Design and development of
+                            extensions to workflow management system (C#, LINQ, ADO.NET, ASP.NET, Entity Framework
+                            4.0)
+                        </li>
+                        <li>
+                            SQL&nbsp;Server performance tuning
+                            and query optimizations. (SQL&nbsp;Server, Performance Monitor, DMV)
+                        </li>
                     </ul>
                     <p>
-                        Environment: .NET 4.0,&nbsp; .NET 2.0,&nbsp; .NET 1.1, C#, SQL&nbsp;Server 2008 R2, Entity Framework, LINQ, 
-            Powershell, VB.NET, ADO.NET, TFS, SQL&nbsp;Server 2005, ASP.NET, XML, XSLT, DOM
+                        Environment: .NET 4.0,&nbsp; .NET 2.0,&nbsp; .NET 1.1, C#, SQL&nbsp;Server 2008 R2, Entity Framework, LINQ,
+                        Powershell, VB.NET, ADO.NET, TFS, SQL&nbsp;Server 2005, ASP.NET, XML, XSLT, DOM
                     </p>
                 </div>
                 <div xskills=".NET VB.NET SQL&nbsp;Server XML DOM FTP SQL">
-                    <h3>November 2008 - January 2009 NCSBN
+                    <h3>
+                        November 2008 - January 2009 NCSBN
                     </h3>
                     <p>
                         Added XML transforms to replace BizTalk. Rewrote document distribution program using <a href="http://www.enterprisedt.com/">secure FTP package</a>.
@@ -497,19 +519,26 @@
                 </div>
 
                 <div xskills=".NET C++ Bloomberg B-Pipe Templates DCOM COM Shared&nbsp;Memory SVN Visual&nbsp;Studio&nbsp;2005 Javascript XML MFC Perl WinForms C# Generic">
-                    <h3>October 2006 - November 2008 Options Clearing Corporation
+                    <h3>
+                        October 2006 - November 2008 Options Clearing Corporation
                     </h3>
                     <p>
                         Lead designer, architect, and developer for Bloomberg real-time price feed and cache.
                     </p>
                     <ul>
-                        <li>Multiple price feeds accept and parse Bloomberg events to extract trades, quotes,
-                and closing prices, (C++, Bloomberg B-Pipe Broadcast) </li>
+                        <li>
+                            Multiple price feeds accept and parse Bloomberg events to extract trades, quotes,
+                            and closing prices, (C++, Bloomberg B-Pipe Broadcast)
+                        </li>
                         <li>Shared, in-memory cache stores prices and volumes, (C++, templates, DCOM)</li>
-                        <li>Real-time price feed performance data published through Microsoft Performance Monitor
-                (C++/C#, Shared Memory),</li>
-                        <li>Software built, tracked, and deployed to multiple price feed machines, price cache,
-                and price clients. (VS 2005, SubVersion, MS Installer, Javascript, XML) </li>
+                        <li>
+                            Real-time price feed performance data published through Microsoft Performance Monitor
+                            (C++/C#, Shared Memory),
+                        </li>
+                        <li>
+                            Software built, tracked, and deployed to multiple price feed machines, price cache,
+                            and price clients. (VS 2005, SubVersion, MS Installer, Javascript, XML)
+                        </li>
                     </ul>
                     <p>
                         Development of software for options clearing applications. (C++, MFC)
@@ -520,16 +549,18 @@
                 </div>
 
                 <div xskills=".NET C# SQL&nbsp;Server Office&nbsp;Automation SQL ADO.NET">
-                    <h3>March 2007 - April 2007 IsoSoft Solutions
+                    <h3>
+                        March 2007 - April 2007 IsoSoft Solutions
                     </h3>
                     <p class="xskills">
                         Development of Office Automation program to generate Word documents from templates
-                and database tables.
-                    </p>                   
+                        and database tables.
+                    </p>
                 </div>
 
                 <div xskills=".NET C# LEADTools ADO.NET SMO WinForms SQL">
-                    <h3>February 2006 - October 2006 Progeny Dental
+                    <h3>
+                        February 2006 - October 2006 Progeny Dental
                     </h3>
                     <p>
                         Development of imaging application for dental x-ray radiography suite.
@@ -541,9 +572,9 @@
                         <li>XML Serialization of LEADTools filter commands</li>
                     </ul>
                     <p>
-                        Environment: C#, .NET 
-                2.0,&nbsp; XML, ADO.NET, SQL&nbsp;Server 2005, WinForms, LEADTools Medical Toolkit
-                &amp; Annotations, ServerManagmentObjects (SMO)
+                        Environment: C#, .NET
+                        2.0,&nbsp; XML, ADO.NET, SQL&nbsp;Server 2005, WinForms, LEADTools Medical Toolkit
+                        &amp; Annotations, ServerManagmentObjects (SMO)
                     </p>
                 </div>
                 <div xskills=".NET SQL&nbsp;Server WinForms ReportingServices VB.NET SQL ADO.NET">
@@ -556,19 +587,20 @@
                     </p>
                 </div>
                 <div xskills=".NET C# WinForms C++ Templates XML Sockets COM TCP/IP Generic .NET&nbsp;Remoting">
-                    <h3>December 2002 - November 2005 Bio-Imaging Research
+                    <h3>
+                        December 2002 - November 2005 Bio-Imaging Research
                     </h3>
                     <p>
                         Design and develop software infrastructure and GUI components for industrial and
-            medical X-ray control systems.
+                        medical X-ray control systems.
                     </p>
                     <p style="text-decoration: underline">
                         January 2005 - November 2005&nbsp; : Project Leader
                     </p>
                     <p>
                         Write software requirements. Define and estimate software development tasks for
-            system. Design and review design of software components. Troubleshoot system operation.
-            Write software components. Create and maintain software "build" system for project.
+                        system. Design and review design of software components. Troubleshoot system operation.
+                        Write software components. Create and maintain software "build" system for project.
                     </p>
                     <ul style="list-style-type: disc;">
                         <li>X-Ray inspection-gauge system (.NET, C#, WinForms) </li>
@@ -580,46 +612,58 @@
                         <li>Remote data publication system (.NET, C#, C++, TCP/IP Sockets) </li>
                         <li>Dynamic class-loader (.NET, Remoting) </li>
                         <li>Client and Server socket interfaces (C++, C#, .NET, TCP/IP, Multi-threaded). </li>
-                        <li>System control through Allen-Bradley Programmable Logic Controller Driver (OPC,
-                COM). </li>
+                        <li>
+                            System control through Allen-Bradley Programmable Logic Controller Driver (OPC,
+                            COM).
+                        </li>
                         <li>Job&nbsp;control GUI and queue management sub-system (C#, .NET, WinForms) </li>
                         <li><a href="http://home.comcast.net/%7Emrmohrbacher/XML_Documents-Schemas-Namespaces.html">XML-Schema design</a>. </li>
                         <li>XML data access layer. </li>
-                        <li>Operation Sequencer to control the process of performing X-ray scan (C++, COM).
+                        <li>
+                            Operation Sequencer to control the process of performing X-ray scan (C++, COM).
                         </li>
-                        <li>Object-storage system and API for very large, multi-part data sets (C++, Templates,
-                Generic Programming). </li>
+                        <li>
+                            Object-storage system and API for very large, multi-part data sets (C++, Templates,
+                            Generic Programming).
+                        </li>
                         <li>User interface program for Sequencer (C++, MFC). </li>
                     </ul>
                     <p>
                         Environment: C#, .NET, Remoting, WinForms, VC++, COM, Generic Programming, C++ Templates,
-            multi-threaded,&nbsp;STL, TCP/IP, WindowsXP, MFC, OPC, XML, XMLSchema
+                        multi-threaded,&nbsp;STL, TCP/IP, WindowsXP, MFC, OPC, XML, XMLSchema
                     </p>
                 </div>
                 <div xskills=".NET VB.NET SQL&nbsp;Server MSMQ ASP.NET ADO.NET SQL HTML XML C#">
-                    <h3>June 2002 - November 2002 Technium
+                    <h3>
+                        June 2002 - November 2002 Technium
                     </h3>
                     <p>
                         Team leadership. design and development of sophisticated .NET Web applications and
-                services for integrated re-insurance system. Integrated&nbsp; MSMQ and ADO.Recordset
-                transactions.
+                        services for integrated re-insurance system. Integrated&nbsp; MSMQ and ADO.Recordset
+                        transactions.
                     </p>
                     <ul>
-                        <li>Framework design and application development of rule-based policy quote component.
-                    (VB.NET, .NET, MSMQ) </li>
-                        <li>Process, class design and SQL&nbsp;Server stored procedures to bind quoted application
-                    as XML datasets to policy database. (XML, SQL&nbsp;Server) </li>
-                        <li>Schema-driven code generator to load insurance-quoting rule tables (C#, .NET Reflection).
+                        <li>
+                            Framework design and application development of rule-based policy quote component.
+                            (VB.NET, .NET, MSMQ)
+                        </li>
+                        <li>
+                            Process, class design and SQL&nbsp;Server stored procedures to bind quoted application
+                            as XML datasets to policy database. (XML, SQL&nbsp;Server)
+                        </li>
+                        <li>
+                            Schema-driven code generator to load insurance-quoting rule tables (C#, .NET Reflection).
                         </li>
                         <li>Write and repair&nbsp;web pages (ASP.NET, ADO.NET, HTML). </li>
                     </ul>
                     <p>
                         Environment: .NET 1.1, ADO.NET, ASP.NET, XML, XML Schema, C#, VB.NET, SQL&nbsp;Server, WindowsXP,
-                Windows Services, Web Services, MSMQ&nbsp;
+                        Windows Services, Web Services, MSMQ&nbsp;
                     </p>
                 </div>
                 <div xskills="C++ COM ATL Templates Multi-threaded Windows NT">
-                    <h3>January 2002 - May 2002 Matlock Capitol, LLC
+                    <h3>
+                        January 2002 - May 2002 Matlock Capitol, LLC
                     </h3>
                     <ul type="disc">
                         <li>Development of system infrastructure components for automated trading system. </li>
@@ -630,11 +674,12 @@
                     </p>
                 </div>
                 <div xskills="C++ COM ATL Multi-threaded Windows USB MSI">
-                    <h3>April 2000 - January 2002 ArialPhone, LLC
+                    <h3>
+                        April 2000 - January 2002 ArialPhone, LLC
                     </h3>
                     <p>
                         Co-design functional interface and systems architecture as well as software engineering
-                of voice-controlled telephone.
+                        of voice-controlled telephone.
                     </p>
                     <ul>
                         <li>System architecture and design analysis of infrastructure. </li>
@@ -646,7 +691,8 @@
                     </p>
                 </div>
                 <div xskills="HTML">
-                    <h3>December 1998 -&nbsp;December 2000&nbsp; The Art of Breastfeeding, Inc.
+                    <h3>
+                        December 1998 -&nbsp;December 2000&nbsp; The Art of Breastfeeding, Inc.
                     </h3>
                     <p>
                         Site engineering and management of retail internet site.
@@ -656,7 +702,8 @@
                     </p>
                 </div>
                 <div xskills="SQL&nbsp;Server SQL">
-                    <h3>March 2000 EthnicGrocer.COM
+                    <h3>
+                        March 2000 EthnicGrocer.COM
                     </h3>
                     <p>
                         Database support and administration.
@@ -670,13 +717,15 @@
                     </p>
                 </div>
                 <div xskills="C++ COM Windows NT SQL&nbsp;Server ODBC SQL">
-                    <h3>July 1998 - February 2000 McKesson-HBOC
+                    <h3>
+                        July 1998 - February 2000 McKesson-HBOC
                     </h3>
                     <p>
                         Software engineering of surgical management package.
                     </p>
                     <ul>
-                        <li>Design team leader for key architectural interfaces of surgical management system.
+                        <li>
+                            Design team leader for key architectural interfaces of surgical management system.
                         </li>
                         <li>Task definition and time estimates for development of security sub-system. </li>
                         <li>Programming of security sub-system. </li>
@@ -689,7 +738,8 @@
                 </div>
 
                 <div xskills="C++ COM Windows NT 4.0 MS SQL&nbsp;Server ODBC SQL">
-                    <h3>June 1997 - June 1998 Wheels, Inc.
+                    <h3>
+                        June 1997 - June 1998 Wheels, Inc.
                     </h3>
                     <p>
                         Programming for vehicle leasing orders system.
@@ -705,11 +755,12 @@
                 </div>
 
                 <div xskills="Windows Java Cafe">
-                    <h3>Sept 1997 - May 1998 <u>Science and Arts Academy, Des Plaines, Illinois </u>
+                    <h3>
+                        Sept 1997 - May 1998 <u>Science and Arts Academy, Des Plaines, Illinois </u>
                     </h3>
                     <p>
                         Teaching programming in Java to ages 13 through 17 at private school for gifted
-                children.
+                        children.
                     </p>
                     <p>
                         Environment: Windows 98, Java, Visual Cafe
@@ -717,18 +768,24 @@
                 </div>
 
                 <div xskills="Windows OpenVMS SQL&nbsp;Server SQL DBLib Javascript ColdFusion HTML Perl C">
-                    <h3>July 1996 - May 1997 William M. Mercer
+                    <h3>
+                        July 1996 - May 1997 William M. Mercer
                     </h3>
                     <p>
                         Developed integrated Voice Response/Web employee benefit enrollment system for Dell.
                     </p>
                     <ul>
-                        <li>Web site development, systems administration, and network configuration in Windows-NT
-                    environment. </li>
-                        <li>Integrated web and VR&nbsp;database design and stored procedures (SQL&nbsp;Server, Sybase,
-                    dbLib) </li>
+                        <li>
+                            Web site development, systems administration, and network configuration in Windows-NT
+                            environment.
+                        </li>
+                        <li>
+                            Integrated web and VR&nbsp;database design and stored procedures (SQL&nbsp;Server, Sybase,
+                            dbLib)
+                        </li>
                         <li>Design and coding of Web server-side scripts. (PERL,&nbsp; ColdFusion) </li>
-                        <li>Web page development for benefit enrollment system (HTML, Javascript, IE and Netscape)
+                        <li>
+                            Web page development for benefit enrollment system (HTML, Javascript, IE and Netscape)
                         </li>
                     </ul>
                     <p>
@@ -736,13 +793,14 @@
                     </p>
                     <p>
                         Environment: Windows NT 4.0, OpenVMS, MS SQL&nbsp;Server, MS and Sybase TransactSQL, DBLib,
-                Javascript, ColdFusion, HTML, Perl
+                        Javascript, ColdFusion, HTML, Perl
                     </p>
                 </div>
             </div>
 
             <div xskills="C++ LEX YACC MFC">
-                <h2>July 1995 - July 1996 <u>Discovery Products, Inc.</u>- Computer Programmer
+                <h2>
+                    July 1995 - July 1996 <u>Discovery Products, Inc.</u>- Computer Programmer
                 </h2>
                 <p>
                     Developed&nbsp;legal-transcript indexing system.
@@ -752,8 +810,10 @@
                 </p>
             </div>
             <div xskills="C++ C">
-                <h2>May 1993 - June 1995 William M. Mercer
-                    - Senior Systems Analyst</h2>
+                <h2>
+                    May 1993 - June 1995 William M. Mercer
+                    - Senior Systems Analyst
+                </h2>
                 <p>
                     Design and programming of interactive systems to capture benefit enrollments.
                 </p>
@@ -762,11 +822,11 @@
                 </p>
                 <p>
                     Design and development of a scripting language, its parser, and class libraries
-            to implement an interactive framework.
+                    to implement an interactive framework.
                 </p>
                 <p>
                     Environment: Windows 3.11, Windows NT 3.51, MS-DOS, VC++, C, Visual Basic, LEX,
-            YACC
+                    YACC
                 </p>
             </div>
 
@@ -775,7 +835,8 @@
 
         <div id="associations" class="section">
             <div id="associations-target" class="target-offset"></div>
-            <h1 class="title">Associations
+            <h1 class="title">
+                Associations
             </h1>
             <h1 class="spacer hidden"></h1>
             <p>
@@ -786,7 +847,8 @@
 
         <div id="education" class="section">
             <div id="education-target" class="target-offset"></div>
-            <h1 class="title">Education
+            <h1 class="title">
+                Education
             </h1>
             <h1 class="spacer hidden"></h1>
             <p>

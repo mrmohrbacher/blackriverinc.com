@@ -266,9 +266,11 @@ blackriverinc.filters = {
 
         $('.x-ref').click(function (evt) {
             // Clear the 'tooltip'
-            var $source = $(evt.target);
+            var $source = $(evt.currentTarget);
             var sourceAttr = $source.attr('x-ref');
-
+            if (sourceAttr === undefined) {
+                return;
+        }
             // Hide the previous 'x-more' box.
             var $xmore = $source.siblings('.x-more:visible');
             if ($xmore.length > 0) {
@@ -286,6 +288,13 @@ blackriverinc.filters = {
                 $source.addClass('open')
                 $xmore.show('slideDown');
             }           
+        });
+
+        $('.brs-menu').click(function (evt) {
+            // If this is a non-submenu link; close the parent menu.
+            if ($(evt.target).attr('x-ref') === undefined) {
+                $(evt.target).parents('.x-more').siblings('.x-ref').trigger('click');
+            }
         });
 
         $('#experience').on('click', '.x-more', function (evt) {
