@@ -407,6 +407,12 @@ tr.row-subset td {
         padding: 2px;
     }
 
+.brs-hamburger {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
 @viewport {
   -ms-zoom: 1.0;
   zoom: 1.0;
@@ -480,6 +486,10 @@ tr.row-subset td {
   .text-center {
     text-align: center;
     margin-left: 0;
+  }
+
+  .brs-hamburger {
+      right: 10px;
   }
 }
 @media only screen and (max-width: 562px) {
