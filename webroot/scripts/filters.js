@@ -291,7 +291,7 @@ blackriverinc.filters = {
         });
 
         $('.brs-menu').click(function (evt) {
-            // If this is a non-submenu link; close the parent menu.
+            // If this is a non-submenu link; close all ancestors' menues.
             if ($(evt.target).attr('x-ref') === undefined) {
                 $(evt.target).parents('.x-more').siblings('.x-ref').trigger('click');
             }

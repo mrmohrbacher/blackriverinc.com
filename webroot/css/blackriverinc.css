@@ -162,8 +162,6 @@ h4 {
 #header {
   background: white;
   width: 100%;
-  margin-left: 64px;
-  margin-right: 64px;
   height: 166px;
   z-index: 100;
   padding-left: 8px;
@@ -412,19 +410,19 @@ tr.row-subset td {
 @viewport {
   -ms-zoom: 1.0;
   zoom: 1.0;
-  width: extend-to-zoom;
+  width: auto;
 }
 @-moz-viewport {
-  zoom: 1.0;
-  width: extend-to-zoom;
+    zoom: 1.0;
+    width: auto;
 }
 @-ms-viewport {
-  zoom: 1.0;
-  width: extend-to-zoom;
+    zoom: 1.0;
+    width: auto;
 }
 @-webkit-viewport {
-  zoom: 1.0;
-  width: extend-to-zoom;
+    zoom: 1.0;
+    width: auto;
 }
 @media only screen and (max-width: 720px) {
   .street-address,
@@ -437,15 +435,22 @@ tr.row-subset td {
   #address-header {
     padding-left: 4px;
   }
-  #nav > .x-more {
-    display: none;
-    width: 0px;
-  }
+
   #content {
     width: 100%;
     position: static;
     top: 0;
   }
+
+  .block {
+      margin-left: 0px;
+      margin-right: 0px;
+      padding-left: 4px;
+      padding-right: 4px;
+      box-sizing: border-box;
+  }
+
+
   div#header {
     left: 0px;
   }
