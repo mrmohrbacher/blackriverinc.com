@@ -108,7 +108,7 @@
                                         + " {width: " + $title.width()
                                         + "}");
                                 }
-                                $title.css({ width: containerWidth - 10 });
+                                $title.css({ width: containerWidth });
                                 $title.addClass('current');
                                 $('h1.spacer', scroller.$currentSection).removeClass('hidden');
                             }
@@ -159,9 +159,28 @@
     </div -->
 
     <div id="header" class="block top">
-        <h1>
+        <div class="h1">
             Mike Mohrbacher - Professional&nbsp;Resume
-        </h1>
+            <div class="brs-hamburger x-ref" x-ref="menu" >
+                <svg class="right" height="32px" style="padding-top: 2px;enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
+                </svg>
+            </div>
+            <div class="x-more brs-menu" x-ref-target="menu" style="display:none;">
+                <a href="#story-target">story</a>
+                <a href="#experience-target">experience</a>
+                <a href="#associations-target">professional associations</a>
+                <a href="#education-target">education</a>
+                <a href="http://www.blackriverinc.com/mikemohrbacher.doc">download resume...</a>
+                <a class="x-ref" x-ref="applications">examples</a>
+                <p class="x-more" x-ref-target="applications" style="display:none;">
+                    <a href="lendinglibrary">MVC/WCF/SQLServer...</a>
+                    <a href="applications/clock-app">Angular 2/HTML5...</a>
+                    <a href="applications/tabs.html">CSS...</a>
+                    <a href="applications/imo-portal.html">CORS Enabled AJAX...</a>
+                </p>
+            </div>
+        </div>
         <div id="address-header" style="position: relative;">
 
             <img id="MRMJPG"
@@ -184,25 +203,6 @@
                     </span>
                 </a>
             </address>
-            <div class="brs-hamburger">
-                <svg class="right x-ref" x-ref="menu" height="32px"style="padding-top: 2px;enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
-                </svg>
-                <div class="x-more brs-menu" x-ref-target="menu" style="display:none;">
-                    <a href="#story-target">story</a>
-                    <a href="#experience-target">experience</a>
-                    <a href="#associations-target">professional associations</a>
-                    <a href="#education-target">education</a>
-                    <a href="http://www.blackriverinc.com/mikemohrbacher.doc">download resume...</a>
-                    <a class="x-ref" x-ref="applications">examples</a>
-                    <p class="x-more" x-ref-target="applications" style="display:none;">
-                        <a href="lendinglibrary">MVC/WCF/SQLServer...</a>
-                        <a href="applications/clock-app">Angular 2/HTML5...</a>
-                        <a href="applications/tabs.html">CSS...</a>
-                        <a href="applications/imo-portal.html">CORS Enabled AJAX...</a>
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -274,6 +274,7 @@
                     <tr class="row-filters">
                         <td>
                             <div class="filter button">IIS</div>
+                            <div class="filter button">ASP.NET</div>
                             <div class="filter button">WebAPI</div>
                             <div class="filter button">HTML</div>
                             <div class="filter button">C++</div>
@@ -293,7 +294,6 @@
                     <tr class="row-filters">
                         <td>
                             <div class="filter button">Angular</div>
-                            <div class="filter button">ASP.NET</div>
                             <div class="filter button">DCOM</div>
                             <div class="filter button">Sockets</div>
                             <div class="filter button">.NET&nbsp;Remoting</div>
@@ -863,6 +863,6 @@
             <hr class="section" />
         </div>
     </div>
-    <div class="footer text-center block"><span style="">&copy; Black River Systems, Inc of Illinois - January 31, 2018</span></div>
+    <div class="footer text-center block"><span style="">&copy; 2011 - 2017, Black River Systems, Inc of Illinois - February 5, 2018</span></div>
 </body>
 </html>
