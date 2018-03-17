@@ -10,3 +10,5 @@
 /.vs/blackriverinc/v15/.suo
 *.nupkg
 *.sha512
+/.vs/blackriverinc/v15
+/site/deployments
